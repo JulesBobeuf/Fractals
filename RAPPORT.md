@@ -2,6 +2,6 @@
 
 ## MEMBRES : Jules BOBEUF, Aymeric JAKOBOWSKI, Thomas SANTORO
 
-### Question 1-6 
+### Questions 1-6
 Jules BOBEUF
-Implémentation de la classe Complex. Tous les tests fonctionnent.
+Implémentation de la classe Complex. Les tests fonctionnent sans erreur.
