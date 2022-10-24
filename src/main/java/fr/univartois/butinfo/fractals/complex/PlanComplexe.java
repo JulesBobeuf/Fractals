@@ -25,23 +25,36 @@ public class PlanComplexe{
     /**
      * L'attribut height...
      */
-    private int height;
+    protected int height;
     
     /**
      * L'attribut width...
      */
-    private int width;
+    protected int width;
     
     
+    /**
+     * 
+     * Crée une nouvelle instance de PlanComplexe.
+     * @param height
+     * @param width
+     */
     public PlanComplexe(int height, int width) {
         this.height=height;
         this.width=width;
     }
     
+    /**
+     * 
+     * @param row
+     * @param column
+     * @return
+     */
     public IComplex asComplex(int row, int column) {
         double re = (column + .5) - (width / 2.);
         double im = (height / 2.) - (row + .5);
         return new Complex(re, im);
     }
+}
 
    
