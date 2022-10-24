@@ -13,3 +13,7 @@ Q7 (Aymeric) -> Patron de conception pour représenter les différentes suites :
 
 Q8 -> Patron de conception pour parcourir les éléments d'une suite : **itérateur**
 
+### Questions 13 - 14
+Aymeric JAKOBOWSKI
+
+Q13 -> PAtron de conception pour représenter différentes pallettes de couleurs : **Stratégie**
