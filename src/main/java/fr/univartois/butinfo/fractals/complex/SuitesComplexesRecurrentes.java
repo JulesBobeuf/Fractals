@@ -23,7 +23,7 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
     /**
      * L'attribut valInit...
      */
-    protected double valInit;
+    protected IComplex valInit;
 
     /**
      * L'attribut suiteComplexe...
@@ -36,7 +36,8 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
      * @param valInit
      * @param suiteComplexes
      */
-    public SuitesComplexesRecurrentes(double valInit, ISuitesComplexesRecurrentes suiteComplexes) {
+    public SuitesComplexesRecurrentes(IComplex valInit,
+            ISuitesComplexesRecurrentes suiteComplexes) {
         this.valInit = valInit;
         this.suiteComplexe = suiteComplexes;
     }
@@ -57,6 +58,14 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
     public Iterator<IComplex> iterator() {
         // TODO Auto-generated method stub
         return null;
+    }
+    /**
+     * @param nbComplex
+     * 
+     * @return Prochain nb complexe de la suite.
+     */
+    public IComplex getProchaineValeur(IComplex nbComplex) {
+        return suiteComplexe.valeurProchainTerme(nbComplex);
     }
 
 }

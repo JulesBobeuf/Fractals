@@ -20,12 +20,12 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
      * (non-Javadoc)
      *
      * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#
-     * valeurProchainTerme(double)
+     * valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
      */
     @Override
-    public double valeurProchainTerme(double ancienTerme) {
+    public IComplex valeurProchainTerme(IComplex ancienTerme) {
         // TODO Auto-generated method stub.
-        return 0;
+        return null;
     }
 
 }

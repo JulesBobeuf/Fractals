@@ -18,11 +18,11 @@ public interface ISuitesComplexesRecurrentes {
 
     /**
      * Méthode permettant de récupérer la valeur du prochain terme de la suite.
-     * 
+     *
      * @param ancienTerme
-     * 
+     *
      * @return [DOUBLE] prochain terme de la suite.
      */
-    double valeurProchainTerme(double ancienTerme);
+    IComplex valeurProchainTerme(IComplex ancienTerme);
 
 }

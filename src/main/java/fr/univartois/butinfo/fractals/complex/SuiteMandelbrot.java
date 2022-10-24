@@ -23,9 +23,9 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
      * valeurProchainTerme(double)
      */
     @Override
-    public double valeurProchainTerme(double ancienTerme) {
-        // TODO Auto-generated method stub.
-        return 0;
+    public IComplex valeurProchainTerme(IComplex ancienTerme) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
