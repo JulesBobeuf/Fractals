@@ -199,7 +199,12 @@ public class Complex implements IComplex {
     public String toString() {
         return re + " + " + im + "i";
     }
-    
+    /**
+     * 
+     * @param row
+     * @param column
+     * @return
+     */
 
 }
 
