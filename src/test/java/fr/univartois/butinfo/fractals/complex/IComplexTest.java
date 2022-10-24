@@ -40,7 +40,8 @@ class IComplexTest {
      * @return Le nombre complexe créé.
      */
     private static IComplex createComplex(double realPart, double imaginaryPart) {
-        return new Complex(realPart,imaginaryPart);
+        // TODO Créez ici une instance de votre classe implémentant IComplex.
+        return null;
     }
 
     /**
