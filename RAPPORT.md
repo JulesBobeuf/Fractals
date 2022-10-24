@@ -13,3 +13,4 @@ Question 6 - Décorateur -> Création classe PlanComplexeZoom et utilisation de 
 Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> implémentation de la méthode SaveAs()
+
