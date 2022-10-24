@@ -19,7 +19,7 @@ public class SuitesComplexesRecurrentes {
     /**
      * L'attribut valInit...
      */
-    protected double valInit;
+    protected IComplex valInit;
 
     /**
      * L'attribut suiteComplexe...
@@ -32,9 +32,19 @@ public class SuitesComplexesRecurrentes {
      * @param valInit
      * @param suiteComplexes
      */
-    public SuitesComplexesRecurrentes(double valInit, ISuitesComplexesRecurrentes suiteComplexes) {
+    public SuitesComplexesRecurrentes(IComplex valInit,
+            ISuitesComplexesRecurrentes suiteComplexes) {
         this.valInit = valInit;
         this.suiteComplexe = suiteComplexes;
+    }
+
+    /**
+     * @param nbComplex
+     * 
+     * @return Prochain nb complexe de la suite.
+     */
+    public IComplex getProchaineValeur(IComplex nbComplex) {
+        return suiteComplexe.valeurProchainTerme(nbComplex);
     }
 
 }
