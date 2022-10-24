@@ -24,6 +24,11 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
      * L'attribut valInit...
      */
     protected IComplex valInit;
+   
+    /**
+     * 
+     */
+    protected IComplex valeur;
 
     /**
      * L'attribut suiteComplexe...
@@ -51,13 +56,14 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
 
     @Override
     public IComplex next() {
-        return null;
+        valeur = this.getProchaineValeur(valeur);
+        return valeur;
     }
-
+    
     @Override
     public Iterator<IComplex> iterator() {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return ;
     }
     /**
      * @param nbComplex
