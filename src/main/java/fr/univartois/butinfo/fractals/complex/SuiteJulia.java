@@ -16,12 +16,16 @@ package fr.univartois.butinfo.fractals.complex;
  */
 public class SuiteJulia implements ISuitesComplexesRecurrentes {
 
-    
     /**
      * L'attribut c...
      */
     private IComplex c;
-    
+
+    /**
+     * L'attribut j0...
+     */
+    private IComplex j0;
+
     /*
      * (non-Javadoc)
      *
@@ -29,10 +33,8 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
      * valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
      */
     @Override
-    public IComplex valeurProchainTerme(IComplex ancienTerme, IComplex z) {
-//        if(?.hasNext())
-//            return Math.pow(z, 2) + c;
-        return 
+    public IComplex valeurProchainTerme(IComplex z) {
+        return (z.multiply(z)).add(c);
     }
 
 }
