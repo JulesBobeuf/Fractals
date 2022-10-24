@@ -20,15 +20,15 @@ public class PlanComplexeTranslation extends PlanComplexe {
     /**
      * L'attribut CONSTANTE...
      */
-    public final double CONSTANTE;
+    public final IComplex constant;
     /**
      * Crée une nouvelle instance de PlanComplexeTranslation.
      * @param height
      * @param width
      */
-    public PlanComplexeTranslation(int height, int width, double CONSTANTE) {
+    public PlanComplexeTranslation(int height, int width, IComplex constant) {
         super(height, width);
-        this.CONSTANTE=CONSTANTE;
+        this.constant=constant;
     }
     /*
      * (non-Javadoc)
@@ -39,7 +39,7 @@ public class PlanComplexeTranslation extends PlanComplexe {
     public IComplex asComplex(int row, int column) {
         double re = (column + .5) - (width / 2.);
         double im = (height / 2.) - (row + .5);
-        return new Complex(re, im).multiply(CONSTANTE);
+        return new Complex(re, im).add(constant);
     }
 
 }
