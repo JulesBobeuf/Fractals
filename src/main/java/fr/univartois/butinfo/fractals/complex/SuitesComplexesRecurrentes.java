@@ -7,14 +7,18 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
+import java.util.Iterator;
+
 /**
  * Le type SuitesComplexesRecurrentes
  *
  * @author aymeric.jakobowski
  *
  * @version 0.1.0
+ * @param <T>
+ * @param <T>
  */
-public class SuitesComplexesRecurrentes {
+public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator<IComplex>{
 
     /**
      * L'attribut valInit...
@@ -25,7 +29,7 @@ public class SuitesComplexesRecurrentes {
      * L'attribut suiteComplexe...
      */
     protected ISuitesComplexesRecurrentes suiteComplexe;
-
+    
     /**
      * Crée une nouvelle instance de SuitesComplexesRecurrentes.
      * 
@@ -35,6 +39,24 @@ public class SuitesComplexesRecurrentes {
     public SuitesComplexesRecurrentes(double valInit, ISuitesComplexesRecurrentes suiteComplexes) {
         this.valInit = valInit;
         this.suiteComplexe = suiteComplexes;
+    }
+
+    @Override
+    public boolean hasNext() {
+        if (this.next()==null)
+            return false;
+        return true;
+    }
+
+    @Override
+    public IComplex next() {
+        return null;
+    }
+
+    @Override
+    public Iterator<IComplex> iterator() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
