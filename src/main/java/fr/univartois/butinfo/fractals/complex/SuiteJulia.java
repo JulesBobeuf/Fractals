@@ -7,6 +7,8 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
+import java.util.function.BinaryOperator;
+
 /**
  * Le type SuiteJulia
  *
@@ -19,7 +21,7 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
     /**
      * L'attribut c...
      */
-    private IComplex c;
+    private IComplex c = new Complex(-0.4, 0.6);
 
     /**
      * L'attribut j0...
@@ -36,5 +38,19 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
     public IComplex valeurProchainTerme(IComplex z) {
         return (z.multiply(z)).add(c);
     }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#suiteEvaluee(fr.univartois.butinfo.fractals.complex.IComplex)
+     */
+    @Override
+    public IComplex suiteEvaluee(IComplex z) {
+        BinaryOperator<IComplex> op = BinaryOperator.
+
+
+    }
+    
+    
 
 }
