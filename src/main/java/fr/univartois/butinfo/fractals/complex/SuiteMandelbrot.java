@@ -16,6 +16,16 @@ package fr.univartois.butinfo.fractals.complex;
  */
 public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
 
+    /**
+     * L'attribut c...
+     */
+    private IComplex c;
+
+    /**
+     * L'attribut j0...
+     */
+    private IComplex j0;
+
     /*
      * (non-Javadoc)
      *
@@ -23,9 +33,8 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
      * valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
      */
     @Override
-    public IComplex valeurProchainTerme(IComplex ancienTerme) {
-        // TODO Auto-generated method stub.
-        return null;
+    public IComplex valeurProchainTerme(IComplex z) {
+        return (z.multiply(z)).add(c);
     }
 
 }
