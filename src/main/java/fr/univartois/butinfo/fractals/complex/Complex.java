@@ -22,19 +22,31 @@ public class Complex implements IComplex {
      * Attribut d'objet
      * Partie réelle du nombre imaginaire.
      */
-    private int re;
+    private double re;
     
     /**
      * Attribut d'objet
      * Partie imaginaire du nombre imaginaire.
      */
-    private int im;
+    private double im;
 
     /*
      * (non-Javadoc)
      *
      * @see fr.univartois.butinfo.fractals.complex.IComplex#getRealPart()
      */
+    
+    /**
+     * 
+     * Crée une nouvelle instance de Complex.
+     * @param re
+     * @param im
+     */
+    public Complex(double re, double im) {
+        this.re = re;
+        this.im = im;
+    }
+    
     @Override
     public double getRealPart() {
         return re;    }
@@ -56,8 +68,7 @@ public class Complex implements IComplex {
      */
     @Override
     public double abs() {
-        // TODO Auto-generated method stub.
-        return 0;
+        return Math.sqrt((re*re)+(im*im));
     }
 
     /*
@@ -67,8 +78,7 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex negate() {
-        // TODO Auto-generated method stub.
-        return null;
+        return new Complex(-re,-im);
     }
 
     /*
@@ -78,8 +88,7 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex conjugate() {
-        // TODO Auto-generated method stub.
-        return null;
+        return new Complex(re,-im);
     }
 
     /*
@@ -89,8 +98,14 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex add(IComplex other) {
-        return null;
+        return new Complex(re + other.getRealPart(),im + other.getImaginaryPart());
     }
+
+    /**
+     * Crée une nouvelle instance de Complex.
+     * @param re
+     * @param im
+     */
 
     /*
      * (non-Javadoc)
@@ -99,8 +114,7 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex subtract(IComplex other) {
-        // TODO Auto-generated method stub.
-        return null;
+        return new Complex(re - other.getRealPart(),im - other.getImaginaryPart());
     }
 
     /*
@@ -110,8 +124,7 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex multiply(double value) {
-        // TODO Auto-generated method stub.
-        return null;
+        return new Complex(re * value,im * value);
     }
 
     /*
@@ -121,8 +134,7 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex multiply(IComplex other) {
-        // TODO Auto-generated method stub.
-        return null;
+        return new Complex((re * other.getRealPart())-(im*other.getImaginaryPart()),(im * other.getRealPart())+(re*other.getImaginaryPart()));
     }
 
     /*
@@ -132,8 +144,22 @@ public class Complex implements IComplex {
      */
     @Override
     public IComplex divide(IComplex other) {
-        // TODO Auto-generated method stub.
-        return null;
+        if (other.getRealPart()==0 && other.getImaginaryPart()==0) {
+            return new Complex(0,0);
+        }
+        if (this.getRealPart()==0 && this.getImaginaryPart()==0) {
+            return new Complex(0,0);
+        }
+        IComplex conj2 = other.conjugate();
+        IComplex num = this.multiply(conj2);
+        IComplex den = other.multiply(conj2);
+        if (den.getRealPart()==0) {
+            return new Complex(num.getRealPart()/den.getImaginaryPart(),(num.getImaginaryPart()/ den.getImaginaryPart())*-1);
+        }
+        if (den.getImaginaryPart()==0) {
+            return new Complex(num.getRealPart()/den.getRealPart(),num.getImaginaryPart()/den.getRealPart());
+        }
+        return new Complex(num.getRealPart()/den.getRealPart(),num.getImaginaryPart()/ den.getImaginaryPart());
     }
 
     /*
@@ -161,6 +187,7 @@ public class Complex implements IComplex {
             return false;
         Complex other = (Complex) obj;
         return (im == other.im) && (re == other.re);
+        //TO DO
     }
 
     /*
@@ -170,7 +197,7 @@ public class Complex implements IComplex {
      */
     @Override
     public String toString() {
-        return "Nombre Complexe [partie réelle=" + re + ", partie imaginaire=" + im + "]";
+        return re + " + " + im + "i";
     }
     
 
