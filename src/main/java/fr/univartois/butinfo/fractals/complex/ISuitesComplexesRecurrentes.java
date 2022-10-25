@@ -26,12 +26,5 @@ public interface ISuitesComplexesRecurrentes {
     // IComplex valeurProchainTerme(IComplex ancienTerme);
 
     IComplex valeurProchainTerme(IComplex ancienTerme);
-
-    /**
-     * @param ancienTerme
-     * 
-     * @return
-     */
-    IComplex suiteEvaluee(IComplex ancienTerme);
 }
 

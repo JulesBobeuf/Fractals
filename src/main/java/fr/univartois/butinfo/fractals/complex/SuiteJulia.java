@@ -21,12 +21,24 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
     /**
      * L'attribut c...
      */
-    private IComplex c = new Complex(-0.4, 0.6);
+    private IComplex c;
 
     /**
      * L'attribut j0...
      */
     private IComplex j0;
+
+    /**
+     * Crée une nouvelle instance de SuiteJulia.
+     * 
+     * @param j0
+     * @param nbReel
+     * @param nbImag
+     */
+    public SuiteJulia(IComplex j0, double nbReel, double nbImag) {
+        this.j0 = j0;
+        this.c = new Complex(nbReel, nbImag);
+    }
 
     /*
      * (non-Javadoc)
@@ -39,15 +51,4 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
         return (z.multiply(z)).add(c);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#suiteEvaluee(fr.
-     * univartois.butinfo.fractals.complex.IComplex)
-     */
-    @Override
-    public IComplex suiteEvaluee(IComplex z) {
-        BinaryOperator<IComplex> op = BinaryOperator.
-    }
 }
