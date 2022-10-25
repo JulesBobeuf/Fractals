@@ -39,6 +39,7 @@ public class PlanComplexeZoom extends PlanComplexe {
      * @param x
      * @return Complex
      */
+    @Override
     public IComplex asComplex(int row, int column) {
         double re = (column + .5) - (width / 2.);
         double im = (height / 2.) - (row + .5);
