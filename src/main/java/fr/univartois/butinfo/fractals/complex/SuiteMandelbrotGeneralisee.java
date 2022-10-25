@@ -28,12 +28,15 @@ public class SuiteMandelbrotGeneralisee implements ISuitesComplexesRecurrentes {
      */
     private IComplex c;
 
+    private BinaryOperator<IComplex> op;
+
     /**
      * @param j0
      */
-    public SuiteMandelbrotGeneralisee(IComplex j0) {
+    public SuiteMandelbrotGeneralisee(IComplex j0, BinaryOperator<IComplex> op) {
         this.j0 = j0;
         this.c = j0;
+        this.op = op;
     }
 
     /*
@@ -44,7 +47,7 @@ public class SuiteMandelbrotGeneralisee implements ISuitesComplexesRecurrentes {
      */
     @Override
     public IComplex valeurProchainTerme(IComplex z) {
-        BinaryOperator<IComplex> op = (o, p) -> (o.multiply(o)).add(p);
+        // op = (o, p) -> (o.multiply(o)).add(p);
         return op.apply(z, c);
     }
 
