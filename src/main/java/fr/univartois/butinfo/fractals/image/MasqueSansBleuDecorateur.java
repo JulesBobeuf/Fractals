@@ -16,7 +16,7 @@ import java.awt.Color;
  *
  * @version 0.1.0
  */
-public class MasqueDecorateur implements IPalettesCouleurs {
+public class MasqueSansBleuDecorateur implements IPalettesCouleurs {
 
     /**
      * L'attribut paletteCouleurMasque...
@@ -28,7 +28,7 @@ public class MasqueDecorateur implements IPalettesCouleurs {
      * 
      * @param palettesCouleurs
      */
-    public MasqueDecorateur(IPalettesCouleurs paletteCouleurMasque) {
+    public MasqueSansBleuDecorateur(IPalettesCouleurs paletteCouleurMasque) {
         this.paletteCouleurMasque = paletteCouleurMasque;
     }
 
@@ -42,8 +42,7 @@ public class MasqueDecorateur implements IPalettesCouleurs {
         Color c1 = paletteCouleurMasque.getColor(nbIterations, nbMaxIterations);
         float rouge = c1.getRed();
         float vert =c1.getGreen();
-        float bleu = c1.getBlue();
-        return new Color(0, vert, bleu, 1);
+        return new Color(rouge, vert, 0, 1);
     }
 
 }
