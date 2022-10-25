@@ -69,6 +69,11 @@ public final class Fractals {
     @LongName("scale")
     @Description("Spécifie l'échelle à appliquer sur l'image.")
     @Args(value = 1, names = "ratio")
+    private String scaleString;
+
+    /**
+     * L'échelle à appliquer sur l'image.
+     */
     private double scale;
 
     /**
@@ -78,6 +83,11 @@ public final class Fractals {
     @LongName("focus-x")
     @Description("Spécifie le point central de l'image sur l'axe des abscisses.")
     @Args(value = 1, names = "real")
+    private String focusXString;
+
+    /**
+     * Le point central de l'image sur l'axe des abscisses.
+     */
     private double focusX;
 
     /**
@@ -87,7 +97,12 @@ public final class Fractals {
     @LongName("focus-y")
     @Description("Spécifie le point central de l'image sur l'axe des ordonnées.")
     @Args(value = 1, names = "real")
-    private double foxusY;
+    private String focusYString;
+
+    /**
+     * Le point central de l'image sur l'axe des ordonnées.
+     */
+    private double focusY;
 
     /**
      * L'option spécifiant le nom de la fractale à générer.
@@ -154,6 +169,10 @@ public final class Fractals {
                 usage();
                 System.exit(0);
             }
+
+            scale = Double.parseDouble(scaleString);
+            focusX = Double.parseDouble(focusXString);
+            focusY = Double.parseDouble(focusYString);
 
         } catch (CliUsageException | CliOptionDefinitionException e) {
             usage();
