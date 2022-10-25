@@ -7,6 +7,8 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
+import java.util.function.BinaryOperator;
+
 /**
  * Le type SuiteMandelbrot
  *
@@ -17,20 +19,28 @@ package fr.univartois.butinfo.fractals.complex;
 public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
 
     /**
+     * L'attribut j0...
+     */
+    private IComplex j0;
+
+    /**
      * L'attribut c...
      */
     private IComplex c;
 
     /**
-     * L'attribut j0...
+     * @param j0
      */
-    private IComplex j0;
+    public SuiteMandelbrot(IComplex j0) {
+        this.j0 = j0;
+        this.c = j0;
+    }
 
     /*
      * (non-Javadoc)
      *
      * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#
-     * valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
+     * valeurProchainTerme(double)
      */
     @Override
     public IComplex valeurProchainTerme(IComplex z) {
