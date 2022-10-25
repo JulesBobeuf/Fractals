@@ -42,15 +42,12 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#suiteEvaluee(fr.univartois.butinfo.fractals.complex.IComplex)
+     * @see
+     * fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#suiteEvaluee(fr.
+     * univartois.butinfo.fractals.complex.IComplex)
      */
     @Override
     public IComplex suiteEvaluee(IComplex z) {
         BinaryOperator<IComplex> op = BinaryOperator.
-
-
     }
-    
-    
-
 }
