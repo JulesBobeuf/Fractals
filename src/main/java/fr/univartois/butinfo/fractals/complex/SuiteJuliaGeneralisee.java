@@ -16,7 +16,7 @@ import java.util.function.BinaryOperator;
  *
  * @version 0.1.0
  */
-public class SuiteJulia implements ISuitesComplexesRecurrentes {
+public class SuiteJuliaGeneralisee implements ISuitesComplexesRecurrentes {
 
     /**
      * L'attribut c...
@@ -29,13 +29,13 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
     private IComplex j0;
 
     /**
-     * Crée une nouvelle instance de SuiteJulia.
+     * Crée une nouvelle instance de SuiteJuliaGeneralisee.
      * 
      * @param j0
      * @param nbReel
      * @param nbImag
      */
-    public SuiteJulia(IComplex j0, double nbReel, double nbImag) {
+    public SuiteJuliaGeneralisee(IComplex j0, double nbReel, double nbImag) {
         this.j0 = j0;
         this.c = new Complex(nbReel, nbImag);
     }
@@ -48,7 +48,8 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
      */
     @Override
     public IComplex valeurProchainTerme(IComplex z) {
-        return (z.multiply(z)).add(c);
+        BinaryOperator<IComplex> op = (o, p) -> (o.multiply(o)).add(p);
+        return op.apply(z, c);
     }
 
 }
