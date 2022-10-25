@@ -16,7 +16,7 @@ import java.util.function.BinaryOperator;
  *
  * @version 0.1.0
  */
-public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
+public class SuiteMandelbrotGeneralisee implements ISuitesComplexesRecurrentes {
 
     /**
      * L'attribut j0...
@@ -30,10 +30,8 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
 
     /**
      * @param j0
-     * @param c
      */
-    public SuiteMandelbrot(IComplex j0, IComplex c) {
-        super();
+    public SuiteMandelbrotGeneralisee(IComplex j0) {
         this.j0 = j0;
         this.c = j0;
     }
@@ -46,7 +44,8 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
      */
     @Override
     public IComplex valeurProchainTerme(IComplex z) {
-        return (z.multiply(z)).add(c);
+        BinaryOperator<IComplex> op = (o, p) -> (o.multiply(o)).add(p);
+        return op.apply(z, c);
     }
 
 }
