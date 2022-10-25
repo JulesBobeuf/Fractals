@@ -30,10 +30,8 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
 
     /**
      * @param j0
-     * @param c
      */
-    public SuiteMandelbrot(IComplex j0, IComplex c) {
-        super();
+    public SuiteMandelbrot(IComplex j0) {
         this.j0 = j0;
         this.c = j0;
     }

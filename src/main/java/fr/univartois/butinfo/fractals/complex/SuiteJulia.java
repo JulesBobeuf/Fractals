@@ -32,8 +32,7 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
      * Crée une nouvelle instance de SuiteJulia.
      * 
      * @param j0
-     * @param nbReel
-     * @param nbImag
+     * @param c
      */
     public SuiteJulia(IComplex j0, IComplex c) {
         this.j0 = j0;
