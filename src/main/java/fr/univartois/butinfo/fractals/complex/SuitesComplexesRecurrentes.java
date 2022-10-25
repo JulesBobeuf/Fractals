@@ -7,6 +7,7 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -18,17 +19,22 @@ import java.util.Iterator;
  * @param <T>
  * @param <T>
  */
-public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator<IComplex>{
+public class SuitesComplexesRecurrentes implements Iterable<IComplex>{
 
     /**
-     * L'attribut valInit...
+     * L'attribut valInit (valeur initialle de la suite)
      */
     protected IComplex valInit;
    
     /**
-     * 
+     * L'attribut valeur (valeur actuelle)
      */
     protected IComplex valeur;
+    
+    /**
+     * L'attribut nbIteration qui compte les itération de hasNext().
+     */
+    protected int n;
 
     /**
      * L'attribut suiteComplexe...
@@ -45,25 +51,12 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
             ISuitesComplexesRecurrentes suiteComplexes) {
         this.valInit = valInit;
         this.suiteComplexe = suiteComplexes;
-    }
-
-    @Override
-    public boolean hasNext() {
-        if (this.next()==null)
-            return false;
-        return true;
-    }
-
-    @Override
-    public IComplex next() {
-        valeur = this.getProchaineValeur(valeur);
-        return valeur;
+        this.n=0;
     }
     
     @Override
     public Iterator<IComplex> iterator() {
-        
-        return ;
+        return new IterateurDeSuite(this,n);
     }
     /**
      * @param nbComplex
@@ -73,5 +66,32 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> , Iterator
     public IComplex getProchaineValeur(IComplex nbComplex) {
         return suiteComplexe.valeurProchainTerme(nbComplex);
     }
+
+    
+    public IComplex getValeur() {
+        return valeur;
+    }
+
+    
+    public void setValeur(IComplex valeur) {
+        this.valeur = valeur;
+    }
+
+    
+    public ISuitesComplexesRecurrentes getSuiteComplexe() {
+        return suiteComplexe;
+    }
+
+    
+    public void setSuiteComplexe(ISuitesComplexesRecurrentes suiteComplexe) {
+        this.suiteComplexe = suiteComplexe;
+    }
+
+    
+    public IComplex getValInit() {
+        return valInit;
+    }
+    
+    
 
 }
