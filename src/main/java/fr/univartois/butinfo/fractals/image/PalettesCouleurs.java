@@ -16,6 +16,19 @@ package fr.univartois.butinfo.fractals.image;
  * @version 0.1.0
  */
 public class PalettesCouleurs {
-
+    
+    /**
+     * L'attribut paletteCouleur...
+     */
+    private IPalettesCouleurs paletteCouleur;
+    
+    
+    /**
+     * Crée une nouvelle instance de PalettesCouleurs.
+     * @param paletetteCouleur 
+     */
+    public PalettesCouleurs(IPalettesCouleurs paletetteCouleur) {
+        this.paletteCouleur = paletetteCouleur;
+    }
 }
 

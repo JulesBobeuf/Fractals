@@ -7,6 +7,7 @@
 
 package fr.univartois.butinfo.fractals.image;
 
+import java.awt.Color;
 
 /**
  * Le type PaletteCouleurs2
@@ -16,6 +17,17 @@ package fr.univartois.butinfo.fractals.image;
  * @version 0.1.0
  */
 public class PaletteCouleurs2 implements IPalettesCouleurs {
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.image.IPalettesCouleurs#getColor(int)
+     */
+    @Override
+    public Color getColor(int nbIterations) {
+        // TODO Auto-generated method stub.
+        return null;
+    }
 
 }
 

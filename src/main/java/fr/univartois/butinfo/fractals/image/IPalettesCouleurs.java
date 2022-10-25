@@ -7,6 +7,7 @@
 
 package fr.univartois.butinfo.fractals.image;
 
+import java.awt.Color;
 
 /**
  * Le type IPalettesCouleurs
@@ -17,5 +18,9 @@ package fr.univartois.butinfo.fractals.image;
  */
 public interface IPalettesCouleurs {
 
+    /**
+     * @param nbIterations
+     * @return
+     */
+    Color getColor(int nbIterations);
 }
-

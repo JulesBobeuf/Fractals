@@ -16,4 +16,6 @@ Q8 -> Patron de conception pour parcourir les éléments d'une suite : **itérat
 ### Questions 13 - 14
 Aymeric JAKOBOWSKI
 
-Q13 -> PAtron de conception pour représenter différentes pallettes de couleurs : **Stratégie**
+Q13 -> Patron de conception pour représenter différentes pallettes de couleurs : **Stratégie**
+
+Q14 -> Patron de conception pour appliquer un masque sur les couleurs produites par les palettes : **Décorateur**
