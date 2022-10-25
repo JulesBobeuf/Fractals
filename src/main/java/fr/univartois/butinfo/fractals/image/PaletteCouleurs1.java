@@ -31,4 +31,3 @@ public class PaletteCouleurs1 implements IPalettesCouleurs {
     }
 
 }
-

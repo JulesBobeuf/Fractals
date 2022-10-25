@@ -25,9 +25,9 @@ public class PaletteCouleurs2 implements IPalettesCouleurs {
      */
     @Override
     public Color getColor(int nbIterations) {
-        // TODO Auto-generated method stub.
-        return null;
+        int nbIterationsEff = 0;
+        int ratio = nbIterationsEff / nbIterations;
+        return new Color(10 * ratio, 25 * ratio, 25 * ratio, 1);
     }
 
 }
-
