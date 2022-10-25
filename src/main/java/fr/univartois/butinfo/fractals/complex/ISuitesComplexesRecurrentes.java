@@ -23,6 +23,15 @@ public interface ISuitesComplexesRecurrentes {
      *
      * @return [DOUBLE] prochain terme de la suite.
      */
+    // IComplex valeurProchainTerme(IComplex ancienTerme);
+
     IComplex valeurProchainTerme(IComplex ancienTerme);
 
+    /**
+     * @param ancienTerme
+     * 
+     * @return
+     */
+    IComplex suiteEvaluee(IComplex ancienTerme);
 }
+
