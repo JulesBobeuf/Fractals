@@ -50,4 +50,9 @@ public class Point {
     public Complex PointEnComplex() {
         return complex;
     }
+
+    @Override
+    public String toString() {
+        return this.getX()+" "+this.getY();
+    }
 }
