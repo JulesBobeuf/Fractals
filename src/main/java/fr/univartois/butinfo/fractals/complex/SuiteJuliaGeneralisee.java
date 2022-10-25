@@ -27,17 +27,23 @@ public class SuiteJuliaGeneralisee implements ISuitesComplexesRecurrentes {
      * L'attribut j0...
      */
     private IComplex j0;
+    
+    /**
+     * L'attribut op...
+     */
+    private BinaryOperator<IComplex> op;
 
     /**
      * Crée une nouvelle instance de SuiteJuliaGeneralisee.
      * 
      * @param j0
-     * @param nbReel
-     * @param nbImag
+     * @param c 
+     * @param op 
      */
-    public SuiteJuliaGeneralisee(IComplex j0, double nbReel, double nbImag) {
+    public SuiteJuliaGeneralisee(IComplex j0, IComplex c, BinaryOperator<IComplex> op) {
         this.j0 = j0;
-        this.c = new Complex(nbReel, nbImag);
+        this.c = c;
+        this.op = op;
     }
 
     /*
@@ -48,7 +54,7 @@ public class SuiteJuliaGeneralisee implements ISuitesComplexesRecurrentes {
      */
     @Override
     public IComplex valeurProchainTerme(IComplex z) {
-        BinaryOperator<IComplex> op = (o, p) -> (o.multiply(o)).add(p);
+//        BinaryOperator<IComplex> op = (o, p) -> (o.multiply(o)).add(p);
         return op.apply(z, c);
     }
 

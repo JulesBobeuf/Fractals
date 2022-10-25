@@ -35,9 +35,9 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
      * @param nbReel
      * @param nbImag
      */
-    public SuiteJulia(IComplex j0, double nbReel, double nbImag) {
+    public SuiteJulia(IComplex j0, IComplex c) {
         this.j0 = j0;
-        this.c = new Complex(nbReel, nbImag);
+        this.c = c;
     }
 
     /*
