@@ -7,7 +7,6 @@
 
 package fr.univartois.butinfo.fractals.image;
 
-
 /**
  * Le type PalettesCouleurs
  *
@@ -16,19 +15,25 @@ package fr.univartois.butinfo.fractals.image;
  * @version 0.1.0
  */
 public class PalettesCouleurs {
-    
+
     /**
      * L'attribut paletteCouleur...
      */
     private IPalettesCouleurs paletteCouleur;
-    
-    
+
+    /**
+     * L'attribut NB_MAX_ITTERATIONS...
+     */
+    public final int NB_MAX_ITERATIONS;
+
     /**
      * Crée une nouvelle instance de PalettesCouleurs.
-     * @param paletetteCouleur 
+     * 
+     * @param paletetteCouleur
      */
-    public PalettesCouleurs(IPalettesCouleurs paletetteCouleur) {
+    public PalettesCouleurs(IPalettesCouleurs paletetteCouleur, int nbMaxIt) {
         this.paletteCouleur = paletetteCouleur;
+        this.NB_MAX_ITERATIONS = nbMaxIt;
     }
-}
 
+}

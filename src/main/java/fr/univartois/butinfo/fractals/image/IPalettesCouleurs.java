@@ -19,8 +19,9 @@ import java.awt.Color;
 public interface IPalettesCouleurs {
 
     /**
-     * @param nbIterations
+     * @param nbIterationsEff
+     * @param nbMaxIterations
      * @return
      */
-    Color getColor(int nbIterations);
+    Color getColor(int nbIterationsEff, int nbMaxIterations);
 }

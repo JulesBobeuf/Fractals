@@ -24,9 +24,8 @@ public class PaletteCouleurs2 implements IPalettesCouleurs {
      * @see fr.univartois.butinfo.fractals.image.IPalettesCouleurs#getColor(int)
      */
     @Override
-    public Color getColor(int nbIterations) {
-        int nbIterationsEff = 0;
-        int ratio = nbIterationsEff / nbIterations;
+    public Color getColor(int nbIterationsEff, int nbMaxIterations) {
+        int ratio = nbIterationsEff / nbMaxIterations;
         return new Color(10 * ratio, 25 * ratio, 25 * ratio, 1);
     }
 
