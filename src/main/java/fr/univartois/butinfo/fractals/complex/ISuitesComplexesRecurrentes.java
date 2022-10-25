@@ -27,3 +27,4 @@ public interface ISuitesComplexesRecurrentes {
 
     IComplex valeurProchainTerme(IComplex ancienTerme);
 }
+

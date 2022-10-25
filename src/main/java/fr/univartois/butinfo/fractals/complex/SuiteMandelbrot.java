@@ -30,7 +30,7 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
      * (non-Javadoc)
      *
      * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#
-     * valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
+     * valeurProchainTerme(double)
      */
     @Override
     public IComplex valeurProchainTerme(IComplex z) {
