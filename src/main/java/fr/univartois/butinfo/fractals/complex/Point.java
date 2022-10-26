@@ -5,7 +5,7 @@ package fr.univartois.butinfo.fractals.complex;
  * @author thomas
  *
  */
-public class Point {
+public class Point implements IPoint{
 
     /**
      * s
@@ -54,5 +54,11 @@ public class Point {
     @Override
     public String toString() {
         return this.getX()+" "+this.getY();
+    }
+
+    @Override
+    public double DistanceEntre2Points() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }
