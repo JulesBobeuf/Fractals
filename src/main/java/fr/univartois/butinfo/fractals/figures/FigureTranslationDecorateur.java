@@ -21,17 +21,16 @@ public class FigureTranslationDecorateur implements IFigures {
      */
     private IFigures figure;
 
-    
     /**
      * L'attribut xTranslate...
      */
     private int xTranslate;
-    
+
     /**
      * L'attribut yTranslate...
      */
     private int yTranslate;
-    
+
     /**
      * Crée une nouvelle instance de FigureTranslationDecorateur.
      * 
@@ -50,9 +49,9 @@ public class FigureTranslationDecorateur implements IFigures {
      */
     @Override
     public String representation() {
-        String txt = figure.representation();
-        txt = txt.substring(0, txt.length() - 2);
-        txt += String.format("transform=\"translate(%d,%d)\" />", xTranslate, yTranslate);
+        String txt = String.format("<g transform=\"translate(%d,%d)\">\n", xTranslate, yTranslate);
+        txt += figure.representation();
+        txt += "\n</g>";
         return txt;
     }
 

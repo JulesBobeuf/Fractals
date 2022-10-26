@@ -21,16 +21,16 @@ public class FigureRotationDecorateur implements IFigures {
      */
     private IFigures figure;
 
-    
     /**
      * L'attribut degree...
      */
     private int degree;
-    
+
     /**
-     * Crée une nouvelle instance de FigureTranslationDecorateur.
+     * Crée une nouvelle instance de FigureRotationDecorateur.
      * 
      * @param figure
+     * @param degree
      */
     public FigureRotationDecorateur(IFigures figure, int degree) {
         this.figure = figure;
@@ -44,9 +44,9 @@ public class FigureRotationDecorateur implements IFigures {
      */
     @Override
     public String representation() {
-        String txt = figure.representation();
-        txt = txt.substring(0, txt.length() - 2);
-        txt += String.format("transform=\"rotate(%d)\" />", degree);
+        String txt = String.format("<g transform=\"rotate(%d)\">\n", degree);
+        txt += figure.representation();
+        txt += "\n</g>";
         return txt;
     }
 
