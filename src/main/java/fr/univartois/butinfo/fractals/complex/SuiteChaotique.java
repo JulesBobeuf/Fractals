@@ -91,14 +91,15 @@ public class SuiteChaotique implements Iterable<IPoint> {
      * 
      * @return Prochain nb complexe de la suite.
      */
-    public IPoint getProchaineValeur(IPoint nbComplex) {
-        double x = valeur.getX();
-        double y = valeur.getY();
-        Complex complex = valeur.PointEnComplex();
+    public IPoint getProchainPoint(IPoint nbComplex) {
+        double x = nbComplex.getX();
+        double y = nbComplex.getY();
+        Complex complex = nbComplex.PointEnComplex();
         complex.setRe(x);
         complex.setIm((x*y)*(1-y));
-        IPoint valeur = new Point(complex);
-        return valeur;
+        IPoint newValeur = new Point(complex);
+        return newValeur;
     }
+    
     
 }

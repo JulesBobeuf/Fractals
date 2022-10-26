@@ -11,4 +11,14 @@ public interface IPoint {
      * @return
      */
     Complex PointEnComplex();
+    
+    /**
+     * @return
+     */
+    double getX();
+    
+    /**
+     * @return
+     */
+    double getY();
 }

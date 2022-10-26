@@ -48,7 +48,7 @@ public class IterateurDeSuiteChaotique implements Iterator<IPoint> {
 
     @Override
     public IPoint next() {
-        valeur = suite.getProchaineValeur(valeur);
+        valeur = suite.getProchainPoint(valeur);
         return valeur;
     }
 }
