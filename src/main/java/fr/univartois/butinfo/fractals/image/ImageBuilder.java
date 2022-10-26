@@ -9,6 +9,10 @@ package fr.univartois.butinfo.fractals.image;
 
 import fr.univartois.butinfo.fractals.complex.IComplex;
 import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
+import fr.univartois.butinfo.fractals.complex.SuiteJulia;
+import fr.univartois.butinfo.fractals.complex.SuiteJuliaGeneralisee;
+import fr.univartois.butinfo.fractals.complex.SuiteMandelbrot;
+import fr.univartois.butinfo.fractals.complex.SuiteMandelbrotGeneralisee;
 
 
 /**
@@ -52,26 +56,52 @@ public class ImageBuilder extends Image implements IImageBuilder {
     public void buildCenter(IComplex complex) {
         this.complex=complex;
     }
-
+    
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(fr.univartois.butinfo.fractals.image.Suite)
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(java.lang.String)
      */
     @Override
-    public void buildSuite(ISuitesComplexesRecurrentes suite) {
-        this.suite=suite;
+    public void buildSuite(String FractaleName) {
+        if (FractaleName.equals("SuiteJulia")) {
+            this.suite=new SuiteJulia();
+        }
+        else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
+            this.suite=new SuiteJuliaGeneralisee();
+        }
+        
+        else if (FractaleName.equals("SuiteMandelbrot")) {
+            this.suite=new SuiteMandelbrot();
+        }
+        
+        else if (FractaleName.equals("SuiteMandelbrotGeneralisee")) {
+            this.suite=new SuiteMandelbrotGeneralisee();
+        }
+        
+        else {
+            throw new IllegalArgumentException("Fractale non reconnu");
+        }
         
     }
 
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildColors(fr.univartois.butinfo.fractals.image.Palette)
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildColors(java.lang.String, int)
      */
     @Override
-    public void buildColors(PalettesCouleurs palette) {
-        this.palette=palette;
+    public void buildColors(String paletteName, int nbIterations) {
+        if (paletteName.equals("PaletteCouleurs1")) {
+            this.palette=new PaletteCouleurs1();
+        }
+        else if (paletteName.equals("PaletteCouleurs2")) {
+            this.palette=new PaletteCouleurs2();
+        }
+        
+        else {
+            throw new IllegalArgumentException("Palette non reconnu");
+        }
         
     }
     

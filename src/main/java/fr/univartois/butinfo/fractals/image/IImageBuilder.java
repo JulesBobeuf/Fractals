@@ -25,14 +25,30 @@ public interface IImageBuilder {
      */
     public void buildDimensions(int height, int width);
     
+    /**
+     * @param scale
+     */
     public void buildScale(double scale);
     
+    /**
+     * @param complex
+     */
     public void buildCenter(IComplex complex);
     
+    /**
+     * @param FractaleName
+     */
     public void buildSuite(String FractaleName);
     
+    /**
+     * @param paletteName
+     * @param nbIterations
+     */
     public void buildColors(String paletteName, int nbIterations);
     
+    /**
+     * @param filepath
+     */
     public void buildFilePath(String filepath);
 }
 
