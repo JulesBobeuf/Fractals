@@ -46,3 +46,6 @@ Mise en place de 3 décorateurs pour les transformations suivantes :
 	-Translation
 	-Scale
 	-Rotation
+	
+Q30 -> Patron de conception pour avoir plusieurs figures : **Composite**
+Utilisation d'un itérateur pour le parcours de plusieurs figures.
