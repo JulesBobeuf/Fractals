@@ -27,3 +27,17 @@ Q14 -> Patron de conception pour appliquer un masque sur les couleurs produites 
 Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> Implémentation de la méthode SaveAs()
+
+### Question 28-30
+Aymeric JAKOBOWSKI
+
+Package ``fr.univartois.butinfo.fractals.figures``
+
+Q28 -> Réalisation d'une interface IFigures. Une méthode qui retourne une chaine de caractère (String).
+Différentes classes implémentant cette interface :
+	- Cercle
+	- Ellipse
+	- Ligne
+	- Polygon
+	- Rectangle
+
