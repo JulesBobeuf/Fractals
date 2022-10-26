@@ -46,5 +46,4 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
     public IComplex valeurProchainTerme(IComplex z) {
         return (z.multiply(z)).add(c);
     }
-
 }
