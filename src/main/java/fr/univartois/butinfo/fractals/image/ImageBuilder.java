@@ -24,7 +24,12 @@ import fr.univartois.butinfo.fractals.complex.SuiteMandelbrotGeneralisee;
  */
 public class ImageBuilder extends Image implements IImageBuilder {
     
-
+    /**
+     * Crée une nouvelle instance de ImageBuilder.
+     */
+    public ImageBuilder() {
+        // On ne fait rien ici.
+    }
 
     /*
      * (non-Javadoc)

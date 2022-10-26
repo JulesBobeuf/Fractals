@@ -26,6 +26,11 @@ import fr.cril.cli.annotations.Args;
 import fr.cril.cli.annotations.Description;
 import fr.cril.cli.annotations.LongName;
 import fr.cril.cli.annotations.ShortName;
+import fr.univartois.butinfo.fractals.complex.Complex;
+import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.image.IImageBuilder;
+import fr.univartois.butinfo.fractals.image.Image;
+import fr.univartois.butinfo.fractals.image.ImageBuilder;
 
 /**
  * La classe Fractals permet de générer des fractales depuis la ligne de commande.
@@ -87,7 +92,7 @@ public final class Fractals {
     @LongName("focus-y")
     @Description("Spécifie le point central de l'image sur l'axe des ordonnées.")
     @Args(value = 1, names = "real")
-    private double foxusY;
+    private double focusY;
 
     /**
      * L'option spécifiant le nom de la fractale à générer.
@@ -174,7 +179,13 @@ public final class Fractals {
      * Crée la fractale demandée dans la ligne de commande.
      */
     public void buildFractal() {
-        // TODO Ajoutez ici le code pour utiliser votre implantation et créer la fractale.
+        IImageBuilder builder = new ImageBuilder();
+        builder.buildDimensions(height,width);
+        builder.buildScale(scale);
+        builder.buildCenter(new Complex(focusX,focusY));
+        builder.buildSuite(fractaleName);
+        builder.buildColors(paletteName, nbIterations);
+        builder.buildFilePath(outputFile);
     }
 
     /**
