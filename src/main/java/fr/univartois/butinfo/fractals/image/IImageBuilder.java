@@ -8,6 +8,7 @@
 package fr.univartois.butinfo.fractals.image;
 
 import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
 
 /**
  * Le type ImageBuilder
@@ -28,9 +29,9 @@ public interface IImageBuilder {
     
     public void buildCenter(IComplex complex);
     
-    public void buildSuite(ISuitesComplexesRecurrentes suite);
+    public void buildSuite(String FractaleName);
     
-    public void buildColors(PalettesCouleurs palette);
+    public void buildColors(String paletteName, int nbIterations);
     
     public void buildFilePath(String filepath);
 }

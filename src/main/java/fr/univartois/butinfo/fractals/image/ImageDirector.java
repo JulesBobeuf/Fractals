@@ -7,6 +7,7 @@
 
 package fr.univartois.butinfo.fractals.image;
 
+import fr.univartois.butinfo.fractals.complex.Complex;
 
 /**
  * Le type ImageDirector
@@ -22,18 +23,18 @@ public class ImageDirector {
      */
     private IImageBuilder builder;
     
-    public ImageDirector() {
-        builder.buildDimensions();
+    public ImageDirector(int height, int width, double scale, double focusX, double focusY, String fractaleName, int nbIterations,String paletteName,String outputFile) {
+        builder.buildDimensions(height, width);
+  
+        builder.buildScale(scale);
         
-        builder.buildScale();
+        builder.buildCenter(new Complex(focusX,focusY));
         
-        builder.buildCenter();
+        builder.buildSuite(fractaleName);
         
-        builder.buildSuite();
+        builder.buildColors(paletteName,nbIterations);
         
-        builder.buildColors();
-        
-        builder.buildFilePath();
+        builder.buildFilePath(outputFile);
     }
     
     public void setBuilder(IImageBuilder builder) {

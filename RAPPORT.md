@@ -20,3 +20,7 @@ Q8 -> Patron de conception pour parcourir les éléments d'une suite : **itérat
 Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> Implémentation de la méthode SaveAs()
+
+### Questions 26-27
+Jules BOBEUF
+Question 26 -> Constructeur ->

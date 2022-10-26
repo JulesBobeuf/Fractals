@@ -8,6 +8,7 @@
 package fr.univartois.butinfo.fractals.image;
 
 import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
 
 /**
  * Le type Image
@@ -18,18 +19,39 @@ import fr.univartois.butinfo.fractals.complex.IComplex;
  */
 public class Image {
     
-    protected int height;
+    /**
+     * L'attribut heighAt...
+     */
+    protected int heighAt;
     
+    /**
+     * L'attribut width...
+     */
     protected int width;
     
+    /**
+     * L'attribut scale...
+     */
     protected double scale;
     
+    /**
+     * L'attribut complex...
+     */
     protected IComplex complex;
     
+    /**
+     * L'attribut suite...
+     */
     protected ISuitesComplexesRecurrentes suite;
     
+    /**
+     * L'attribut palette...
+     */
     protected PalettesCouleurs palette;
     
+    /**
+     * L'attribut filepath...
+     */
     protected String filepath;
 }
 
