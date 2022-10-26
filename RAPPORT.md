@@ -41,3 +41,8 @@ Différentes classes implémentant cette interface :
 	- Polygon
 	- Rectangle
 
+Q29 -> Patron de conception pour appliquer des transformations sur les figures : **Décorateur**
+Mise en place de 3 décorateurs pour les transformations suivantes : 
+	-Translation
+	-Scale
+	-Rotation
