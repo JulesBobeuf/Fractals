@@ -16,6 +16,13 @@ Q7 (Aymeric) -> Patron de conception pour représenter les différentes suites :
 
 Q8 -> Patron de conception pour parcourir les éléments d'une suite : **itérateur**
 
+### Questions 13 - 14
+Aymeric JAKOBOWSKI
+
+Q13 -> Patron de conception pour représenter différentes pallettes de couleurs : **Stratégie**
+
+Q14 -> Patron de conception pour appliquer un masque sur les couleurs produites par les palettes : **Décorateur**
+
 ### Questions 24-25
 Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
