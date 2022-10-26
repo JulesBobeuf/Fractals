@@ -23,12 +23,12 @@ public class Polygon implements IFigures {
     /**
      * L'attribut points...
      */
-    Point[] points;
+    private Point[] points;
 
     /**
      * L'attribut color...
      */
-    String color;
+    private String color;
 
     /**
      * Crée une nouvelle instance de Figure.
@@ -49,7 +49,7 @@ public class Polygon implements IFigures {
     public String representation() {
         String txt = "<polygon points=\"";
         for (Point point : points) {
-            txt += point.toString();
+            txt += point.toString() + ",";
         }
         return txt += "\" stroke=" + color + "\"/>";
     }
