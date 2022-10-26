@@ -61,7 +61,23 @@ public class Complex implements IComplex {
        return im;
    }
 
-   /*
+   
+/**
+ * @param re
+ */
+public void setRe(double re) {
+    this.re = re;
+}
+
+
+/**
+ * @param im
+ */
+public void setIm(double im) {
+    this.im = im;
+}
+
+/*
     * (non-Javadoc)
     *
     * @see fr.univartois.butinfo.fractals.complex.IComplex#abs()
