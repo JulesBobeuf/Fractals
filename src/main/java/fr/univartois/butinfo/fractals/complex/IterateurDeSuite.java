@@ -1,7 +1,6 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -13,7 +12,7 @@ public class IterateurDeSuite implements Iterator<IComplex> {
     /**
      * L'attribut suite...
      */
-    private SuitesComplexesRecurrentes suite;
+    private ISuitesComplexesRecurrentes suite;
 
     /**
      * L'attribut valeur...
@@ -34,7 +33,7 @@ public class IterateurDeSuite implements Iterator<IComplex> {
      * @param s
      * @param n
      */
-    public IterateurDeSuite(SuitesComplexesRecurrentes s, int n) {
+    public IterateurDeSuite(ISuitesComplexesRecurrentes s, int n) {
         this.suite = s;
         this.n = n;
         nbIteration = 0;
@@ -50,7 +49,7 @@ public class IterateurDeSuite implements Iterator<IComplex> {
 
     @Override
     public IComplex next() {
-        valeur = suite.getProchaineValeur(valeur);
+        valeur = suite.valeurProchainTerme(valeur);
         nbIteration++;
         return valeur;
     }
