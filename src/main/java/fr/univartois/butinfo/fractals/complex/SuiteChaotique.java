@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuiteChaotique implements Iterable<IPoint> {
+public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
@@ -84,14 +84,11 @@ public class SuiteChaotique implements Iterable<IPoint> {
     public Point getValInit() {
         return valInit;
     }
-    
-    
+
     /**
-     * @param nbComplex
-     * 
-     * @return Prochain nb complexe de la suite.
+     *
      */
-    public IPoint getProchainPoint(IPoint nbComplex) {
+    public IPoint valeurProchainPoint(IPoint nbComplex) {
         double x = nbComplex.getX();
         double y = nbComplex.getY();
         Complex complex = nbComplex.PointEnComplex();
@@ -100,6 +97,5 @@ public class SuiteChaotique implements Iterable<IPoint> {
         IPoint newValeur = new Point(complex);
         return newValeur;
     }
-    
     
 }
