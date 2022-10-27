@@ -28,7 +28,7 @@ Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> Implémentation de la méthode SaveAs()
 
-### Question 28-30
+### Question 28-36
 Aymeric JAKOBOWSKI
 
 Package ``fr.univartois.butinfo.fractals.figures``
@@ -49,3 +49,10 @@ Mise en place de 3 décorateurs pour les transformations suivantes :
 	
 Q30 -> Patron de conception pour avoir plusieurs figures : **Composite**
 Utilisation d'un itérateur pour le parcours de plusieurs figures.
+
+Q31 -> Patron de conception pour implémenter plusieurs étapes lors de la création du fichier : **PAtron de méthode**
+Plusieurs méthodes définies :
+	1. Ouverture du ficher
+	2. Ecriture de l'en tête
+	3. Créations des figures
+	4. Bouclage du fichier
