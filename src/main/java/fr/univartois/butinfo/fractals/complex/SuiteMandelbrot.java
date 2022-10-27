@@ -47,4 +47,13 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
         return (z.multiply(z)).add(c);
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#getJ0()
+     */
+    @Override
+    public IComplex getJ0() {
+        return j0;
+    }
 }

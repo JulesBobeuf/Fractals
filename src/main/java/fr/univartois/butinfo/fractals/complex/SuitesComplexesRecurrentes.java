@@ -7,7 +7,6 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -16,21 +15,20 @@ import java.util.Iterator;
  * @author aymeric.jakobowski
  *
  * @version 0.1.0
- * @param <T>
- * @param <T>
+ * 
  */
-public class SuitesComplexesRecurrentes implements Iterable<IComplex>{
+public class SuitesComplexesRecurrentes implements ISuitesComplexesRecurrentes,Iterable<IComplex>{
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
      */
     protected IComplex valInit;
-   
+
     /**
      * L'attribut valeur (valeur actuelle)
      */
     protected IComplex valeur;
-    
+
     /**
      * L'attribut nbIteration qui compte les itération de hasNext().
      */
@@ -40,7 +38,7 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex>{
      * L'attribut suiteComplexe...
      */
     protected ISuitesComplexesRecurrentes suiteComplexe;
-    
+
     /**
      * Crée une nouvelle instance de SuitesComplexesRecurrentes.
      * 
@@ -51,47 +49,67 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex>{
             ISuitesComplexesRecurrentes suiteComplexes) {
         this.valInit = valInit;
         this.suiteComplexe = suiteComplexes;
-        this.n=0;
-    }
-    
-    @Override
-    public Iterator<IComplex> iterator() {
-        return new IterateurDeSuite(this,n);
-    }
-    /**
-     * @param nbComplex
-     * 
-     * @return Prochain nb complexe de la suite.
-     */
-    public IComplex getProchaineValeur(IComplex nbComplex) {
-        return suiteComplexe.valeurProchainTerme(nbComplex);
+        this.n = 0;
     }
 
-    
+    @Override
+    public Iterator<IComplex> iterator() {
+        return new IterateurDeSuite(this, n);
+    }
+
+    /**
+     * @return
+     */
     public IComplex getValeur() {
         return valeur;
     }
 
-    
+    /**
+     * @param valeur
+     */
     public void setValeur(IComplex valeur) {
         this.valeur = valeur;
     }
 
-    
+    /**
+     * @return
+     */
     public ISuitesComplexesRecurrentes getSuiteComplexe() {
         return suiteComplexe;
     }
 
-    
+    /**
+     * @param suiteComplexe
+     */
     public void setSuiteComplexe(ISuitesComplexesRecurrentes suiteComplexe) {
         this.suiteComplexe = suiteComplexe;
     }
 
-    
+    /**
+     * @return
+     */
     public IComplex getValInit() {
         return valInit;
     }
-    
-    
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
+     */
+    @Override
+    public IComplex valeurProchainTerme(IComplex ancienTerme) {
+        return suiteComplexe.valeurProchainTerme(ancienTerme);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#getJ0()
+     */
+    @Override
+    public IComplex getJ0() {
+        return valInit;
+    }
+    
 }

@@ -7,17 +7,17 @@ import java.util.Iterator;
  * @author thomas
  *
  */
-public class IterateurDeSuite implements Iterator<IComplex> {
+public class IterateurDeSuiteChaotique implements Iterator<IPoint> {
 
     /**
      * L'attribut suite...
      */
-    private ISuitesComplexesRecurrentes suite;
+    private ISuiteChaotique suite;
 
     /**
      * L'attribut valeur...
      */
-    private IComplex valeur;
+    private IPoint valeur;
 
     /**
      * L'attribut nbIteration...
@@ -33,7 +33,7 @@ public class IterateurDeSuite implements Iterator<IComplex> {
      * @param s
      * @param n
      */
-    public IterateurDeSuite(ISuitesComplexesRecurrentes s, int n) {
+    public IterateurDeSuiteChaotique(ISuiteChaotique s, int n) {
         this.suite = s;
         this.n = n;
         nbIteration = 0;
@@ -48,10 +48,24 @@ public class IterateurDeSuite implements Iterator<IComplex> {
     }
 
     @Override
-    public IComplex next() {
-        valeur = suite.valeurProchainTerme(valeur);
+    public IPoint next() {
+        valeur = suite.getProchainPoint(valeur);
         nbIteration++;
         return valeur;
+    }
+
+    /**
+     * @return
+     */
+    public int getNbIteration() {
+        return nbIteration;
+    }
+
+    /**
+     * @return
+     */
+    public int getN() {
+        return n;
     }
 
 }

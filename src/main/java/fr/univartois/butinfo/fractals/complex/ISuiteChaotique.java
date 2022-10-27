@@ -14,7 +14,7 @@ package fr.univartois.butinfo.fractals.complex;
  *
  * @version 0.1.0
  */
-public interface ISuitesComplexesRecurrentes {
+public interface ISuiteChaotique {
 
     /**
      * Méthode permettant de récupérer la valeur du prochain terme de la suite.
@@ -23,11 +23,6 @@ public interface ISuitesComplexesRecurrentes {
      *
      * @return [DOUBLE] prochain terme de la suite.
      */
-    IComplex valeurProchainTerme(IComplex ancienTerme);
-
-    /**
-     * @return
-     */
-    IComplex getJ0();
+    IPoint getProchainPoint(IPoint ancienTerme);
 
 }

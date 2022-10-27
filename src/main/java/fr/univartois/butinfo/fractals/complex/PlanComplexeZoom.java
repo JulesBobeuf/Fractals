@@ -21,14 +21,17 @@ public class PlanComplexeZoom extends PlanComplexe {
      * L'attribut zoom...
      */
     private final double zoom;
+    
+    private final IPlanComplexe plan;
  
     /**
      * Crée une nouvelle instance de PlanComplexeZoom.
      * @param height
      * @param width
      */
-    public PlanComplexeZoom(int height, int width, double zoom) {
-        super(height, width);
+    public PlanComplexeZoom(IPlanComplexe plan, double zoom) {
+        super(plan.getHeight(),plan.getWidth());
+        this.plan=plan;
         this.zoom=zoom;
     }
     
@@ -39,10 +42,9 @@ public class PlanComplexeZoom extends PlanComplexe {
      * @param x
      * @return Complex
      */
+    @Override
     public IComplex asComplex(int row, int column) {
-        double re = (column + .5) - (width / 2.);
-        double im = (height / 2.) - (row + .5);
-        return new Complex(re, im).multiply(zoom);
+        return plan.asComplex(row, column).multiply(zoom);
     }
 
 }
