@@ -23,5 +23,14 @@ public interface IPlanComplexe {
      * @return
      */
     public IComplex asComplex(int row, int column);
+    
+    /**
+     * @return
+     */
+    public double getHeight();
+    /**
+     * @return
+     */
+    public double getWidth();
 }
 

@@ -25,4 +25,9 @@ public interface ISuitesComplexesRecurrentes {
      */
     IComplex valeurProchainTerme(IComplex ancienTerme);
 
+    /**
+     * @return
+     */
+    IComplex getJ0();
+
 }

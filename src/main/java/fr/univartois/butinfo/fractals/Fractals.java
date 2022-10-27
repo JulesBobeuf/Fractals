@@ -26,6 +26,12 @@ import fr.cril.cli.annotations.Args;
 import fr.cril.cli.annotations.Description;
 import fr.cril.cli.annotations.LongName;
 import fr.cril.cli.annotations.ShortName;
+import fr.univartois.butinfo.fractals.complex.Complex;
+import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.image.AdaptateurImage;
+import fr.univartois.butinfo.fractals.image.IImageBuilder;
+import fr.univartois.butinfo.fractals.image.ImageBuilder;
+import fr.univartois.butinfo.fractals.image.Image;
 
 /**
  * La classe Fractals permet de générer des fractales depuis la ligne de commande.
@@ -87,7 +93,7 @@ public final class Fractals {
     @LongName("focus-y")
     @Description("Spécifie le point central de l'image sur l'axe des ordonnées.")
     @Args(value = 1, names = "real")
-    private double foxusY;
+    private double focusY;
 
     /**
      * L'option spécifiant le nom de la fractale à générer.
@@ -172,9 +178,24 @@ public final class Fractals {
 
     /**
      * Crée la fractale demandée dans la ligne de commande.
+     * @return 
      */
     public void buildFractal() {
-        // TODO Ajoutez ici le code pour utiliser votre implantation et créer la fractale.
+        ImageBuilder image = new ImageBuilder();
+        Image builder = new Image(image);
+        //  AdaptateurImage img = new AdaptateurImage(image);
+        image.setHeight(builder.buildHeight(height));
+        image.setWidth(builder.buildWidth(width));
+        image.setScale(builder.buildScale(scale));
+        image.setComplex(builder.buildCenter(focusX,focusY));
+        for (int wi=0;wi<=width;wi++) {
+            for (int he=0;he<=height;he++) {
+                image.setSuite(builder.buildSuite(fractaleName,wi,he));
+            }
+        }
+        image.setPalette(builder.buildColors(paletteName, nbIterations));
+        image.setFilepath(builder.buildFilePath(outputFile));
+        image.setPlanComplexe(builder.buildPlanComplexe(image.getHeight(), image.getWidth()));
     }
 
     /**
@@ -187,5 +208,187 @@ public final class Fractals {
         fractals.parseCliArguments(args);
         fractals.buildFractal();
     }
+
+    
+    /**
+     * Donne l'attribut width de cette instance de Fractals.
+     *
+     * @return L'attribut width de cette instance de Fractals.
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    
+    /**
+     * Modifie l'attribut width de cette instance de Fractals.
+     *
+     * @param width La nouvelle valeur de l'attribut width pour cette instance de Fractals.
+     */
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    
+    /**
+     * Donne l'attribut height de cette instance de Fractals.
+     *
+     * @return L'attribut height de cette instance de Fractals.
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    
+    /**
+     * Modifie l'attribut height de cette instance de Fractals.
+     *
+     * @param height La nouvelle valeur de l'attribut height pour cette instance de Fractals.
+     */
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    
+    /**
+     * Donne l'attribut scale de cette instance de Fractals.
+     *
+     * @return L'attribut scale de cette instance de Fractals.
+     */
+    public double getScale() {
+        return scale;
+    }
+
+    
+    /**
+     * Modifie l'attribut scale de cette instance de Fractals.
+     *
+     * @param scale La nouvelle valeur de l'attribut scale pour cette instance de Fractals.
+     */
+    public void setScale(double scale) {
+        this.scale = scale;
+    }
+
+    
+    /**
+     * Donne l'attribut focusX de cette instance de Fractals.
+     *
+     * @return L'attribut focusX de cette instance de Fractals.
+     */
+    public double getFocusX() {
+        return focusX;
+    }
+
+    
+    /**
+     * Modifie l'attribut focusX de cette instance de Fractals.
+     *
+     * @param focusX La nouvelle valeur de l'attribut focusX pour cette instance de Fractals.
+     */
+    public void setFocusX(double focusX) {
+        this.focusX = focusX;
+    }
+
+    
+    /**
+     * Donne l'attribut focusY de cette instance de Fractals.
+     *
+     * @return L'attribut focusY de cette instance de Fractals.
+     */
+    public double getFocusY() {
+        return focusY;
+    }
+
+    
+    /**
+     * Modifie l'attribut focusY de cette instance de Fractals.
+     *
+     * @param focusY La nouvelle valeur de l'attribut focusY pour cette instance de Fractals.
+     */
+    public void setFocusY(double focusY) {
+        this.focusY = focusY;
+    }
+
+    
+    /**
+     * Donne l'attribut fractaleName de cette instance de Fractals.
+     *
+     * @return L'attribut fractaleName de cette instance de Fractals.
+     */
+    public String getFractaleName() {
+        return fractaleName;
+    }
+
+    
+    /**
+     * Modifie l'attribut fractaleName de cette instance de Fractals.
+     *
+     * @param fractaleName La nouvelle valeur de l'attribut fractaleName pour cette instance de Fractals.
+     */
+    public void setFractaleName(String fractaleName) {
+        this.fractaleName = fractaleName;
+    }
+
+    
+    /**
+     * Donne l'attribut nbIterations de cette instance de Fractals.
+     *
+     * @return L'attribut nbIterations de cette instance de Fractals.
+     */
+    public int getNbIterations() {
+        return nbIterations;
+    }
+
+    
+    /**
+     * Modifie l'attribut nbIterations de cette instance de Fractals.
+     *
+     * @param nbIterations La nouvelle valeur de l'attribut nbIterations pour cette instance de Fractals.
+     */
+    public void setNbIterations(int nbIterations) {
+        this.nbIterations = nbIterations;
+    }
+
+    
+    /**
+     * Donne l'attribut paletteName de cette instance de Fractals.
+     *
+     * @return L'attribut paletteName de cette instance de Fractals.
+     */
+    public String getPaletteName() {
+        return paletteName;
+    }
+
+    
+    /**
+     * Modifie l'attribut paletteName de cette instance de Fractals.
+     *
+     * @param paletteName La nouvelle valeur de l'attribut paletteName pour cette instance de Fractals.
+     */
+    public void setPaletteName(String paletteName) {
+        this.paletteName = paletteName;
+    }
+
+    
+    /**
+     * Donne l'attribut outputFile de cette instance de Fractals.
+     *
+     * @return L'attribut outputFile de cette instance de Fractals.
+     */
+    public String getOutputFile() {
+        return outputFile;
+    }
+
+    
+    /**
+     * Modifie l'attribut outputFile de cette instance de Fractals.
+     *
+     * @param outputFile La nouvelle valeur de l'attribut outputFile pour cette instance de Fractals.
+     */
+    public void setOutputFile(String outputFile) {
+        this.outputFile = outputFile;
+    }
+    
+    
 
 }
