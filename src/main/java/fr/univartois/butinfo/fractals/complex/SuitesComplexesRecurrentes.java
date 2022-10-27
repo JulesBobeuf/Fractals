@@ -77,7 +77,7 @@ public class SuitesComplexesRecurrentes implements ISuitesComplexesRecurrentes,I
     public ISuitesComplexesRecurrentes getSuiteComplexe() {
         return suiteComplexe;
     }
-
+   
     /**
      * @param suiteComplexe
      */
