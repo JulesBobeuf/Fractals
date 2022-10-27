@@ -22,27 +22,26 @@ public abstract class CreerFractaleAvecFigures {
     /**
      * L'attribut width...
      */
-    private int width;
+    protected int width;
 
     /**
      * L'attribut height...
      */
-    private int height;
-    
+    protected int height;
+
     /**
      * L'attribut nomFichier...
      */
-    private String nomFichier;
-    
+    protected String nomFichier;
+
     /**
      * L'attribut nbRep...
      */
-    private int nbRep;
-    
-    
+    protected int nbRep;
 
     /**
      * Crée une nouvelle instance de CreerFractaleAvecFigures.
+     * 
      * @param width
      * @param height
      * @param nomFichier
@@ -55,7 +54,7 @@ public abstract class CreerFractaleAvecFigures {
         this.nbRep = nbRep;
     }
 
-    public void createFractaleFigures() {
+    public void createFractaleProcedure() {
         ouvrirFichier(nomFichier);
         ecrireEnTete(width, height);
         creerFormes(nbRep);
@@ -69,26 +68,5 @@ public abstract class CreerFractaleAvecFigures {
     protected abstract void creerFormes(int nbRep);
 
     protected abstract void finFichier();
-
-    // /**
-    // * @param nom
-    // * @param nbRep
-    // */
-    // public void initFichier(String nom, int nbRep) {
-    // try {
-    // FileWriter writer = new FileWriter(nom);
-    // writer.write(String.format("<svg width=\"%d\" height=\"%d\">\n", width, height));
-    //
-    // for (int i = 0; i <= nbRep; i++) {
-    // System.out.println("A_FAIRE"); // TODO
-    // }
-    //
-    // writer.write("</svg>");
-    // writer.flush();
-    // writer.close();
-    // } catch (IOException e) {
-    // throw new RuntimeException(e);
-    // }
-    // }
 
 }

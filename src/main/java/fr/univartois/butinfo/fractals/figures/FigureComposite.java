@@ -36,14 +36,14 @@ public class FigureComposite implements IFigures {
      * @param figure
      * 
      */
-    private void add(IFigures figure) {
+    public void add(IFigures figure) {
         children.add(figure);
     }
 
     /**
      * @param figure
      */
-    private void remove(IFigures figure) {
+    public void remove(IFigures figure) {
         children.remove(figure);
     }
 
@@ -67,7 +67,7 @@ public class FigureComposite implements IFigures {
         
         Iterator<IFigures> i = children.iterator();
         while(i.hasNext()) {
-            txt += i.next() + "\n";
+            txt += i.next().representation() + "\n";
         }
                 
         return txt;

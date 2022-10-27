@@ -37,6 +37,11 @@ public class Rectangle implements IFigures {
     private int heigth;
 
     /**
+     * L'attribut couleur...
+     */
+    private String couleur;
+    
+    /**
      * Crée une nouvelle instance de Rectangle.
      * 
      * @param x
@@ -44,11 +49,32 @@ public class Rectangle implements IFigures {
      * @param weight
      * @param heigth
      */
-    public Rectangle(int x, int y, int width, int heigth) {
+    public Rectangle(int x, int y, int width, int heigth, String couleur) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.heigth = heigth;
+        this.couleur = couleur;
+    }
+    
+    
+    /**
+     * Donne l'attribut width de cette instance de Rectangle.
+     *
+     * @return L'attribut width de cette instance de Rectangle.
+     */
+    public int getWidth() {
+        return width;
+    }
+    
+    
+    /**
+     * Donne l'attribut heigth de cette instance de Rectangle.
+     *
+     * @return L'attribut heigth de cette instance de Rectangle.
+     */
+    public int getHeigth() {
+        return heigth;
     }
 
     /*
@@ -58,7 +84,7 @@ public class Rectangle implements IFigures {
      */
     @Override
     public String representation() {
-        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\"/>", x,y,width, heigth);
+        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\"/>", x,y,width, heigth, couleur);
     }
 
 }

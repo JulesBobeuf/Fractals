@@ -24,7 +24,7 @@ public class FigureScaleDecorateur implements IFigures {
     /**
      * L'attribut fact...
      */
-    private int fact;
+    private double fact;
 
     /**
      * Crée une nouvelle instance de FigureScaleDecorateur.
@@ -32,7 +32,7 @@ public class FigureScaleDecorateur implements IFigures {
      * @param figure
      * @param fact
      */
-    public FigureScaleDecorateur(IFigures figure, int fact) {
+    public FigureScaleDecorateur(IFigures figure, double fact) {
         this.figure = figure;
         this.fact = fact;
     }
@@ -44,10 +44,19 @@ public class FigureScaleDecorateur implements IFigures {
      */
     @Override
     public String representation() {
-        String txt = String.format("<g transform=\"scale(%d)\">\n", fact);
+        String txt = String.format("<g transform=\"scale(%f)\">\n", fact);
         txt += figure.representation();
         txt += "\n</g>";
         return txt;
+    }
+
+    /**
+     * Donne l'attribut fact de cette instance de FigureScaleDecorateur.
+     *
+     * @return L'attribut fact de cette instance de FigureScaleDecorateur.
+     */
+    public double getFact() {
+        return fact;
     }
 
 }
