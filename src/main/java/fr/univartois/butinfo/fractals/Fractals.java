@@ -180,7 +180,7 @@ public final class Fractals {
      * Crée la fractale demandée dans la ligne de commande.
      * @return 
      */
-    public void buildFractal() {
+    public void buildFractal() { /* Commentaire le temps de finir
         ImageBuilder image = new ImageBuilder();
         Image builder = new Image(image);
         //  AdaptateurImage img = new AdaptateurImage(image);
@@ -195,7 +195,7 @@ public final class Fractals {
         }
         image.setPalette(builder.buildColors(paletteName, nbIterations));
         image.setFilepath(builder.buildFilePath(outputFile));
-        image.setPlanComplexe(builder.buildPlanComplexe(image.getHeight(), image.getWidth()));
+        image.setPlanComplexe(builder.buildPlanComplexe(image.getHeight(), image.getWidth())); */
     }
 
     /**
