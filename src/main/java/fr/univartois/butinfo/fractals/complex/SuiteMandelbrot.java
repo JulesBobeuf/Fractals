@@ -56,5 +56,4 @@ public class SuiteMandelbrot implements ISuitesComplexesRecurrentes {
     public IComplex getJ0() {
         return j0;
     }
-
 }

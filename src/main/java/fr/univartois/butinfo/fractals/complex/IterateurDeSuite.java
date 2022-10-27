@@ -1,3 +1,4 @@
+
 package fr.univartois.butinfo.fractals.complex;
 
 import java.util.ArrayList;
@@ -10,12 +11,11 @@ import java.util.Iterator;
 public class IterateurDeSuite  implements Iterator<IComplex>{
     
     private ISuitesComplexesRecurrentes suite;
-    
     private IComplex valeur;
-    
+
     private int nbIteration;
     
-    private int n; // donner une limite mais jsp comment faire
+    private int n; // donner une limite
     
     public IterateurDeSuite(ISuitesComplexesRecurrentes s, int n) {
         this.suite=s;
@@ -51,4 +51,5 @@ public class IterateurDeSuite  implements Iterator<IComplex>{
     public IComplex getValeur() {
         return valeur;
     }
+
 }
