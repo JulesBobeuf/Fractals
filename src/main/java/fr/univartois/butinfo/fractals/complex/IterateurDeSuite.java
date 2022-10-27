@@ -10,12 +10,28 @@ import java.util.Iterator;
  */
 public class IterateurDeSuite implements Iterator<IComplex> {
 
+
+    /**
+     * L'attribut suite...
+     */
     private SuitesComplexesRecurrentes suite;
 
+
+    /**
+     * L'attribut valeur...
+     */
     private IComplex valeur;
 
+
+    /**
+     * L'attribut nbIteration...
+     */
     private int nbIteration;
 
+
+    /**
+     * L'attribut n...
+     */
     private int n;
 
     /**

@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuiteCirculaire implements Iterable<IPoint> , ISuiteChaotique {
+public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
@@ -84,6 +84,7 @@ public class SuiteCirculaire implements Iterable<IPoint> , ISuiteChaotique {
     public Point getValInit() {
         return valInit;
     }
+
     /**
      *
      */
@@ -93,9 +94,9 @@ public class SuiteCirculaire implements Iterable<IPoint> , ISuiteChaotique {
         double y = nbComplex.getY();
         Complex complex = nbComplex.PointEnComplex();
         complex.setRe(x);
-        complex.setIm(y+((Math.sin(2*Math.PI*y))/(2*Math.PI))+1/3);
+        complex.setIm(y + ((Math.sin(2 * Math.PI * y)) / (2 * Math.PI)) + 1 / 3);
         IPoint newValeur = new Point(complex);
         return newValeur;
     }
-    
+
 }

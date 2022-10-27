@@ -88,6 +88,7 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     /**
      *
      */
+    @Override
     public IPoint getProchainPoint(IPoint nbComplex) {
         double x = nbComplex.getX();
         double y = nbComplex.getY();
