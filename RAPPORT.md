@@ -56,6 +56,11 @@ Plusieurs méthodes définies :
 	2. Ecriture de l'en tête
 	3. Créations des figures
 	4. Bouclage du fichier
+	
+Q32 -> Implémentation du tapis de Sierpinski.
+Pour l'implémenter, j'ai utilisé le patron de méthode défini lors de l'étape précédente.
+De la récursivité a été utilisée pour générer les carrés en fonction de l'indice de précision.
+
 
 ### Questions 26-27
 Jules BOBEUF
