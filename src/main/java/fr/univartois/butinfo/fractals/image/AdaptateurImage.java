@@ -68,7 +68,7 @@ public class AdaptateurImage implements IFractalImage{
      */
     @Override
     public void setColor(int row, int column, Color color) {
-        image.setRGB(row, column, color.getRGB());
+        image.setRGB(column, row, color.getRGB());
     }
 
     /*

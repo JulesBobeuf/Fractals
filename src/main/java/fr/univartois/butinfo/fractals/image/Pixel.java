@@ -89,7 +89,7 @@ public final class Pixel {
      * @param color La nouvelle couleur pour ce pixel.
      */
     public void setColor(Color color) {
-        image.setColor(column, row, color);
+        image.setColor(row, column, color);
     }
 
 }
