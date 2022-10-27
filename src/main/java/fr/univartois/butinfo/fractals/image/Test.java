@@ -17,7 +17,7 @@ import fr.univartois.butinfo.fractals.complex.SuiteJulia;
  *
  * @author Jules
  *
- * @version 0.1.0
+ * @version 0.1.1
  */
 public class Test {
 
