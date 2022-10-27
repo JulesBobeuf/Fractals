@@ -11,7 +11,7 @@ public class IterateurDeSuiteChaotique implements Iterator<IPoint> {
     /**
      * 
      */
-    private SuiteChaotique suite;
+    private ISuiteChaotique suite;
 
     /**
      * 
@@ -32,7 +32,7 @@ public class IterateurDeSuiteChaotique implements Iterator<IPoint> {
      * @param s
      * @param n
      */
-    public IterateurDeSuiteChaotique(SuiteChaotique s, int n) {
+    public IterateurDeSuiteChaotique(ISuiteChaotique s, int n) {
         this.suite = s;
         this.n = n;
         nbIteration = 0;
