@@ -37,7 +37,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * Crée une nouvelle instance de ImageBuilder.
      */
     public Image(ImageBuilder builder) {
-        this.centre=builder.centre;
+        this.centre=builder.getCentre();
         this.height=buildHeight(builder.getHeight());
         this.width=builder.width;
         this.filepath=builder.filepath;
@@ -92,19 +92,19 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(java.lang.String)
      */
     @Override
-    public ISuitesComplexesRecurrentes buildSuite(String FractaleName,IComplex c) {
+    public ISuitesComplexesRecurrentes buildSuite(String fractaleName1,IComplex c) {
         ISuitesComplexesRecurrentes suite;
-        if (FractaleName.equals("SuiteJulia")) {
+        if (fractaleName1.equals("SuiteJulia")) {
             suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
-        } else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
+        } else if (fractaleName1.equals("SuiteJuliaGeneralisee")) {
             suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
         }
 
-        else if (FractaleName.equals("SuiteMandelbrot")) {
+        else if (fractaleName1.equals("SuiteMandelbrot")) {
             suite = new SuiteMandelbrot(c);
         }
 
-        else if (FractaleName.equals("SuiteMandelbrotGeneralisee")) {
+        else if (fractaleName1.equals("SuiteMandelbrotGeneralisee")) {
             suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> (o.multiply(o)).add(p));
         }
 
