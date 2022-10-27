@@ -58,14 +58,6 @@ public class SuitesComplexesRecurrentes implements ISuitesComplexesRecurrentes,I
     }
 
     /**
-     * @param nbComplex
-     * 
-     * @return Prochain nb complexe de la suite.
-     */
-    public IComplex getProchaineValeur(IComplex nbComplex) {
-        return suiteComplexe.valeurProchainTerme(nbComplex);
-    }
-    /**
      * @return
      */
     public IComplex getValeur() {
