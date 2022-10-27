@@ -20,14 +20,19 @@ public class PlanComplexeTranslation extends PlanComplexe {
     /**
      * L'attribut CONSTANTE...
      */
-    public final IComplex constant;
+    protected final IComplex constant;
+    
+    protected IPlanComplexe planComplexe;
+    
+    
     /**
      * Crée une nouvelle instance de PlanComplexeTranslation.
      * @param height
      * @param width
      */
-    public PlanComplexeTranslation(int height, int width, IComplex constant) {
-        super(height, width);
+    public PlanComplexeTranslation(IPlanComplexe planComplexe, IComplex constant) {
+        super(planComplexe.getHeight(), planComplexe.getWidth());
+        this.planComplexe=planComplexe;
         this.constant=constant;
     }
     /*
@@ -37,9 +42,7 @@ public class PlanComplexeTranslation extends PlanComplexe {
      */
     @Override
     public IComplex asComplex(int row, int column) {
-        double re = (column + .5) - (width / 2.);
-        double im = (height / 2.) - (row + .5);
-        return new Complex(re, im).add(constant);
+        return planComplexe.asComplex(row, column).add(constant);
     }
 
 }

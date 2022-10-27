@@ -17,7 +17,7 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuitesComplexesRecurrentes implements Iterable<IComplex> {
+public class SuitesComplexesRecurrentes implements ISuitesComplexesRecurrentes,Iterable<IComplex>{
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
@@ -97,6 +97,26 @@ public class SuitesComplexesRecurrentes implements Iterable<IComplex> {
      * @return
      */
     public IComplex getValInit() {
+        return valInit;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
+     */
+    @Override
+    public IComplex valeurProchainTerme(IComplex ancienTerme) {
+        return suiteComplexe.valeurProchainTerme(ancienTerme);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#getJ0()
+     */
+    @Override
+    public IComplex getJ0() {
         return valInit;
     }
     

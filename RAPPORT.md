@@ -4,8 +4,8 @@
 
 ### Questions 1-6
 Jules BOBEUF
-Implémentation de la classe Complex. Les tests fonctionnent sans erreur.
-Question 4 -> Création classe PlanComplexe
+Question 1-3 - Implémentation de la classe Complex. Les tests fonctionnent sans erreur.
+Question 4 - Création classe PlanComplexe
 Question 5 - Décorateur -> création interface IPlanComplexe et classe PlanComplexeTranslation
 Question 6 - Décorateur -> Création classe PlanComplexeZoom et utilisation de IPlanComplexe
 
@@ -27,3 +27,12 @@ Q14 -> Patron de conception pour appliquer un masque sur les couleurs produites 
 Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> Implémentation de la méthode SaveAs()
+
+### Questions 26-27
+Jules BOBEUF
+Question 26 - Constructeur -> Création des classes Image et ImageBuilder, création de l'interface IImageBuilder
+Question 27 -> Création de la classe Test.java, ajout du dossier images qui contient le résultat des 4 quatres suites récurrentes
+
+###Question 38
+Jules BOBEUF
+Remplissage de la méthode buildFractal(), reste à modifier.
