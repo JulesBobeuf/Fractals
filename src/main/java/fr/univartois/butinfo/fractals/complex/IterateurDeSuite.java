@@ -1,4 +1,3 @@
-
 package fr.univartois.butinfo.fractals.complex;
 
 import java.util.Iterator;
@@ -8,14 +7,14 @@ import java.util.Iterator;
  *
  */
 public class IterateurDeSuite  implements Iterator<IComplex>{
-    
     private ISuitesComplexesRecurrentes suite;
+    
     private IComplex valeur;
 
     private int nbIteration;
-    
+
     private int n; // donner une limite
-    
+
     public IterateurDeSuite(ISuitesComplexesRecurrentes s, int n) {
         this.suite=s;
         this.n=n;
@@ -46,7 +45,19 @@ public class IterateurDeSuite  implements Iterator<IComplex>{
             return valeur;
         }
     }
+    
+    /**
+     * @return
+     */
     public IComplex getValeur() {
         return valeur;
+    }
+
+    
+    /**
+     * @return
+     */
+    public int getNbIteration() {
+        return nbIteration;
     }
 }
