@@ -30,4 +30,9 @@ Question 25 -> Implémentation de la méthode SaveAs()
 
 ### Questions 26-27
 Jules BOBEUF
-Question 26 -> Constructeur ->
+Question 26 - Constructeur -> Création des classes Image et ImageBuilder, création de l'interface IImageBuilder
+Question 27 -> Création de la classe Test.java, ajout du dossier images qui contient le résultat des 4 quatres suites récurrentes
+
+###Question 38
+Jules BOBEUF
+Remplissage de la méthode buildFractal(), reste à modifier.

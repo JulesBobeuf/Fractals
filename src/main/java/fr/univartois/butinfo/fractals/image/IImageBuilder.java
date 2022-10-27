@@ -7,7 +7,9 @@
 
 package fr.univartois.butinfo.fractals.image;
 
+import fr.univartois.butinfo.fractals.complex.Complex;
 import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.complex.IPlanComplexe;
 import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
 
 /**
@@ -21,34 +23,52 @@ public interface IImageBuilder {
 
     /**
      * @param height
-     * @param width
+     * @return 
      */
-    public void buildDimensions(int height, int width);
+    public int buildHeight(int height);
+    
+    /**
+     * @param width
+     * @return
+     */
+    public int buildWidth(int width);
     
     /**
      * @param scale
      */
-    public void buildScale(double scale);
+    public double buildScale(double scale);
     
     /**
-     * @param complex
+     * @param focusX 
+     * @param focusY 
+     * @return 
      */
-    public void buildCenter(IComplex complex);
+    public IComplex buildCenter(double focusX,double focusY);
     
     /**
      * @param FractaleName
+     * @param c
+     * @return
      */
-    public void buildSuite(String FractaleName);
-    
+    ISuitesComplexesRecurrentes buildSuite(String FractaleName, IComplex c);
     /**
      * @param paletteName
      * @param nbIterations
+     * @return 
      */
-    public void buildColors(String paletteName, int nbIterations);
+    public IPalettesCouleurs buildColors(String paletteName, int nbIterations);
     
     /**
      * @param filepath
+     * @return 
      */
-    public void buildFilePath(String filepath);
+    public String buildFilePath(String filepath);
+    
+    /**
+     * @param height
+     * @param width
+     * @return
+     */
+    public IPlanComplexe buildPlanComplexe(int height,int width);
 }
 

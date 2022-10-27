@@ -7,123 +7,183 @@
 
 package fr.univartois.butinfo.fractals.image;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import fr.univartois.butinfo.fractals.complex.Complex;
 import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.complex.IPlanComplexe;
 import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
+import fr.univartois.butinfo.fractals.complex.IterateurDeSuite;
+import fr.univartois.butinfo.fractals.complex.PlanComplexe;
+import fr.univartois.butinfo.fractals.complex.PlanComplexeTranslation;
+import fr.univartois.butinfo.fractals.complex.PlanComplexeZoom;
+import fr.univartois.butinfo.fractals.complex.SuiteJulia;
+import fr.univartois.butinfo.fractals.complex.SuiteJuliaGeneralisee;
+import fr.univartois.butinfo.fractals.complex.SuiteMandelbrot;
+import fr.univartois.butinfo.fractals.complex.SuiteMandelbrotGeneralisee;
+import fr.univartois.butinfo.fractals.complex.SuitesComplexesRecurrentes;
 
 /**
- * Le type Image
+ * Le type ImageBuilder
  *
  * @author Jules
  *
  * @version 0.1.0
  */
-public class Image {
-    
-    /**
-     * L'attribut height...
-     */
-    protected int height;
-    
-    /**
-     * L'attribut width...
-     */
-    protected int width;
-    
-    /**
-     * L'attribut scale...
-     */
-    protected double scale;
-    
-    /**
-     * L'attribut complex...
-     */
-    protected IComplex complex;
-    
-    /**
-     * L'attribut suite...
-     */
-    protected ISuitesComplexesRecurrentes suite;
-    
-    /**
-     * L'attribut palette...
-     */
-    protected IPalettesCouleurs palette;
-    
-    /**
-     * L'attribut filepath...
-     */
-    protected String filepath;
+public class Image extends ImageBuilder implements IImageBuilder {
 
-    
     /**
-     * Donne l'attribut height de cette instance de Image.
-     *
-     * @return L'attribut height de cette instance de Image.
+     * Crée une nouvelle instance de ImageBuilder.
      */
-    public int getHeight() {
-        return height;
+    public Image(ImageBuilder builder) {
+        this.centre=builder.centre;
+        this.height=builder.height;
+        this.width=builder.width;
+        this.filepath=builder.filepath;
+        this.palette=builder.palette;
+        this.planComplexe=builder.planComplexe;
+        this.suite=builder.suite;
+        this.scale=builder.scale;
+        
     }
 
-    
-    /**
-     * Donne l'attribut width de cette instance de Image.
+    /*
+     * (non-Javadoc)
      *
-     * @return L'attribut width de cette instance de Image.
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildDimensions(int, int)
      */
-    public int getWidth() {
+    @Override
+    public int buildHeight(int height) {
+        return height;
+    }
+    
+    @Override
+    public int buildWidth(int width) {
         return width;
     }
 
-    
-    /**
-     * Donne l'attribut scale de cette instance de Image.
+    /*
+     * (non-Javadoc)
      *
-     * @return L'attribut scale de cette instance de Image.
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildScale(double)
      */
-    public double getScale() {
+    @Override
+    public double buildScale(double scale) {
         return scale;
     }
 
-    
-    /**
-     * Donne l'attribut complex de cette instance de Image.
+    /*
+     * (non-Javadoc)
      *
-     * @return L'attribut complex de cette instance de Image.
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildCenter(fr.univartois.
+     * butinfo.fractals.complex.IComplex)
      */
-    public IComplex getComplex() {
-        return complex;
+    @Override
+    public IComplex buildCenter(double focusX,double focusY) {
+        return new Complex(focusX,focusY);
     }
 
-    
-    /**
-     * Donne l'attribut suite de cette instance de Image.
+    /*
+     * (non-Javadoc)
      *
-     * @return L'attribut suite de cette instance de Image.
+     * @see
+     * fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(java.lang.String)
      */
-    public ISuitesComplexesRecurrentes getSuite() {
+    @Override
+    public ISuitesComplexesRecurrentes buildSuite(String FractaleName,IComplex c) {
+        ISuitesComplexesRecurrentes suite;
+        if (FractaleName.equals("SuiteJulia")) {
+            suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
+        } else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
+            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
+        }
+
+        else if (FractaleName.equals("SuiteMandelbrot")) {
+            suite = new SuiteMandelbrot(c);
+        }
+
+        else if (FractaleName.equals("SuiteMandelbrotGeneralisee")) {
+            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> (o.multiply(o)).add(p));
+        }
+
+        else {
+            throw new IllegalArgumentException("Fractale non reconnu");
+        }
         return suite;
     }
 
-    
-    /**
-     * Donne l'attribut palette de cette instance de Image.
+    /*
+     * (non-Javadoc)
      *
-     * @return L'attribut palette de cette instance de Image.
+     * @see
+     * fr.univartois.butinfo.fractals.image.IImageBuilder#buildColors(java.lang.String,
+     * int)
      */
-    public IPalettesCouleurs getPalette() {
+    @Override
+    public IPalettesCouleurs buildColors(String paletteName, int nbIterations) {
+        IPalettesCouleurs palette;
+        if (paletteName.equals("PaletteCouleurs1")) {
+            palette = new PaletteCouleurs1();
+        } else if (paletteName.equals("PaletteCouleurs2")) {
+            palette = new PaletteCouleurs2();
+        }
+
+        else {
+            throw new IllegalArgumentException("Palette non reconnu");
+        }
         return palette;
     }
 
-    
-    /**
-     * Donne l'attribut filepath de cette instance de Image.
+    /*
+     * (non-Javadoc)
      *
-     * @return L'attribut filepath de cette instance de Image.
+     * @see
+     * fr.univartois.butinfo.fractals.image.IImageBuilder#buildFilePath(java.lang.String)
      */
-    public String getFilepath() {
-        return filepath;
+    @Override
+    public String buildFilePath(String filePath) {
+        return filePath;
     }
     
-    
-}
+    /**
+     * 
+     */
+    public void generateImage() {
+        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
+        //PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.PointEnComplex());
+        int max = 100;
+        IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        for (int wi=0;wi<width;wi++) {
+            for (int he=0;he<height;he++) {
+                int count = 0;
+                Pixel pixel = image.getPixel(he,wi);
+                IComplex z = zoom.asComplex(pixel.getRow(), pixel.getColumn());
+                //ISuitesComplexesRecurrentes suite = buildSuite("SuiteMandelbrot", z);
+                ISuitesComplexesRecurrentes suite = new SuiteJuliaGeneralisee(z,new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
+                IterateurDeSuite iterator = new IterateurDeSuite(suite,max);
+                while (iterator.hasNext()) {
+                    iterator.next();
+                    count++;
+                }
+                pixel.setColor(palette.getColor(count, max));
+            }
+        }
+        try {
+            image.saveAs(filepath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildPlanComplexe(int, int)
+     */
+    @Override
+    public IPlanComplexe buildPlanComplexe(int height, int width) {
+        return new PlanComplexe(height,width);
+    }
+
+}
