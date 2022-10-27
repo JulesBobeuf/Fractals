@@ -85,4 +85,11 @@ public class PlanComplexe implements IPlanComplexe {
         }
         return new Pixel(image,(int)complex.getRealPart(),(int)complex.getImaginaryPart());
     }
+    
+    public Pixel PointAsPixel(IFractalImage image,IPoint point){
+        if ((point.getX()>width) || (point.getY()>height)){
+            return null;
+        }
+        return new Pixel(image,(int)point.getX(),(int)point.getY());
+    }
 }
