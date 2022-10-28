@@ -39,14 +39,14 @@ public class Image extends ImageBuilder implements IImageBuilder {
     public Image(ImageBuilder builder) {
         this.centre=builder.getCentre();
         this.height=buildHeight(builder.getHeight());
-        this.width=builder.width;
-        this.filepath=builder.filepath;
-        this.palette=builder.palette;
-        this.planComplexe=builder.planComplexe;
-        this.scale=builder.scale;
-        this.filepath=builder.filepath;
-        this.fractaleName=builder.fractaleName;
-        this.nbMaxIterations=builder.nbMaxIterations;
+        this.width=builder.getWidth();
+        this.filepath=builder.getFilepath();
+        this.palette=builder.getPalette();
+        this.planComplexe=builder.getPlanComplexe();
+        this.scale=builder.getScale();
+        this.filepath=builder.getFilepath();
+        this.fractaleName=builder.getFractaleName();
+        this.nbMaxIterations=builder.getNbMaxIterations();
     }
     
     /*
@@ -171,6 +171,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
         }
         try {
             image.saveAs(filepath);
+            System.out.println("Image sauvegardé !");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

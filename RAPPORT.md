@@ -36,3 +36,11 @@ Question 27 -> Création de la classe Test.java, ajout du dossier images qui con
 ###Question 38
 Jules BOBEUF
 Remplissage de la méthode buildFractal() en utilisant la classe Test créée précédemment.
+
+###Questions 39-43
+Jules BOBEUF
+Question 39 -> Arguments : -f "SuiteJulia" -h "1080" -w "1920" -n "100" -o "../testRunGrade.jpg" -p "PaletteCouleurs1" -s "0.0025" -x "0.0" -y "0.0"
+Question 40 -> on a le jar.
+Question 41
+Question 42
+Question 43

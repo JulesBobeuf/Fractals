@@ -31,7 +31,7 @@ public class Test {
         builder.setScale(1./400);
         builder.setComplex(new Point(new Complex(0,0)));
         builder.setPlanComplexe(new PlanComplexe(1080,1920));
-        builder.setFilepath("../test.jpg");
+        builder.setFilepath("../test2.jpg");
         builder.setPalette("PaletteCouleurs1");
         builder.setFractaleName("SuiteJulia");
         builder.setNbMaxIterations(100);
