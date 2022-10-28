@@ -16,12 +16,12 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     /**
      * L'attribut valInit (valeur initialle de la suite)
      */
-    protected Point valInit;
+    protected IPoint valInit;
 
     /**
      * L'attribut valeur (valeur actuelle)
      */
-    protected Point valeur;
+    protected IPoint valeur;
 
     /**
      * L'attribut nbIteration qui compte les itération de hasNext().
@@ -29,19 +29,14 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     protected int n;
 
     /**
-     * L'attribut suiteComplexe...
-     */
-    protected ISuiteChaotique suiteChaotique;
-
-    /**
      * Crée une nouvelle instance de SuitesComplexesRecurrentes.
      * 
      * @param valInit
+     * @param suiteChaotique 
      * @param suiteComplexes
      */
-    public SuiteChaotique(Point valInit, ISuiteChaotique suiteChaotique) {
+    public SuiteChaotique(Point valInit) {
         this.valInit = valInit;
-        this.suiteChaotique = suiteChaotique;
         this.n = 0;
     }
 
@@ -58,7 +53,8 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
      *
      * @see fr.univartois.butinfo.fractals.complex.ISuiteChaotique#getValeur()
      */
-    public Point getValeur() {
+    @Override
+    public IPoint getValeur() {
         return valeur;
     }
 
@@ -68,25 +64,12 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     public void setValeur(Point valeur) {
         this.valeur = valeur;
     }
-
+    
     /**
      * @return
      */
-    public ISuiteChaotique getSuiteComplexe() {
-        return suiteChaotique;
-    }
-
-    /**
-     * @param suiteComplexe
-     */
-    public void setSuiteChaotique(ISuiteChaotique suiteChaotique) {
-        this.suiteChaotique = suiteChaotique;
-    }
-
-    /**
-     * @return
-     */
-    public Point getValInit() {
+    @Override
+    public IPoint getValeurInit() {
         return valInit;
     }
 
@@ -94,8 +77,14 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
      *
      */
     @Override
-    public IPoint getProchainPoint(IPoint ancienPoint) {
-        return suiteChaotique.getProchainPoint(ancienPoint);
+    public IPoint getProchainPoint(IPoint nbComplex) {
+        double x = nbComplex.getX();
+        double y = nbComplex.getY();
+        IComplex complex = nbComplex.pointEnComplex();
+        complex.setRe(x);
+        complex.setIm((x*y)*(1-y));
+        IPoint newValeur = new Point(complex);
+        return newValeur;
     }
     
 }

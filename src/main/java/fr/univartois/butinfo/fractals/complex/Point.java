@@ -10,12 +10,12 @@ public class Point implements IPoint{
     /**
      * s
      */
-    Complex complex;
+    IComplex complex;
 
     /**
      * @param complex
      */
-    public Point(Complex complex) {
+    public Point(IComplex complex) {
         this.complex = complex;
     }
 
@@ -38,7 +38,7 @@ public class Point implements IPoint{
      * @param complexe2
      * @return
      */
-    public double DistanceEntre2Points(Complex complexe1,Complex complexe2) {
+    public double distanceEntre2Points(Complex complexe1,Complex complexe2) {
         Point point1 = new Point(complexe1);
         Point point2 = new Point(complexe2);
         return Math.sqrt((Math.pow(point1.getX()-point2.getX(),2))+Math.pow(point1.getY()-point2.getY(),2));
@@ -47,7 +47,7 @@ public class Point implements IPoint{
     /**
      * @return
      */
-    public Complex PointEnComplex() {
+    public IComplex pointEnComplex() {
         return complex;
     }
 

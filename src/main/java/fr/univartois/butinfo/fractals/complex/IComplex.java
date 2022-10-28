@@ -104,5 +104,17 @@ public interface IComplex {
      * @return Le résultat de {@code this / other}.
      */
     IComplex divide(IComplex other);
+    
+    /**
+     * @param re
+     * @return
+     */
+    void setRe(double re);
+    
+    /**
+     * @param im
+     * @return
+     */
+    void setIm(double im);
 
 }

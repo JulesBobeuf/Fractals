@@ -29,19 +29,13 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
     protected int n;
 
     /**
-     * L'attribut suiteComplexe...
-     */
-    protected ISuiteChaotique suiteChaotique;
-
-    /**
      * Crée une nouvelle instance de SuitesComplexesRecurrentes.
      * 
      * @param valInit
      * @param suiteComplexes
      */
-    public SuiteCirculaire(Point valInit, ISuiteChaotique suiteChaotique) {
+    public SuiteCirculaire(Point valInit ) {
         this.valInit = valInit;
-        this.suiteChaotique = suiteChaotique;
         this.n = 0;
     }
 
@@ -67,21 +61,8 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
     /**
      * @return
      */
-    public ISuiteChaotique getSuiteComplexe() {
-        return suiteChaotique;
-    }
-
-    /**
-     * @param suiteChaotique
-     */
-    public void setSuiteChaotique(ISuiteChaotique suiteChaotique) {
-        this.suiteChaotique = suiteChaotique;
-    }
-
-    /**
-     * @return
-     */
-    public Point getValInit() {
+    @Override
+    public Point getValeurInit() {
         return valInit;
     }
 
@@ -92,7 +73,7 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
     public IPoint getProchainPoint(IPoint nbComplex) {
         double x = nbComplex.getX();
         double y = nbComplex.getY();
-        Complex complex = nbComplex.PointEnComplex();
+        IComplex complex = nbComplex.pointEnComplex();
         complex.setRe(x);
         complex.setIm(y + ((Math.sin(2 * Math.PI * y)) / (2 * Math.PI)) + 1 / 3);
         IPoint newValeur = new Point(complex);

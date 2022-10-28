@@ -70,6 +70,7 @@ public class PlanComplexe implements IPlanComplexe {
      *
      * @return L'attribut width de cette instance de PlanComplexe.
      */
+    @Override
     public double getWidth() {
         return width;
     }
@@ -92,7 +93,8 @@ public class PlanComplexe implements IPlanComplexe {
      *
      * @see fr.univartois.butinfo.fractals.complex.IPlanComplexe#asPixel(fr.univartois.butinfo.fractals.image.IFractalImage, fr.univartois.butinfo.fractals.complex.IPoint)
      */
-    public Pixel asPixel(IFractalImage image,IPoint point){
+    @Override
+    public Pixel PointAsPixel(IFractalImage image,IPoint point) {
         if ((point.getX()>width) || (point.getY()>height)){
             return null;
         }
