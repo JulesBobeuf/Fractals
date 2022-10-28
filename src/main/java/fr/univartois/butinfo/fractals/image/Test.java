@@ -32,7 +32,7 @@ public class Test {
         builder.setComplex(new Point(new Complex(0,0)));
         builder.setPlanComplexe(new PlanComplexe(1080,1920));
         builder.setFilepath("../test.jpg");
-        builder.setPalette(new PaletteCouleurs1());
+        builder.setPalette(new PaletteCouleursCyan());
         new Image(builder).generateImage();  
     }
 

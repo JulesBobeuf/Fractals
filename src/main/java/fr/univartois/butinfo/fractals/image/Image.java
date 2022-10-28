@@ -126,7 +126,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
         if (paletteName.equals("PaletteCouleurs1")) {
             palette = new PaletteCouleurs1();
         } else if (paletteName.equals("PaletteCouleurs2")) {
-            palette = new PaletteCouleurs2();
+            palette = new PaletteCouleursVert();
         }
 
         else {
