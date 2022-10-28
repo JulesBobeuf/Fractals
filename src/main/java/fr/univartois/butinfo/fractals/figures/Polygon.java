@@ -8,8 +8,9 @@
 package fr.univartois.butinfo.fractals.figures;
 
 import java.awt.Color;
-import java.awt.Point;
 import java.util.Iterator;
+
+import fr.univartois.butinfo.fractals.complex.Point;
 
 /**
  * Le type Figure
@@ -49,9 +50,9 @@ public class Polygon implements IFigures {
     public String representation() {
         String txt = "<polygon points=\"";
         for (Point point : points) {
-            txt += point.toString() + ",";
+            txt += point.toString() + " ";
         }
-        return txt += "\" stroke=" + color + "\"/>";
+        return txt += String.format("\" fill=\"%s\"/>", color);
     }
 
 }
