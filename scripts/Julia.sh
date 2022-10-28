@@ -12,7 +12,6 @@ if [ ! -e $name ] ; then
     mkdir $name
 fi
 
-echo $(basename "$0" .sh)
 for (( j=1 ; j<=i ; j++ )) ; do
     o="./$name/$name-$j.jpg"
     java -jar sae-2022-2023.jar -f $f -h $h -n $n -s $s -w $w -o $o $@

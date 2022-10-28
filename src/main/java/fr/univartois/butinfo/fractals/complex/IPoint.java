@@ -14,12 +14,12 @@ public interface IPoint {
      * @param complexe2
      * @return
      */
-    double DistanceEntre2Points(Complex complexe1,Complex complexe2);
+    double distanceEntre2Points(Complex complexe1,Complex complexe2);
     
     /**
      * @return
      */
-    Complex PointEnComplex();
+    IComplex pointEnComplex();
     
     /**
      * @return
