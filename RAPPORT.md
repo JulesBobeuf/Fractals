@@ -33,6 +33,15 @@ Jules BOBEUF
 Question 26 - Constructeur -> Création des classes Image et ImageBuilder, création de l'interface IImageBuilder
 Question 27 -> Création de la classe Test.java, ajout du dossier images qui contient le résultat des 4 quatres suites récurrentes
 
-###Question 38
+### Question 38
 Jules BOBEUF
 Remplissage de la méthode buildFractal() en utilisant la classe Test créée précédemment.
+
+### Questions 39-43
+Jules BOBEUF
+Question 39 -> Création de la run Configuration en local : ça marche pour les parametres données
+Question 40 -> Création du Jar
+Question 41 -> Création des scryptes bash de base
+Question 42 -> Ajout dans ces fichiers du zoom 
+Question 43 -> Génération des images avec les scriptes bash.
+
