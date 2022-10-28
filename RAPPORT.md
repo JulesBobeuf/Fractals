@@ -41,6 +41,6 @@ Remplissage de la méthode buildFractal() en utilisant la classe Test créée pr
 Jules BOBEUF
 Question 39 -> Création de la run Configuration en local : ça marche pour les parametres données
 Question 40 -> Création du Jar
-Question 41 -> Création des scryptes bash de base
+Question 41 -> Création des scriptes bash de base - dossier scripts
 Question 42 -> Ajout dans ces fichiers du zoom 
-Question 43 -> Génération des images avec les scriptes bash.
+Question 43 -> Génération des images avec les scriptes bash. - dossiers Julia, JuliaGeneralisee, Mandelbrot, MandelbrotGeneralisee

@@ -97,7 +97,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
         if (fractaleName1.equals("SuiteJulia")) {
             suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
         } else if (fractaleName1.equals("SuiteJuliaGeneralisee")) {
-            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
+            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o).multiply(o)).add(p));
         }
 
         else if (fractaleName1.equals("SuiteMandelbrot")) {
