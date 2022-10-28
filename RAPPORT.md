@@ -14,7 +14,21 @@ Aymeric JAKOBOWSKI - Thomas SANTORO
 
 Q7 (Aymeric) -> Patron de conception pour représenter les différentes suites : **stratégie**
 
-Q8 -> Patron de conception pour parcourir les éléments d'une suite : **itérateur**
+Q8 (Thomas)-> Patron de conception pour parcourir les éléments d'une suite : **itérateur**
+
+### Questions 9-10
+Aymeric JAKOBOWSKI - Thomas SANTORO
+
+Q9 (Aymeric) -> Création et implémentation de la suite Julia
+
+Q10 (Thomas) -> Création et implémentation de la suite Mandelbrot
+
+### Questions 11-12
+Aymeric JAKOBOWSKI - Thomas SANTORO
+
+Q9 (Aymeric) -> Utilisation de BinaryOperator sur la suite Julia afin de pouvoir creer une suite Julia généraliser
+
+Q10 (Thomas) -> Utilisation de BinaryOperator sur la suite Mandelbrot afin de pouvoir creer une suite Mandelbrot généraliser
 
 ### Questions 13 - 14
 Aymeric JAKOBOWSKI
@@ -22,6 +36,27 @@ Aymeric JAKOBOWSKI
 Q13 -> Patron de conception pour représenter différentes pallettes de couleurs : **Stratégie**
 
 Q14 -> Patron de conception pour appliquer un masque sur les couleurs produites par les palettes : **Décorateur**
+
+### Questions 15-23
+Thomas SANTORO
+
+Q15 -> Utilisation d'un adaptateur afin de créer un point et de trouver la distance entre 2 points
+
+Q16 -> Utilisation d'une variable complex récupérée
+
+Q17 -> Patron de conception pour représenter les différentes Chaotique  : **stratégie**
+
+Q18 -> Création de l'attracteur de Feigenbaum calculée à partir d'une formule servant à trouver yn
+
+Q19 -> Création d'une suite circulaire similaire à l'attracteur de Feigenbaum avec une autre formule
+
+Q20 -> Création d'un nouveau patron de conception : **itérateur**
+
+Q21 -> Création de la méthode asPixel
+
+Q22 ->
+
+Q23 ->
 
 ### Questions 24-25
 Jules BOBEUF
