@@ -25,4 +25,8 @@ public interface ISuiteChaotique {
      */
     IPoint getProchainPoint(IPoint ancienTerme);
 
+    /**
+     * @return
+     */
+    IPoint getValeur();
 }

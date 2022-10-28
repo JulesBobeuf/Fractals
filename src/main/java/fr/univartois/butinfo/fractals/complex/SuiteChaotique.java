@@ -53,6 +53,11 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     /**
      * @return
      */
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuiteChaotique#getValeur()
+     */
     public Point getValeur() {
         return valeur;
     }

@@ -103,9 +103,8 @@ public class Image extends ImageBuilder implements IImageBuilder {
         else if (fractaleName1.equals("SuiteMandelbrot")) {
             suite = new SuiteMandelbrot(c);
         }
-
         else if (fractaleName1.equals("SuiteMandelbrotGeneralisee")) {
-            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> (o.multiply(o)).add(p));
+            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> ((o.multiply(o).add(o)).divide(o.multiply(o).multiply(o).add(p))));
         }
 
         else {
@@ -126,8 +125,12 @@ public class Image extends ImageBuilder implements IImageBuilder {
         IPalettesCouleurs palette;
         if (paletteName.equals("PaletteCouleurs1")) {
             palette = new PaletteCouleurs1();
-        } else if (paletteName.equals("PaletteCouleurs2")) {
-            palette = new PaletteCouleurs2();
+        } else if (paletteName.equals("PaletteCouleursCyan")) {
+            palette = new PaletteCouleursCyan();
+        }else if (paletteName.equals("PaletteCouleursRouge")) {
+            palette = new PaletteCouleursRouge();
+        }else if (paletteName.equals("PaletteCouleursVert")) {
+            palette = new PaletteCouleursVert();
         }
 
         else {

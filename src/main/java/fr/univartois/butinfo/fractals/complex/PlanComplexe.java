@@ -33,9 +33,8 @@ public class PlanComplexe implements IPlanComplexe {
     protected double width;
 
     /**
-     * 
      * Crée une nouvelle instance de PlanComplexe.
-     * 
+     * @param image
      * @param height
      * @param width
      */
@@ -74,5 +73,28 @@ public class PlanComplexe implements IPlanComplexe {
     public double getWidth() {
         return width;
     }
-
+    
+    /**
+     * @param complex
+     * @param image
+     * @return
+     */
+    public Pixel ComplexAsPixel(IFractalImage image,IComplex complex){
+        if ((complex.getRealPart()>width) || (complex.getImaginaryPart()>height)){
+            return null;
+        }
+        return new Pixel(image,(int)complex.getRealPart(),(int)complex.getImaginaryPart());
+    }
+    
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.IPlanComplexe#PointAsPixel(fr.univartois.butinfo.fractals.image.IFractalImage, fr.univartois.butinfo.fractals.complex.IPoint)
+     */
+    public Pixel PointAsPixel(IFractalImage image,IPoint point){
+        if ((point.getX()>width) || (point.getY()>height)){
+            return null;
+        }
+        return new Pixel(image,(int)point.getX(),(int)point.getY());
+    }
 }
