@@ -33,7 +33,7 @@ public class Test {
         builder.setPlanComplexe(new PlanComplexe(1080,1920));
         builder.setFilepath("../test.jpg");
         builder.setPalette("PaletteCouleursRouge");
-        builder.setFractaleName("SuiteMandelbrotGeneralisee");
+        builder.setFractaleName("SuiteMandelbrot");
         builder.setNbMaxIterations(100);
         new Image(builder).generateImage();
     }

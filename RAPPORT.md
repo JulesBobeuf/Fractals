@@ -54,9 +54,9 @@ Q20 -> Création d'un nouveau patron de conception : **itérateur**
 
 Q21 -> Création de la méthode asPixel
 
-Q22 ->
+Q22 -> Création de la classe Couleur du pixel et de la méthode getCouleur
 
-Q23 ->
+Q23 -> 
 
 ### Questions 24-25
 Jules BOBEUF
