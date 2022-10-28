@@ -44,4 +44,6 @@ Question 40 -> Création du Jar
 Question 41 -> Création des scryptes bash de base
 Question 42 -> Ajout dans ces fichiers du zoom 
 Question 43 -> Génération des images avec les scriptes bash.
+Commandes entrées :
+bash Julia.sh -x 0.0 -y 0.0 -p PaletteCouleurs1
 
