@@ -38,16 +38,17 @@ public class Image extends ImageBuilder implements IImageBuilder {
      */
     public Image(ImageBuilder builder) {
         this.centre=builder.centre;
-        this.height=builder.height;
+        this.height=buildHeight(builder.getHeight());
         this.width=builder.width;
         this.filepath=builder.filepath;
         this.palette=builder.palette;
         this.planComplexe=builder.planComplexe;
-        this.suite=builder.suite;
         this.scale=builder.scale;
-        
+        this.filepath=builder.filepath;
+        this.fractaleName=builder.fractaleName;
+        this.nbMaxIterations=builder.nbMaxIterations;
     }
-
+    
     /*
      * (non-Javadoc)
      *
@@ -151,22 +152,21 @@ public class Image extends ImageBuilder implements IImageBuilder {
      */
     public void generateImage() {
         PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
-        //PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.PointEnComplex());
-        int max = 100;
+        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.PointEnComplex()); 
         IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        IPalettesCouleurs paletteCouleurs = buildColors(palette,nbMaxIterations);
         for (int wi=0;wi<width;wi++) {
             for (int he=0;he<height;he++) {
                 int count = 0;
                 Pixel pixel = image.getPixel(he,wi);
-                IComplex z = zoom.asComplex(pixel.getRow(), pixel.getColumn());
-                //ISuitesComplexesRecurrentes suite = buildSuite("SuiteMandelbrot", z);
-                ISuitesComplexesRecurrentes suite = new SuiteJuliaGeneralisee(z,new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
-                IterateurDeSuite iterator = new IterateurDeSuite(suite,max);
+                IComplex z = trans.asComplex(pixel.getRow(), pixel.getColumn());
+                ISuitesComplexesRecurrentes laSuite = buildSuite(fractaleName, z);
+                IterateurDeSuite iterator = new IterateurDeSuite(laSuite,nbMaxIterations);
                 while (iterator.hasNext()) {
                     iterator.next();
                     count++;
                 }
-                pixel.setColor(palette.getColor(count, max));
+                pixel.setColor(paletteCouleurs.getColor(count, nbMaxIterations));
             }
         }
         try {

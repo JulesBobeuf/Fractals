@@ -20,34 +20,35 @@ import fr.univartois.butinfo.fractals.image.Pixel;
  *
  * @version 0.1.0
  */
-public class PlanComplexe implements IPlanComplexe{
+public class PlanComplexe implements IPlanComplexe {
 
     /**
      * L'attribut height...
      */
     protected double height;
-    
+
     /**
      * L'attribut width...
      */
     protected double width;
-    
-    
+
     /**
      * 
      * Crée une nouvelle instance de PlanComplexe.
+     * 
      * @param height
      * @param width
      */
     public PlanComplexe(double height, double width) {
-        this.height=height;
-        this.width=width;
+        this.height = height;
+        this.width = width;
     }
-    
+
     /**
      * 
      * @param row
      * @param column
+     * 
      * @return
      */
     public IComplex asComplex(int row, int column) {
@@ -55,8 +56,7 @@ public class PlanComplexe implements IPlanComplexe{
         double im = (height / 2.) - (row + .5);
         return new Complex(re, im);
     }
-    
-    
+
     /**
      * Donne l'attribut height de cette instance de PlanComplexe.
      *
@@ -66,7 +66,6 @@ public class PlanComplexe implements IPlanComplexe{
         return height;
     }
 
-    
     /**
      * Donne l'attribut width de cette instance de PlanComplexe.
      *
@@ -75,6 +74,5 @@ public class PlanComplexe implements IPlanComplexe{
     public double getWidth() {
         return width;
     }
-}
 
-   
+}

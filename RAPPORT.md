@@ -35,4 +35,4 @@ Question 27 -> Création de la classe Test.java, ajout du dossier images qui con
 
 ###Question 38
 Jules BOBEUF
-Remplissage de la méthode buildFractal(), reste à modifier.
+Remplissage de la méthode buildFractal() en utilisant la classe Test créée précédemment.

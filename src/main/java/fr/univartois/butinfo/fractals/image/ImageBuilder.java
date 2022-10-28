@@ -37,26 +37,57 @@ public class ImageBuilder {
     protected double scale;
     
     /**
+     * L'attribut nbMaxIterartions...
+     */
+    protected int nbMaxIterations;
+    
+    /**
      * L'attribut complex...
      */
     protected Point centre;
     
     /**
-     * L'attribut suite...
-     */
-    protected ISuitesComplexesRecurrentes suite;
-    
-    /**
      * L'attribut palette...
      */
-    protected IPalettesCouleurs palette;
+    protected String palette;
     
     /**
      * L'attribut filepath...
      */
     protected String filepath;
 
+    /**
+     * L'attribut planComplexe...
+     */
     protected IPlanComplexe planComplexe;
+    
+    
+    
+    /**
+     * Donne l'attribut fractaleName de cette instance de ImageBuilder.
+     *
+     * @return L'attribut fractaleName de cette instance de ImageBuilder.
+     */
+    public String getFractaleName() {
+        return fractaleName;
+    }
+
+    
+    /**
+     * Modifie l'attribut fractaleName de cette instance de ImageBuilder.
+     *
+     * @param fractaleName La nouvelle valeur de l'attribut fractaleName pour cette instance de ImageBuilder.
+     */
+    public void setFractaleName(String fractaleName) {
+        this.fractaleName = fractaleName;
+    }
+
+
+
+    /**
+     * L'attribut fractaleName...
+     */
+    protected String fractaleName;
 
     
     /**
@@ -97,15 +128,34 @@ public class ImageBuilder {
     public Point getCentre() {
         return centre;
     }
+    
+    /**
+     * Donne l'attribut nbMaxIterartions de cette instance de ImageBuilder.
+     *
+     * @return L'attribut nbMaxIterartions de cette instance de ImageBuilder.
+     */
+    public int getNbMaxIterations() {
+        return nbMaxIterations;
+    }
+    
+    /**
+     * Modifie l'attribut nbMaxIterartions de cette instance de ImageBuilder.
+     *
+     * @param nbMaxIterartions La nouvelle valeur de l'attribut nbMaxIterartions pour cette instance de ImageBuilder.
+     */
+    public void setNbMaxIterations(int nbMaxIterations) {
+        this.nbMaxIterations = nbMaxIterations;
+    }
+
 
     
     /**
-     * Donne l'attribut suite de cette instance de Image.
+     * Modifie l'attribut centre de cette instance de ImageBuilder.
      *
-     * @return L'attribut suite de cette instance de Image.
+     * @param centre La nouvelle valeur de l'attribut centre pour cette instance de ImageBuilder.
      */
-    public ISuitesComplexesRecurrentes getSuite() {
-        return suite;
+    public void setCentre(Point centre) {
+        this.centre = centre;
     }
 
     
@@ -114,7 +164,7 @@ public class ImageBuilder {
      *
      * @return L'attribut palette de cette instance de Image.
      */
-    public IPalettesCouleurs getPalette() {
+    public String getPalette() {
         return palette;
     }
 
@@ -193,27 +243,14 @@ public class ImageBuilder {
     public void setComplex(Point point) {
         this.centre = point;
     }
-
-
-    
-    /**
-     * Modifie l'attribut suite de cette instance de Image.
-     *
-     * @param suite La nouvelle valeur de l'attribut suite pour cette instance de Image.
-     */
-    public void setSuite(ISuitesComplexesRecurrentes suite) {
-        this.suite = suite;
-    }
-
-
     
     /**
      * Modifie l'attribut palette de cette instance de Image.
      *
-     * @param palette La nouvelle valeur de l'attribut palette pour cette instance de Image.
+     * @param paletteName La nouvelle valeur de l'attribut palette pour cette instance de Image.
      */
-    public void setPalette(IPalettesCouleurs palette) {
-        this.palette = palette;
+    public void setPalette(String paletteName) {
+        this.palette = paletteName;
     }
 
 

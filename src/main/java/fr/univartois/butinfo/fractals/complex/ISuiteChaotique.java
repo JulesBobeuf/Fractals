@@ -23,6 +23,6 @@ public interface ISuiteChaotique {
      *
      * @return [DOUBLE] prochain terme de la suite.
      */
-    IPoint valeurProchainPoint(Point ancienTerme);
+    IPoint getProchainPoint(IPoint ancienTerme);
 
 }
