@@ -67,7 +67,7 @@ public class CouleurDuPixel {
                 double k = point.getY();
                 Pixel pixel = new Pixel(image,wi,he);
                 IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(suite, n);
-                while (iterator.hasNext() || k>ε) {
+                while (iterator.hasNext() || k<ε) {
                     iterator.next();
                 }
                 pixel.setColor(palette.getColor(iterator.getNbIteration(),n));
