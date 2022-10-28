@@ -55,10 +55,4 @@ public class Point implements IPoint{
     public String toString() {
         return this.getX()+" "+this.getY();
     }
-
-    @Override
-    public double DistanceEntre2Points() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
 }

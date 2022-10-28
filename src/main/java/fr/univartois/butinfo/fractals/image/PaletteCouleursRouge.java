@@ -1,23 +1,15 @@
-/**
- * Ce fichier fait partie du projet sae-2022-2023.
- *
- * (c) 2022 aymeric.jakobowski
- * Tous droits réservés.
- */
-
 package fr.univartois.butinfo.fractals.image;
 
 import java.awt.Color;
 
 /**
- * Le type PaletteCouleurs2
+ * Le type PaletteCouleursCyan
  *
- * @author aymeric.jakobowski
+ * @author thomas
  *
  * @version 0.1.0
  */
-public class PaletteCouleurs2 implements IPalettesCouleurs {
-
+public class PaletteCouleursRouge implements IPalettesCouleurs{
     /*
      * (non-Javadoc)
      *
@@ -26,8 +18,8 @@ public class PaletteCouleurs2 implements IPalettesCouleurs {
     @Override
     public Color getColor(int nbIterationsEff, int nbMaxIterations) {
         int ratio = nbIterationsEff / nbMaxIterations;
-        ratio=Math.min(ratio,1);
-        return new Color(75 * ratio, 75 * ratio, 10 * ratio, 1);
+        //ratio=Math.max(ratio,1);
+        return new Color(255 * ratio, 0 * ratio, 0 * ratio, 1);
     }
 
 }
