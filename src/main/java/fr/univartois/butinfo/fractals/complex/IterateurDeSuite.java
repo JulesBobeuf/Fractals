@@ -7,8 +7,8 @@ import java.util.Iterator;
  *
  */
 public class IterateurDeSuite  implements Iterator<IComplex>{
-
     private ISuitesComplexesRecurrentes suite;
+    
     private IComplex valeur;
 
     private int nbIteration;
@@ -45,6 +45,7 @@ public class IterateurDeSuite  implements Iterator<IComplex>{
             return valeur;
         }
     }
+    
     /**
      * @return
      */
@@ -59,5 +60,4 @@ public class IterateurDeSuite  implements Iterator<IComplex>{
     public int getNbIteration() {
         return nbIteration;
     }
-    
 }
