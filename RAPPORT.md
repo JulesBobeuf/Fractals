@@ -63,6 +63,40 @@ Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> Implémentation de la méthode SaveAs()
 
+### Question 28-36
+Aymeric JAKOBOWSKI
+
+Package ``fr.univartois.butinfo.fractals.figures``
+
+Q28 -> Réalisation d'une interface IFigures. Une méthode qui retourne une chaine de caractère (String).
+Différentes classes implémentant cette interface :
+	- Cercle
+	- Ellipse
+	- Ligne
+	- Polygon
+	- Rectangle
+
+Q29 -> Patron de conception pour appliquer des transformations sur les figures : **Décorateur**
+Mise en place de 3 décorateurs pour les transformations suivantes : 
+	-Translation
+	-Scale
+	-Rotation
+	
+Q30 -> Patron de conception pour avoir plusieurs figures : **Composite**
+Utilisation d'un itérateur pour le parcours de plusieurs figures.
+
+Q31 -> Patron de conception pour implémenter plusieurs étapes lors de la création du fichier : **PAtron de méthode**
+Plusieurs méthodes définies :
+	1. Ouverture du ficher
+	2. Ecriture de l'en tête
+	3. Créations des figures
+	4. Bouclage du fichier
+	
+Q32 -> Implémentation du tapis de Sierpinski.
+Pour l'implémenter, j'ai utilisé le patron de méthode défini lors de l'étape précédente.
+De la récursivité a été utilisée pour générer les carrés en fonction de l'indice de précision.
+
+
 ### Questions 26-27
 Jules BOBEUF
 Question 26 - Constructeur -> Création des classes Image et ImageBuilder, création de l'interface IImageBuilder

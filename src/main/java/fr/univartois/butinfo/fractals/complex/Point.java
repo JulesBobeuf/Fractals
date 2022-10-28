@@ -53,6 +53,6 @@ public class Point implements IPoint{
 
     @Override
     public String toString() {
-        return this.getX()+" "+this.getY();
+        return this.getX()+","+this.getY();
     }
 }
