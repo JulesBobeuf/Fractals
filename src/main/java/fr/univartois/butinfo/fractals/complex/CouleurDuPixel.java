@@ -10,6 +10,7 @@ package fr.univartois.butinfo.fractals.complex;
 import java.awt.image.BufferedImage;
 import fr.univartois.butinfo.fractals.image.AdaptateurImage;
 import fr.univartois.butinfo.fractals.image.IFractalImage;
+import fr.univartois.butinfo.fractals.image.IPalettesCouleurs;
 import fr.univartois.butinfo.fractals.image.Pixel;
 
 /**
@@ -35,6 +36,11 @@ public class CouleurDuPixel {
      * L'attribut n...
      */
     private int n;
+    
+    /**
+     * L'attribut palette...
+     */
+    private IPalettesCouleurs palette;
 
     /**
      * Crée une nouvelle instance de CouleurDuPixel.
@@ -48,17 +54,23 @@ public class CouleurDuPixel {
         this.n = n;
     }
 
+
     /**
-     * 
+     * @param image
      */
-    public void getCouleur() {
+    public void getCouleur(IFractalImage image) {
+        double ε = 0.5;
         for (int wi = 0; wi < plan.getWidth(); wi++) {
             for (int he = 0; he < plan.getHeight(); he++) {
+                Complex complex = new Complex(wi,he);
+                Point point = new Point(complex);
+                double k = point.getY();
+                Pixel pixel = new Pixel(image,wi,he);
                 IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(suite, n);
-                while (iterator.hasNext()) {
+                while (iterator.hasNext() || k>ε) {
                     iterator.next();
                 }
-                //pixel.setColor(palette.getColor(count, max));
+                pixel.setColor(palette.getColor(iterator.getNbIteration(),n));
             }
         }
     }
