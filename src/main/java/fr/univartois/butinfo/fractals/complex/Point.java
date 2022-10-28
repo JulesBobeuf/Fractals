@@ -38,7 +38,7 @@ public class Point implements IPoint{
      * @param complexe2
      * @return
      */
-    public double DistanceEntre2Points(Complex complexe1,Complex complexe2) {
+    public double distanceEntre2Points(Complex complexe1,Complex complexe2) {
         Point point1 = new Point(complexe1);
         Point point2 = new Point(complexe2);
         return Math.sqrt((Math.pow(point1.getX()-point2.getX(),2))+Math.pow(point1.getY()-point2.getY(),2));
@@ -47,18 +47,29 @@ public class Point implements IPoint{
     /**
      * @return
      */
-    public Complex PointEnComplex() {
+    public Complex pointEnComplex() {
         return complex;
     }
 
     @Override
     public String toString() {
-        return this.getX()+" "+this.getY();
+        return this.getX()+","+this.getY();
     }
 
     @Override
     public double DistanceEntre2Points() {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.IPoint#PointEnComplex()
+     */
+    @Override
+    public Complex PointEnComplex() {
+        // TODO Auto-generated method stub.
+        return null;
     }
 }
