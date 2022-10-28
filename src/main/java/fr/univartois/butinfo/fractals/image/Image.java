@@ -97,7 +97,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
         if (FractaleName.equals("SuiteJulia")) {
             suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
         } else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
-            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
+            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> ((o.multiply(o).add(o)).divide(o.multiply(o).multiply(o).add(p))));
         }
 
         else if (FractaleName.equals("SuiteMandelbrot")) {
@@ -105,7 +105,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
         }
 
         else if (FractaleName.equals("SuiteMandelbrotGeneralisee")) {
-            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> (o.multiply(o)).add(p));
+            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> ((o.multiply(o).add(o)).divide(o.multiply(o).multiply(o).add(p))));
         }
 
         else {
@@ -126,7 +126,11 @@ public class Image extends ImageBuilder implements IImageBuilder {
         IPalettesCouleurs palette;
         if (paletteName.equals("PaletteCouleurs1")) {
             palette = new PaletteCouleurs1();
-        } else if (paletteName.equals("PaletteCouleurs2")) {
+        } else if (paletteName.equals("PaletteCouleursCyan")) {
+            palette = new PaletteCouleursCyan();
+        }else if (paletteName.equals("PaletteCouleursRouge")) {
+            palette = new PaletteCouleursRouge();
+        }else if (paletteName.equals("PaletteCouleursVert")) {
             palette = new PaletteCouleursVert();
         }
 
