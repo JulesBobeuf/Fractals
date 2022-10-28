@@ -46,4 +46,5 @@ Question 42 -> Ajout dans ces fichiers du zoom
 Question 43 -> Génération des images avec les scriptes bash.
 Commandes entrées :
 bash Julia.sh -x 0.0 -y 0.0 -p PaletteCouleurs1
+bash Mandelbrot.sh -x -1.4002 -y 0.0 -p PaletteCouleurs1
 
