@@ -63,14 +63,15 @@ public class CouleurDuPixel {
         for (int wi = 0; wi < plan.getWidth(); wi++) {
             for (int he = 0; he < plan.getHeight(); he++) {
                 Complex complex = new Complex(wi,he);
-                Point point = new Point(complex);
+                IPoint point = new Point(complex);
                 double k = point.getY();
                 Pixel pixel = new Pixel(image,wi,he);
                 IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(suite, n);
                 while (iterator.hasNext() || k<ε) {
-                    iterator.next();
+                    point = iterator.next();
+                    pixel = plan.asPixel(image,point);
+                    pixel.setColor(palette.getColor(iterator.getNbIteration(),n));
                 }
-                pixel.setColor(palette.getColor(iterator.getNbIteration(),n));
             }
         }
     }
