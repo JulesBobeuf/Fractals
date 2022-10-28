@@ -28,6 +28,8 @@ import fr.cril.cli.annotations.LongName;
 import fr.cril.cli.annotations.ShortName;
 import fr.univartois.butinfo.fractals.complex.Complex;
 import fr.univartois.butinfo.fractals.complex.IComplex;
+import fr.univartois.butinfo.fractals.complex.PlanComplexe;
+import fr.univartois.butinfo.fractals.complex.Point;
 import fr.univartois.butinfo.fractals.image.AdaptateurImage;
 import fr.univartois.butinfo.fractals.image.IImageBuilder;
 import fr.univartois.butinfo.fractals.image.ImageBuilder;
@@ -75,6 +77,11 @@ public final class Fractals {
     @LongName("scale")
     @Description("Spécifie l'échelle à appliquer sur l'image.")
     @Args(value = 1, names = "ratio")
+    private String scaleString;
+
+    /**
+     * L'échelle à appliquer sur l'image.
+     */
     private double scale;
 
     /**
@@ -84,6 +91,11 @@ public final class Fractals {
     @LongName("focus-x")
     @Description("Spécifie le point central de l'image sur l'axe des abscisses.")
     @Args(value = 1, names = "real")
+    private String focusXString;
+
+    /**
+     * Le point central de l'image sur l'axe des abscisses.
+     */
     private double focusX;
 
     /**
@@ -93,6 +105,11 @@ public final class Fractals {
     @LongName("focus-y")
     @Description("Spécifie le point central de l'image sur l'axe des ordonnées.")
     @Args(value = 1, names = "real")
+    private String focusYString;
+
+    /**
+     * Le point central de l'image sur l'axe des ordonnées.
+     */
     private double focusY;
 
     /**
@@ -161,6 +178,10 @@ public final class Fractals {
                 System.exit(0);
             }
 
+            scale = Double.parseDouble(scaleString);
+            focusX = Double.parseDouble(focusXString);
+            focusY = Double.parseDouble(focusYString);
+
         } catch (CliUsageException | CliOptionDefinitionException e) {
             usage();
             throw new IllegalArgumentException(e);
@@ -180,24 +201,19 @@ public final class Fractals {
      * Crée la fractale demandée dans la ligne de commande.
      * @return 
      */
-    public void buildFractal() { /* Commentaire le temps de finir
-        ImageBuilder image = new ImageBuilder();
-        Image builder = new Image(image);
-        //  AdaptateurImage img = new AdaptateurImage(image);
-        image.setHeight(builder.buildHeight(height));
-        image.setWidth(builder.buildWidth(width));
-        image.setScale(builder.buildScale(scale));
-        image.setComplex(builder.buildCenter(focusX,focusY));
-        for (int wi=0;wi<=width;wi++) {
-            for (int he=0;he<=height;he++) {
-                image.setSuite(builder.buildSuite(fractaleName,wi,he));
-            }
-        }
-        image.setPalette(builder.buildColors(paletteName, nbIterations));
-        image.setFilepath(builder.buildFilePath(outputFile));
-        image.setPlanComplexe(builder.buildPlanComplexe(image.getHeight(), image.getWidth())); */
+    public void buildFractal() {
+        ImageBuilder builder = new ImageBuilder();
+        builder.setHeight(height);
+        builder.setWidth(width);
+        builder.setScale(scale);
+        builder.setNbMaxIterations(nbIterations);
+        builder.setComplex(new Point(new Complex(focusX,focusY)));
+        builder.setPlanComplexe(new PlanComplexe(builder.getHeight(),builder.getWidth()));
+        builder.setFilepath(outputFile);
+        builder.setPalette(paletteName);
+        builder.setFractaleName(fractaleName);
+        new Image(builder).generateImage();
     }
-
     /**
      * Exécute l'application depuis la ligne de commande.
      *

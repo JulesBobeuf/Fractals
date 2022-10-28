@@ -10,14 +10,22 @@ package fr.univartois.butinfo.fractals.image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import fr.univartois.butinfo.fractals.complex.AdaptateurSuiteChaotique;
+import fr.univartois.butinfo.fractals.complex.AdaptateurSuiteCirculaire;
 import fr.univartois.butinfo.fractals.complex.Complex;
 import fr.univartois.butinfo.fractals.complex.IComplex;
 import fr.univartois.butinfo.fractals.complex.IPlanComplexe;
+import fr.univartois.butinfo.fractals.complex.IPoint;
+import fr.univartois.butinfo.fractals.complex.ISuiteChaotique;
 import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
 import fr.univartois.butinfo.fractals.complex.IterateurDeSuite;
+import fr.univartois.butinfo.fractals.complex.IterateurDeSuiteChaotique;
 import fr.univartois.butinfo.fractals.complex.PlanComplexe;
 import fr.univartois.butinfo.fractals.complex.PlanComplexeTranslation;
 import fr.univartois.butinfo.fractals.complex.PlanComplexeZoom;
+import fr.univartois.butinfo.fractals.complex.Point;
+import fr.univartois.butinfo.fractals.complex.SuiteChaotique;
+import fr.univartois.butinfo.fractals.complex.SuiteCirculaire;
 import fr.univartois.butinfo.fractals.complex.SuiteJulia;
 import fr.univartois.butinfo.fractals.complex.SuiteJuliaGeneralisee;
 import fr.univartois.butinfo.fractals.complex.SuiteMandelbrot;
@@ -37,17 +45,18 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * Crée une nouvelle instance de ImageBuilder.
      */
     public Image(ImageBuilder builder) {
-        this.centre=builder.centre;
-        this.height=builder.height;
-        this.width=builder.width;
-        this.filepath=builder.filepath;
-        this.palette=builder.palette;
-        this.planComplexe=builder.planComplexe;
-        this.suite=builder.suite;
-        this.scale=builder.scale;
-        
+        this.centre=builder.getCentre();
+        this.height=buildHeight(builder.getHeight());
+        this.width=builder.getWidth();
+        this.filepath=builder.getFilepath();
+        this.palette=builder.getPalette();
+        this.planComplexe=builder.getPlanComplexe();
+        this.scale=builder.getScale();
+        this.filepath=builder.getFilepath();
+        this.fractaleName=builder.getFractaleName();
+        this.nbMaxIterations=builder.getNbMaxIterations();
     }
-
+    
     /*
      * (non-Javadoc)
      *
@@ -91,20 +100,24 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(java.lang.String)
      */
     @Override
-    public ISuitesComplexesRecurrentes buildSuite(String FractaleName,IComplex c) {
+    public ISuitesComplexesRecurrentes buildSuite(String fractaleName1,IComplex c) {
         ISuitesComplexesRecurrentes suite;
-        if (FractaleName.equals("SuiteJulia")) {
+        if (fractaleName1.equals("SuiteJulia")) {
             suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
-        } else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
-            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
+        } else if (fractaleName1.equals("SuiteJuliaGeneralisee")) {
+            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o).multiply(o)).add(p));
         }
-
-        else if (FractaleName.equals("SuiteMandelbrot")) {
+        else if (fractaleName1.equals("SuiteMandelbrot")) {
             suite = new SuiteMandelbrot(c);
         }
-
-        else if (FractaleName.equals("SuiteMandelbrotGeneralisee")) {
-            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> (o.multiply(o)).add(p));
+        else if (fractaleName1.equals("SuiteMandelbrotGeneralisee")) {
+            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> ((o.multiply(o).add(o)).divide(o.multiply(o).multiply(o).add(p))));
+        }
+        else if (fractaleName1.equals("SuiteChaotique")) {
+            suite = new AdaptateurSuiteChaotique(new SuiteChaotique(new Point(c)));
+        }
+        else if (fractaleName1.equals("SuiteCirculaire")) {
+            suite = new AdaptateurSuiteCirculaire(new SuiteCirculaire(new Point(c)));
         }
 
         else {
@@ -125,8 +138,12 @@ public class Image extends ImageBuilder implements IImageBuilder {
         IPalettesCouleurs palette;
         if (paletteName.equals("PaletteCouleurs1")) {
             palette = new PaletteCouleurs1();
-        } else if (paletteName.equals("PaletteCouleurs2")) {
-            palette = new PaletteCouleurs2();
+        } else if (paletteName.equals("PaletteCouleursCyan")) {
+            palette = new PaletteCouleursCyan();
+        }else if (paletteName.equals("PaletteCouleursRouge")) {
+            palette = new PaletteCouleursRouge();
+        }else if (paletteName.equals("PaletteCouleursVert")) {
+            palette = new PaletteCouleursVert();
         }
 
         else {
@@ -150,27 +167,81 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * 
      */
     public void generateImage() {
+        if (fractaleName.equals("SuiteChaotique") || fractaleName.equals("SuiteCirculaire")) {
+            generateImageChaotique();
+            return;
+        }
         PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
-        //PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.PointEnComplex());
-        int max = 100;
+        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.pointEnComplex()); 
         IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        IPalettesCouleurs paletteCouleurs = buildColors(palette,nbMaxIterations);
         for (int wi=0;wi<width;wi++) {
             for (int he=0;he<height;he++) {
                 int count = 0;
                 Pixel pixel = image.getPixel(he,wi);
-                IComplex z = zoom.asComplex(pixel.getRow(), pixel.getColumn());
-                //ISuitesComplexesRecurrentes suite = buildSuite("SuiteMandelbrot", z);
-                ISuitesComplexesRecurrentes suite = new SuiteJuliaGeneralisee(z,new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
-                IterateurDeSuite iterator = new IterateurDeSuite(suite,max);
+                IComplex z = trans.asComplex(pixel.getRow(), pixel.getColumn());
+                ISuitesComplexesRecurrentes laSuite = buildSuite(fractaleName, z);
+                IterateurDeSuite iterator = new IterateurDeSuite(laSuite,nbMaxIterations);
                 while (iterator.hasNext()) {
                     iterator.next();
                     count++;
                 }
-                pixel.setColor(palette.getColor(count, max));
+                pixel.setColor(paletteCouleurs.getColor(count, nbMaxIterations));
             }
         }
         try {
             image.saveAs(filepath);
+            System.out.println("Image sauvegardé !");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public void generateImageChaotique() {
+        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
+        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.pointEnComplex()); 
+        IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        IPalettesCouleurs paletteCouleurs = buildColors(palette,nbMaxIterations);
+        for (int wi=0;wi<width;wi++) {
+            for (int he=0;he<height;he++) {
+                int count = 0;
+                Pixel pixel = image.getPixel(he,wi);
+                IComplex z = trans.asComplex(pixel.getRow(), pixel.getColumn());
+                ISuiteChaotique laSuite = null;
+                if (fractaleName.equals("SuiteCirculaire")) {
+                    laSuite = new SuiteCirculaire(new Point(z));
+                }
+                IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(laSuite,nbMaxIterations);
+                int n=0;
+                int k=0;
+                double epsillon = 0.05;
+                IPoint point = null;
+                IPoint lastPoint = null;
+                while (iterator.hasNext()) {
+                    point=iterator.next();
+                    if (n==0) {
+                        lastPoint=point;
+                    }
+                    if ((Math.abs(point.getY()-lastPoint.getY()))<epsillon && k<=10) {
+                        k++;
+                        if (k==10) {
+                            pixel = trans.PointAsPixel(image, point);
+                            break;
+                        }
+                    }
+                    else { k=0; }
+                    lastPoint=point;
+                    pixel=trans.PointAsPixel(image, point);
+                    n++;
+                    if(pixel!=null) {
+                        pixel.setColor(paletteCouleurs.getColor(count, nbMaxIterations));
+                    }
+                }
+            }
+        }
+        try {
+            image.saveAs(filepath);
+            System.out.println("Image sauvegardé !");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

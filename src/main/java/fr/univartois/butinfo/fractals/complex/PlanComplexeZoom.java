@@ -22,10 +22,15 @@ public class PlanComplexeZoom extends PlanComplexe {
      */
     private final double zoom;
     
+    /**
+     * L'attribut plan...
+     */
     private final IPlanComplexe plan;
  
     /**
      * Crée une nouvelle instance de PlanComplexeZoom.
+     * @param plan 
+     * @param zoom 
      * @param height
      * @param width
      */
@@ -44,7 +49,7 @@ public class PlanComplexeZoom extends PlanComplexe {
      */
     @Override
     public IComplex asComplex(int row, int column) {
-        return plan.asComplex(row, column).multiply(zoom);
+        return (plan.asComplex(row, column)).multiply(zoom);
     }
 
 }

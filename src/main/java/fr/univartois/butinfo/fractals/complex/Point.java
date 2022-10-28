@@ -10,12 +10,12 @@ public class Point implements IPoint{
     /**
      * s
      */
-    Complex complex;
+    IComplex complex;
 
     /**
      * @param complex
      */
-    public Point(Complex complex) {
+    public Point(IComplex complex) {
         this.complex = complex;
     }
 
@@ -47,29 +47,12 @@ public class Point implements IPoint{
     /**
      * @return
      */
-    public Complex pointEnComplex() {
+    public IComplex pointEnComplex() {
         return complex;
     }
 
     @Override
     public String toString() {
         return this.getX()+","+this.getY();
-    }
-
-    @Override
-    public double DistanceEntre2Points() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see fr.univartois.butinfo.fractals.complex.IPoint#PointEnComplex()
-     */
-    @Override
-    public Complex PointEnComplex() {
-        // TODO Auto-generated method stub.
-        return null;
     }
 }
