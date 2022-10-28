@@ -80,17 +80,18 @@ public class PlanComplexe implements IPlanComplexe {
      * @param image
      * @return
      */
-    public Pixel ComplexAsPixel(IFractalImage image,IComplex complex){
+    public Pixel asPixel(IFractalImage image,IComplex complex){
         if ((complex.getRealPart()>width) || (complex.getImaginaryPart()>height)){
             return null;
         }
         return new Pixel(image,(int)complex.getRealPart(),(int)complex.getImaginaryPart());
     }
     
+
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.complex.IPlanComplexe#PointAsPixel(fr.univartois.butinfo.fractals.image.IFractalImage, fr.univartois.butinfo.fractals.complex.IPoint)
+     * @see fr.univartois.butinfo.fractals.complex.IPlanComplexe#asPixel(fr.univartois.butinfo.fractals.image.IFractalImage, fr.univartois.butinfo.fractals.complex.IPoint)
      */
     @Override
     public Pixel PointAsPixel(IFractalImage image,IPoint point) {
