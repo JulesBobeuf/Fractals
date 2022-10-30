@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
+public class SuiteFeigenbaum implements Iterable<IPoint> , ISuiteChaotique {
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
@@ -34,7 +34,7 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
      * @param valInit
      * @param suiteComplexes
      */
-    public SuiteCirculaire(Point valInit ) {
+    public SuiteFeigenbaum(Point valInit) {
         this.valInit = valInit;
         this.n = 0;
     }
@@ -47,6 +47,11 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
     /**
      * @return
      */
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuiteChaotique#getValeur()
+     */
     public Point getValeur() {
         return valeur;
     }
@@ -58,11 +63,11 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
         this.valeur = valeur;
     }
 
+
     /**
      * @return
      */
-    @Override
-    public Point getValeurInit() {
+    public Point getValInit() {
         return valInit;
     }
 
@@ -73,11 +78,11 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
     public IPoint getProchainPoint(IPoint nbComplex) {
         double x = nbComplex.getX();
         double y = nbComplex.getY();
-        IComplex complex = nbComplex.pointEnComplex();
+        Complex complex = nbComplex.PointEnComplex();
         complex.setRe(x);
-        complex.setIm(y + ((Math.sin(2 * Math.PI * y)) / (2 * Math.PI)) + 1 / 3);
+        complex.setIm((x*y)*(1-y));
         IPoint newValeur = new Point(complex);
         return newValeur;
     }
-
+    
 }

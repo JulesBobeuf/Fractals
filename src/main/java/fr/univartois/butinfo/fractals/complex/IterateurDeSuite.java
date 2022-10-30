@@ -1,4 +1,3 @@
-
 package fr.univartois.butinfo.fractals.complex;
 
 import java.util.Iterator;
@@ -7,41 +6,25 @@ import java.util.Iterator;
  * @author thomas
  *
  */
-public class IterateurDeSuite implements Iterator<IComplex> {
-
-    /**
-     * L'attribut suite...
-     */
+public class IterateurDeSuite  implements Iterator<IComplex>{
     private ISuitesComplexesRecurrentes suite;
-
-    /**
-     * L'attribut valeur...
-     */
+    
     private IComplex valeur;
 
-    /**
-     * L'attribut nbIteration...
-     */
     private int nbIteration;
 
-    /**
-     * L'attribut n...
-     */
-    private int n;
+    private int n; // donner une limite
 
-    /**
-     * @param s
-     * @param n
-     */
     public IterateurDeSuite(ISuitesComplexesRecurrentes s, int n) {
-        this.suite = s;
-        this.n = n;
-        nbIteration = 0;
+        this.suite=s;
+        this.n=n;
+        this.valeur=s.getJ0();
+        nbIteration=0;
     }
 
     @Override
     public boolean hasNext() {
-        if (nbIteration <= n) {
+        if ((nbIteration<=n) && (valeur.abs()<2)) {
             return true;
         }
         return false;
@@ -49,9 +32,32 @@ public class IterateurDeSuite implements Iterator<IComplex> {
 
     @Override
     public IComplex next() {
-        valeur = suite.valeurProchainTerme(valeur);
-        nbIteration++;
+        if (nbIteration==0) {
+            nbIteration++;
+            return valeur;
+        }
+        if (this.hasNext()) {
+            valeur = suite.valeurProchainTerme(valeur);
+            nbIteration++;
+            return valeur;
+        }
+        else {
+            return valeur;
+        }
+    }
+    
+    /**
+     * @return
+     */
+    public IComplex getValeur() {
         return valeur;
     }
 
+    
+    /**
+     * @return
+     */
+    public int getNbIteration() {
+        return nbIteration;
+    }
 }
