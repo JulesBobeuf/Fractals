@@ -11,6 +11,9 @@ import fr.univartois.butinfo.fractals.complex.Complex;
 import fr.univartois.butinfo.fractals.complex.IComplex;
 import fr.univartois.butinfo.fractals.complex.IPlanComplexe;
 import fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes;
+import fr.univartois.butinfo.fractals.figures.TapisDeSierpinski;
+import fr.univartois.butinfo.fractals.figures.TapisDeSierpinskiCoins;
+import fr.univartois.butinfo.fractals.figures.TriangleDeSierpinski;
 
 /**
  * Le type ImageBuilder
@@ -51,6 +54,26 @@ public interface IImageBuilder {
      * @return
      */
     ISuitesComplexesRecurrentes buildSuite(String FractaleName, IComplex c);
+    
+    /**
+     * @param nbIterations
+     * @return
+     */
+    TapisDeSierpinski buildTapisDeSierpinski(int nbIterations);
+    
+    /**
+     * @param nbIterations
+     * @return
+     */
+    TapisDeSierpinskiCoins buildTapisDeSierpinskiCoins(int nbIterations);
+    
+    /**
+     * @param nbIterations
+     * @return
+     */
+    TriangleDeSierpinski buildTriangleDeSierpinski(int nbIterations);
+
+    
     /**
      * @param paletteName
      * @param nbIterations
