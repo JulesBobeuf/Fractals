@@ -1,5 +1,9 @@
 # Autour des Fractales
 
+## MEMBRES : Jules BOBEUF, Aymeric JAKOBOWSKI, Thomas SANTORO
+
+Rapport : [RAPPORT.MD](https://gitlab.univ-artois.fr/jules_bobeuf/sae-3-groupe-b-2/-/blob/fd385d280684e08e8af9d0552da7f2460aaef0fb/RAPPORT.md)
+
 ## Description
 
 Ce projet fournit une implantation de base pour votre projet de SAÉ S3.A.01.
