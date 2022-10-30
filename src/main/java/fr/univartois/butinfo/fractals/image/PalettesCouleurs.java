@@ -30,6 +30,7 @@ public class PalettesCouleurs {
      * Crée une nouvelle instance de PalettesCouleurs.
      * 
      * @param paletetteCouleur
+     * @param nbMaxIt
      */
     public PalettesCouleurs(IPalettesCouleurs paletetteCouleur, int nbMaxIt) {
         this.paletteCouleur = paletetteCouleur;

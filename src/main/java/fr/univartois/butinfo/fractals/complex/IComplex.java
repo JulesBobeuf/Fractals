@@ -105,4 +105,18 @@ public interface IComplex {
      */
     IComplex divide(IComplex other);
 
+    /**
+     * @param re
+     * 
+     * @return
+     */
+    void setRe(double re);
+
+    /**
+     * @param im
+     * 
+     * @return
+     */
+    void setIm(double im);
+
 }

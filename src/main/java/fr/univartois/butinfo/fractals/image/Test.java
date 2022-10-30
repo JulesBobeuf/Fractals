@@ -26,17 +26,16 @@ public class Test {
      */
     public static void main(String[] args) {
         ImageBuilder builder = new ImageBuilder();
-        builder.setHeight(1080);
-        builder.setWidth(1920);
-        builder.setScale(1./400);
-        builder.setComplex(new Point(new Complex(0,0)));
-        builder.setPlanComplexe(new PlanComplexe(1080,1920));
-        builder.setFilepath("../test.jpg");
+        builder.setHeight(300);
+        builder.setWidth(300);
+        builder.setScale(1. / 40);
+        builder.setComplex(new Point(new Complex(0, 0)));
+        builder.setPlanComplexe(new PlanComplexe(1080, 1920));
+        builder.setFilepath("../SuiteCirculaire.jpg");
         builder.setPalette("PaletteCouleurs1");
-        builder.setFractaleName("SuiteJulia");
+        builder.setFractaleName("SuiteCirculaire");
         builder.setNbMaxIterations(100);
-        new Image(builder).generateImage();  
+        new Image(builder).generateImage();
     }
 
 }
-

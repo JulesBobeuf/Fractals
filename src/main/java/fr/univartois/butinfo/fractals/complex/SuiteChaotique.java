@@ -11,17 +11,17 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
+public class SuiteChaotique implements Iterable<IPoint>, ISuiteChaotique {
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
      */
-    protected Point valInit;
+    protected IPoint valInit;
 
     /**
      * L'attribut valeur (valeur actuelle)
      */
-    protected Point valeur;
+    protected IPoint valeur;
 
     /**
      * L'attribut nbIteration qui compte les itération de hasNext().
@@ -29,19 +29,14 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     protected int n;
 
     /**
-     * L'attribut suiteComplexe...
-     */
-    protected ISuiteChaotique suiteChaotique;
-
-    /**
      * Crée une nouvelle instance de SuitesComplexesRecurrentes.
      * 
      * @param valInit
+     * @param suiteChaotique
      * @param suiteComplexes
      */
-    public SuiteChaotique(Point valInit, ISuiteChaotique suiteChaotique) {
+    public SuiteChaotique(Point valInit) {
         this.valInit = valInit;
-        this.suiteChaotique = suiteChaotique;
         this.n = 0;
     }
 
@@ -53,7 +48,13 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     /**
      * @return
      */
-    public Point getValeur() {
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.complex.ISuiteChaotique#getValeur()
+     */
+    @Override
+    public IPoint getValeur() {
         return valeur;
     }
 
@@ -67,21 +68,8 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     /**
      * @return
      */
-    public ISuiteChaotique getSuiteComplexe() {
-        return suiteChaotique;
-    }
-
-    /**
-     * @param suiteComplexe
-     */
-    public void setSuiteChaotique(ISuiteChaotique suiteChaotique) {
-        this.suiteChaotique = suiteChaotique;
-    }
-
-    /**
-     * @return
-     */
-    public Point getValInit() {
+    @Override
+    public IPoint getValeurInit() {
         return valInit;
     }
 
@@ -92,11 +80,11 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     public IPoint getProchainPoint(IPoint nbComplex) {
         double x = nbComplex.getX();
         double y = nbComplex.getY();
-        Complex complex = nbComplex.PointEnComplex();
+        IComplex complex = nbComplex.pointEnComplex();
         complex.setRe(x);
-        complex.setIm((x*y)*(1-y));
+        complex.setIm((x * y) * (1 - y));
         IPoint newValeur = new Point(complex);
         return newValeur;
     }
-    
+
 }

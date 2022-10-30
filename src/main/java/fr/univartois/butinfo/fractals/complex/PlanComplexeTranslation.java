@@ -7,7 +7,6 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
-
 /**
  * Le type PlanComplexeTranslation
  *
@@ -16,25 +15,30 @@ package fr.univartois.butinfo.fractals.complex;
  * @version 0.1.0
  */
 public class PlanComplexeTranslation extends PlanComplexe {
-    
+
     /**
-     * L'attribut CONSTANTE...
+     * L'attribut constant...
      */
     protected final IComplex constant;
-    
+
+    /**
+     * L'attribut planComplexe...
+     */
     protected IPlanComplexe planComplexe;
-    
-    
+
     /**
      * Crée une nouvelle instance de PlanComplexeTranslation.
-     * @param height
-     * @param width
+     * 
+     * @param planComplexe
+     * @param constant
+     * 
      */
     public PlanComplexeTranslation(IPlanComplexe planComplexe, IComplex constant) {
         super(planComplexe.getHeight(), planComplexe.getWidth());
-        this.planComplexe=planComplexe;
-        this.constant=constant;
+        this.planComplexe = planComplexe;
+        this.constant = constant;
     }
+
     /*
      * (non-Javadoc)
      *
@@ -46,4 +50,3 @@ public class PlanComplexeTranslation extends PlanComplexe {
     }
 
 }
-

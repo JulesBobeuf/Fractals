@@ -7,6 +7,8 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
+import fr.univartois.butinfo.fractals.image.IFractalImage;
+import fr.univartois.butinfo.fractals.image.Pixel;
 
 /**
  * Le type IPlanComplexe
@@ -20,17 +22,35 @@ public interface IPlanComplexe {
     /**
      * @param row
      * @param column
+     * 
      * @return
      */
     public IComplex asComplex(int row, int column);
-    
+
     /**
      * @return
      */
     public double getHeight();
+
     /**
      * @return
      */
     public double getWidth();
-}
 
+    /**
+     * @param image
+     * @param complex
+     * 
+     * @return
+     */
+    public Pixel asPixel(IFractalImage image, IComplex complex);
+
+    /**
+     * @param image
+     * @param point
+     * 
+     * @return
+     */
+    public Pixel asPixel(IFractalImage image, IPoint point);
+
+}

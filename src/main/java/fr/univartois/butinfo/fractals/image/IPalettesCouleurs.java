@@ -21,7 +21,9 @@ public interface IPalettesCouleurs {
     /**
      * @param nbIterationsEff
      * @param nbMaxIterations
+     * 
      * @return
      */
     Color getColor(int nbIterationsEff, int nbMaxIterations);
+
 }

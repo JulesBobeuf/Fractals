@@ -21,21 +21,22 @@ import javax.imageio.ImageIO;
  *
  * @version 0.1.0
  */
-public class AdaptateurImage implements IFractalImage{
+public class AdaptateurImage implements IFractalImage {
 
     /**
      * L'attribut image...
      */
     private BufferedImage image;
-    
+
     /**
      * Crée une nouvelle instance de AdaptateurImage.
+     * 
      * @param image
      */
     public AdaptateurImage(BufferedImage image) {
-        this.image=image;
+        this.image = image;
     }
-    
+
     @Override
     public int getHeight() {
         return image.getHeight();
@@ -58,13 +59,14 @@ public class AdaptateurImage implements IFractalImage{
      */
     @Override
     public Pixel getPixel(int row, int column) {
-        return new Pixel(this,row,column);
+        return new Pixel(this, row, column);
     }
 
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.image.IFractalImage#setColor(int, int, java.awt.Color)
+     * @see fr.univartois.butinfo.fractals.image.IFractalImage#setColor(int, int,
+     * java.awt.Color)
      */
     @Override
     public void setColor(int row, int column, Color color) {
@@ -81,8 +83,6 @@ public class AdaptateurImage implements IFractalImage{
         String[] splitted = path.split("\\.");
         String formatName = splitted[splitted.length - 1];
         ImageIO.write(image, formatName, new File(path));
-        
     }
 
 }
-
