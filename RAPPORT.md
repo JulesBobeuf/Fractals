@@ -63,7 +63,12 @@ Jules BOBEUF
 Question 24 - Adaptateur -> Création classe AdaptateurImage qui implémente IFractalImage
 Question 25 -> Implémentation de la méthode SaveAs()
 
-### Question 28-36
+### Questions 26-27
+Jules BOBEUF
+Question 26 - Constructeur -> Création des classes Image et ImageBuilder, création de l'interface IImageBuilder
+Question 27 -> Création de la classe Test.java, ajout du dossier images qui contient le résultat des 4 quatres suites récurrentes
+
+### Questions 28-37
 Aymeric JAKOBOWSKI
 
 Package ``fr.univartois.butinfo.fractals.figures``
@@ -85,7 +90,7 @@ Mise en place de 3 décorateurs pour les transformations suivantes :
 Q30 -> Patron de conception pour avoir plusieurs figures : **Composite**
 Utilisation d'un itérateur pour le parcours de plusieurs figures.
 
-Q31 -> Patron de conception pour implémenter plusieurs étapes lors de la création du fichier : **PAtron de méthode**
+Q31 -> Patron de conception pour implémenter plusieurs étapes lors de la création du fichier : **Patron de méthode**
 Plusieurs méthodes définies :
 	1. Ouverture du ficher
 	2. Ecriture de l'en tête
@@ -96,11 +101,21 @@ Q32 -> Implémentation du tapis de Sierpinski.
 Pour l'implémenter, j'ai utilisé le patron de méthode défini lors de l'étape précédente.
 De la récursivité a été utilisée pour générer les carrés en fonction de l'indice de précision.
 
+Q33 -> C'est une **stratégie** dont il est question.
+Ainsi, pour les généralisations suivantes, je créé une nouvelle classe comme suit :
+```java
+public class TapisDeSierpinskiCoins extends CreerFractaleAvecFigures
+```
 
-### Questions 26-27
-Jules BOBEUF
-Question 26 - Constructeur -> Création des classes Image et ImageBuilder, création de l'interface IImageBuilder
-Question 27 -> Création de la classe Test.java, ajout du dossier images qui contient le résultat des 4 quatres suites récurrentes
+Q34 -> Classe `TriangleDeSierpinski.java`
+
+Q35-36 -> Questions facultatives (non réalisées)
+
+Q37 -> Ajout de 3 méthodes dans la classe `Image.java`
+	-buildTapisDeSierpinski
+	-buildTapisDeSierpinskiCoins
+	-buildTriangleDeSierpinski
+Chacune prenant en paramètre le nombre d'itérations réalisées.
 
 ### Question 38
 Jules BOBEUF
