@@ -15,17 +15,14 @@ package fr.univartois.butinfo.fractals.figures;
  *
  * @version 0.1.0
  */
-public class TestTapis {
+public class TestTriangle {
 
     /**
      * @param args
      */
     public static void main(String[] args) {
-        TapisDeSierpinski tapis = new TapisDeSierpinski(5);
-//        tapis.createFractaleProcedure();
-        
-        TapisDeSierpinskiCoins tap = new TapisDeSierpinskiCoins(5);
-        tap.createFractaleProcedure();
+        TriangleDeSierpinski triangle = new TriangleDeSierpinski(5);
+        triangle.createFractaleProcedure();
     }
 
 }

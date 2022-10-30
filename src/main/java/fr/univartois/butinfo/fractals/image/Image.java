@@ -23,6 +23,9 @@ import fr.univartois.butinfo.fractals.complex.SuiteJuliaGeneralisee;
 import fr.univartois.butinfo.fractals.complex.SuiteMandelbrot;
 import fr.univartois.butinfo.fractals.complex.SuiteMandelbrotGeneralisee;
 import fr.univartois.butinfo.fractals.complex.SuitesComplexesRecurrentes;
+import fr.univartois.butinfo.fractals.figures.TapisDeSierpinski;
+import fr.univartois.butinfo.fractals.figures.TapisDeSierpinskiCoins;
+import fr.univartois.butinfo.fractals.figures.TriangleDeSierpinski;
 
 /**
  * Le type ImageBuilder
@@ -35,17 +38,17 @@ public class Image extends ImageBuilder implements IImageBuilder {
 
     /**
      * Crée une nouvelle instance de ImageBuilder.
+     * @param builder 
      */
     public Image(ImageBuilder builder) {
-        this.centre=builder.centre;
-        this.height=builder.height;
-        this.width=builder.width;
-        this.filepath=builder.filepath;
-        this.palette=builder.palette;
-        this.planComplexe=builder.planComplexe;
-        this.suite=builder.suite;
-        this.scale=builder.scale;
-        
+        this.centre = builder.centre;
+        this.height = builder.height;
+        this.width = builder.width;
+        this.filepath = builder.filepath;
+        this.palette = builder.palette;
+        this.planComplexe = builder.planComplexe;
+        this.suite = builder.suite;
+        this.scale = builder.scale;
     }
 
     /*
@@ -57,7 +60,7 @@ public class Image extends ImageBuilder implements IImageBuilder {
     public int buildHeight(int height) {
         return height;
     }
-    
+
     @Override
     public int buildWidth(int width) {
         return width;
@@ -80,8 +83,8 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * butinfo.fractals.complex.IComplex)
      */
     @Override
-    public IComplex buildCenter(double focusX,double focusY) {
-        return new Complex(focusX,focusY);
+    public IComplex buildCenter(double focusX, double focusY) {
+        return new Complex(focusX, focusY);
     }
 
     /*
@@ -91,12 +94,13 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(java.lang.String)
      */
     @Override
-    public ISuitesComplexesRecurrentes buildSuite(String FractaleName,IComplex c) {
+    public ISuitesComplexesRecurrentes buildSuite(String FractaleName, IComplex c) {
         ISuitesComplexesRecurrentes suite;
         if (FractaleName.equals("SuiteJulia")) {
             suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
         } else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
-            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
+            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),
+                    (o, p) -> (o.multiply(o)).add(p));
         }
 
         else if (FractaleName.equals("SuiteMandelbrot")) {
@@ -145,23 +149,26 @@ public class Image extends ImageBuilder implements IImageBuilder {
     public String buildFilePath(String filePath) {
         return filePath;
     }
-    
+
     /**
      * 
      */
     public void generateImage() {
-        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
-        //PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.PointEnComplex());
+        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe, scale);
+        // PlanComplexeTranslation trans = new
+        // PlanComplexeTranslation(zoom,centre.PointEnComplex());
         int max = 100;
-        IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
-        for (int wi=0;wi<width;wi++) {
-            for (int he=0;he<height;he++) {
+        IFractalImage image = new AdaptateurImage(
+                new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        for (int wi = 0; wi < width; wi++) {
+            for (int he = 0; he < height; he++) {
                 int count = 0;
-                Pixel pixel = image.getPixel(he,wi);
+                Pixel pixel = image.getPixel(he, wi);
                 IComplex z = zoom.asComplex(pixel.getRow(), pixel.getColumn());
-                //ISuitesComplexesRecurrentes suite = buildSuite("SuiteMandelbrot", z);
-                ISuitesComplexesRecurrentes suite = new SuiteJuliaGeneralisee(z,new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o)).add(p));
-                IterateurDeSuite iterator = new IterateurDeSuite(suite,max);
+                // ISuitesComplexesRecurrentes suite = buildSuite("SuiteMandelbrot", z);
+                ISuitesComplexesRecurrentes suite = new SuiteJuliaGeneralisee(z,
+                        new Complex(-0.4, 0.6), (o, p) -> (o.multiply(o)).add(p));
+                IterateurDeSuite iterator = new IterateurDeSuite(suite, max);
                 while (iterator.hasNext()) {
                     iterator.next();
                     count++;
@@ -183,7 +190,39 @@ public class Image extends ImageBuilder implements IImageBuilder {
      */
     @Override
     public IPlanComplexe buildPlanComplexe(int height, int width) {
-        return new PlanComplexe(height,width);
+        return new PlanComplexe(height, width);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see fr.univartois.butinfo.fractals.image.IImageBuilder#buildTapisDeSierpinski(int)
+     */
+    @Override
+    public TapisDeSierpinski buildTapisDeSierpinski(int nbIterations) {
+        return new TapisDeSierpinski(nbIterations);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * fr.univartois.butinfo.fractals.image.IImageBuilder#buildTapisDeSierpinskiCoins(int)
+     */
+    @Override
+    public TapisDeSierpinskiCoins buildTapisDeSierpinskiCoins(int nbIterations) {
+        return new TapisDeSierpinskiCoins(nbIterations);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * fr.univartois.butinfo.fractals.image.IImageBuilder#buildTriangleDeSierpinski(int)
+     */
+    @Override
+    public TriangleDeSierpinski buildTriangleDeSierpinski(int nbIterations) {
+        return new TriangleDeSierpinski(nbIterations);
     }
 
 }
