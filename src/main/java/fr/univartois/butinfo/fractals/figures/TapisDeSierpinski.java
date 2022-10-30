@@ -24,6 +24,9 @@ public class TapisDeSierpinski extends CreerFractaleAvecFigures {
      */
     private FileWriter writer;
 
+    /**
+     * L'attribut composition...
+     */
     private FigureComposite composition = new FigureComposite();
 
     /**
@@ -65,7 +68,9 @@ public class TapisDeSierpinski extends CreerFractaleAvecFigures {
     @Override
     protected void ecrireEnTete(int width, int height) {
         try {
-            writer.write(String.format("<svg width=\"%d\" height=\"%d\" xmlns=\"http://www.w3.org/2000/svg\">\n", width, height));
+            writer.write(String.format(
+                    "<svg width=\"%d\" height=\"%d\" xmlns=\"http://www.w3.org/2000/svg\">\n",
+                    width, height));
         } catch (IOException e) {
             System.out.println("Erreur lors de l'écriture de l'en tête...");
             throw new RuntimeException(e);

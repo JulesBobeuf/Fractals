@@ -131,7 +131,8 @@ public final class Fractals {
     private int nbIterations;
 
     /**
-     * L'option spécifiant le nom de la palette de couleurs à appliquer lors de la génération.
+     * L'option spécifiant le nom de la palette de couleurs à appliquer lors de la
+     * génération.
      */
     @ShortName("p")
     @LongName("palette-name")
@@ -140,7 +141,8 @@ public final class Fractals {
     private String paletteName;
 
     /**
-     * L'option spécifiant le nom du fichier dans lequel la fractale doit être sauvegardée.
+     * L'option spécifiant le nom du fichier dans lequel la fractale doit être
+     * sauvegardée.
      */
     @ShortName("o")
     @LongName("output")
@@ -199,7 +201,8 @@ public final class Fractals {
 
     /**
      * Crée la fractale demandée dans la ligne de commande.
-     * @return 
+     * 
+     * @return
      */
     public void buildFractal() {
         ImageBuilder builder = new ImageBuilder();
@@ -207,13 +210,14 @@ public final class Fractals {
         builder.setWidth(width);
         builder.setScale(scale);
         builder.setNbMaxIterations(nbIterations);
-        builder.setComplex(new Point(new Complex(focusX,focusY)));
-        builder.setPlanComplexe(new PlanComplexe(builder.getHeight(),builder.getWidth()));
+        builder.setComplex(new Point(new Complex(focusX, focusY)));
+        builder.setPlanComplexe(new PlanComplexe(builder.getHeight(), builder.getWidth()));
         builder.setFilepath(outputFile);
         builder.setPalette(paletteName);
         builder.setFractaleName(fractaleName);
         new Image(builder).generateImage();
     }
+
     /**
      * Exécute l'application depuis la ligne de commande.
      *
@@ -225,7 +229,6 @@ public final class Fractals {
         fractals.buildFractal();
     }
 
-    
     /**
      * Donne l'attribut width de cette instance de Fractals.
      *
@@ -235,17 +238,16 @@ public final class Fractals {
         return width;
     }
 
-    
     /**
      * Modifie l'attribut width de cette instance de Fractals.
      *
-     * @param width La nouvelle valeur de l'attribut width pour cette instance de Fractals.
+     * @param width La nouvelle valeur de l'attribut width pour cette instance de
+     *        Fractals.
      */
     public void setWidth(int width) {
         this.width = width;
     }
 
-    
     /**
      * Donne l'attribut height de cette instance de Fractals.
      *
@@ -255,17 +257,16 @@ public final class Fractals {
         return height;
     }
 
-    
     /**
      * Modifie l'attribut height de cette instance de Fractals.
      *
-     * @param height La nouvelle valeur de l'attribut height pour cette instance de Fractals.
+     * @param height La nouvelle valeur de l'attribut height pour cette instance de
+     *        Fractals.
      */
     public void setHeight(int height) {
         this.height = height;
     }
 
-    
     /**
      * Donne l'attribut scale de cette instance de Fractals.
      *
@@ -275,17 +276,16 @@ public final class Fractals {
         return scale;
     }
 
-    
     /**
      * Modifie l'attribut scale de cette instance de Fractals.
      *
-     * @param scale La nouvelle valeur de l'attribut scale pour cette instance de Fractals.
+     * @param scale La nouvelle valeur de l'attribut scale pour cette instance de
+     *        Fractals.
      */
     public void setScale(double scale) {
         this.scale = scale;
     }
 
-    
     /**
      * Donne l'attribut focusX de cette instance de Fractals.
      *
@@ -295,17 +295,16 @@ public final class Fractals {
         return focusX;
     }
 
-    
     /**
      * Modifie l'attribut focusX de cette instance de Fractals.
      *
-     * @param focusX La nouvelle valeur de l'attribut focusX pour cette instance de Fractals.
+     * @param focusX La nouvelle valeur de l'attribut focusX pour cette instance de
+     *        Fractals.
      */
     public void setFocusX(double focusX) {
         this.focusX = focusX;
     }
 
-    
     /**
      * Donne l'attribut focusY de cette instance de Fractals.
      *
@@ -315,17 +314,16 @@ public final class Fractals {
         return focusY;
     }
 
-    
     /**
      * Modifie l'attribut focusY de cette instance de Fractals.
      *
-     * @param focusY La nouvelle valeur de l'attribut focusY pour cette instance de Fractals.
+     * @param focusY La nouvelle valeur de l'attribut focusY pour cette instance de
+     *        Fractals.
      */
     public void setFocusY(double focusY) {
         this.focusY = focusY;
     }
 
-    
     /**
      * Donne l'attribut fractaleName de cette instance de Fractals.
      *
@@ -335,17 +333,16 @@ public final class Fractals {
         return fractaleName;
     }
 
-    
     /**
      * Modifie l'attribut fractaleName de cette instance de Fractals.
      *
-     * @param fractaleName La nouvelle valeur de l'attribut fractaleName pour cette instance de Fractals.
+     * @param fractaleName La nouvelle valeur de l'attribut fractaleName pour cette
+     *        instance de Fractals.
      */
     public void setFractaleName(String fractaleName) {
         this.fractaleName = fractaleName;
     }
 
-    
     /**
      * Donne l'attribut nbIterations de cette instance de Fractals.
      *
@@ -355,17 +352,16 @@ public final class Fractals {
         return nbIterations;
     }
 
-    
     /**
      * Modifie l'attribut nbIterations de cette instance de Fractals.
      *
-     * @param nbIterations La nouvelle valeur de l'attribut nbIterations pour cette instance de Fractals.
+     * @param nbIterations La nouvelle valeur de l'attribut nbIterations pour cette
+     *        instance de Fractals.
      */
     public void setNbIterations(int nbIterations) {
         this.nbIterations = nbIterations;
     }
 
-    
     /**
      * Donne l'attribut paletteName de cette instance de Fractals.
      *
@@ -375,17 +371,16 @@ public final class Fractals {
         return paletteName;
     }
 
-    
     /**
      * Modifie l'attribut paletteName de cette instance de Fractals.
      *
-     * @param paletteName La nouvelle valeur de l'attribut paletteName pour cette instance de Fractals.
+     * @param paletteName La nouvelle valeur de l'attribut paletteName pour cette instance
+     *        de Fractals.
      */
     public void setPaletteName(String paletteName) {
         this.paletteName = paletteName;
     }
 
-    
     /**
      * Donne l'attribut outputFile de cette instance de Fractals.
      *
@@ -395,16 +390,14 @@ public final class Fractals {
         return outputFile;
     }
 
-    
     /**
      * Modifie l'attribut outputFile de cette instance de Fractals.
      *
-     * @param outputFile La nouvelle valeur de l'attribut outputFile pour cette instance de Fractals.
+     * @param outputFile La nouvelle valeur de l'attribut outputFile pour cette instance
+     *        de Fractals.
      */
     public void setOutputFile(String outputFile) {
         this.outputFile = outputFile;
     }
-    
-    
 
 }

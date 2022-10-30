@@ -28,6 +28,9 @@ public class TriangleDeSierpinski extends CreerFractaleAvecFigures {
      */
     private FileWriter writer;
 
+    /**
+     * L'attribut composition...
+     */
     private FigureComposite composition = new FigureComposite();
 
     /**

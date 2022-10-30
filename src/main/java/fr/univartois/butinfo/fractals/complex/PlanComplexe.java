@@ -34,6 +34,7 @@ public class PlanComplexe implements IPlanComplexe {
 
     /**
      * Crée une nouvelle instance de PlanComplexe.
+     * 
      * @param image
      * @param height
      * @param width
@@ -50,6 +51,7 @@ public class PlanComplexe implements IPlanComplexe {
      * 
      * @return
      */
+    @Override
     public IComplex asComplex(int row, int column) {
         double re = (column + .5) - (width / 2.);
         double im = (height / 2.) - (row + .5);
@@ -61,6 +63,7 @@ public class PlanComplexe implements IPlanComplexe {
      *
      * @return L'attribut height de cette instance de PlanComplexe.
      */
+    @Override
     public double getHeight() {
         return height;
     }
@@ -74,30 +77,34 @@ public class PlanComplexe implements IPlanComplexe {
     public double getWidth() {
         return width;
     }
-    
+
     /**
      * @param complex
      * @param image
+     * 
      * @return
      */
-    public Pixel asPixel(IFractalImage image,IComplex complex){
-        if ((complex.getRealPart()>width) || (complex.getImaginaryPart()>height)){
+    @Override
+    public Pixel asPixel(IFractalImage image, IComplex complex) {
+        if ((complex.getRealPart() > width) || (complex.getImaginaryPart() > height)) {
             return null;
         }
-        return new Pixel(image,(int)complex.getRealPart(),(int)complex.getImaginaryPart());
+        return new Pixel(image, (int) complex.getRealPart(), (int) complex.getImaginaryPart());
     }
-    
 
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.complex.IPlanComplexe#asPixel(fr.univartois.butinfo.fractals.image.IFractalImage, fr.univartois.butinfo.fractals.complex.IPoint)
+     * @see
+     * fr.univartois.butinfo.fractals.complex.IPlanComplexe#asPixel(fr.univartois.butinfo.
+     * fractals.image.IFractalImage, fr.univartois.butinfo.fractals.complex.IPoint)
      */
     @Override
-    public Pixel PointAsPixel(IFractalImage image,IPoint point) {
-        if ((point.getX()>width) || (point.getY()>height)){
+    public Pixel PointAsPixel(IFractalImage image, IPoint point) {
+        if ((point.getX() > width) || (point.getY() > height)) {
             return null;
         }
-        return new Pixel(image,(int)point.getX(),(int)point.getY());
+        return new Pixel(image, (int) point.getX(), (int) point.getY());
     }
+
 }

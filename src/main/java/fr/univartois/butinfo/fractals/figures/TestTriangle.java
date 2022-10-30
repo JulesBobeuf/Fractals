@@ -7,7 +7,6 @@
 
 package fr.univartois.butinfo.fractals.figures;
 
-
 /**
  * Le type TestTapis
  *
@@ -26,4 +25,3 @@ public class TestTriangle {
     }
 
 }
-

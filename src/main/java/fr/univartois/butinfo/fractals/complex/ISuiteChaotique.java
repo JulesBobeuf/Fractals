@@ -29,9 +29,10 @@ public interface ISuiteChaotique {
      * @return
      */
     IPoint getValeur();
-    
+
     /**
      * @return
      */
     IPoint getValeurInit();
+
 }

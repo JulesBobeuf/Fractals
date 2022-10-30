@@ -7,7 +7,6 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
-
 /**
  * Le type AdaptateurSuiteChaotique
  *
@@ -16,24 +15,26 @@ package fr.univartois.butinfo.fractals.complex;
  * @version 0.1.0
  */
 public class AdaptateurSuiteChaotique implements ISuitesComplexesRecurrentes {
-    
+
     /**
      * L'attribut suite...
      */
     SuiteChaotique suite;
-    
+
     /**
      * Crée une nouvelle instance de AdaptateurSuiteChaotique.
+     * 
      * @param suite
      */
     public AdaptateurSuiteChaotique(SuiteChaotique suite) {
-        this.suite=suite;
+        this.suite = suite;
     }
 
     /*
      * (non-Javadoc)
      *
-     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
+     * @see fr.univartois.butinfo.fractals.complex.ISuitesComplexesRecurrentes#
+     * valeurProchainTerme(fr.univartois.butinfo.fractals.complex.IComplex)
      */
     @Override
     public IComplex valeurProchainTerme(IComplex ancienTerme) {
@@ -51,4 +52,3 @@ public class AdaptateurSuiteChaotique implements ISuitesComplexesRecurrentes {
     }
 
 }
-

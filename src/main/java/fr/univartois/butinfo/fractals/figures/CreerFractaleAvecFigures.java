@@ -54,6 +54,9 @@ public abstract class CreerFractaleAvecFigures {
         this.nbRep = nbRep;
     }
 
+    /**
+     * Procédure pour créer la fractale de figures.
+     */
     public void createFractaleProcedure() {
         ouvrirFichier(nomFichier);
         ecrireEnTete(width, height);

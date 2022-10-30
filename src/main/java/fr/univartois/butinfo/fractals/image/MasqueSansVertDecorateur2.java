@@ -26,7 +26,8 @@ public class MasqueSansVertDecorateur2 implements IPalettesCouleurs {
     /**
      * Crée une nouvelle instance de MasqueDecorateur.
      * 
-     * @param palettesCouleurs
+     * @param paletteCouleurMasque
+     * 
      */
     public MasqueSansVertDecorateur2(IPalettesCouleurs paletteCouleurMasque) {
         this.paletteCouleurMasque = paletteCouleurMasque;

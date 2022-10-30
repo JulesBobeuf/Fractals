@@ -28,9 +28,9 @@ public class Test {
         ImageBuilder builder = new ImageBuilder();
         builder.setHeight(300);
         builder.setWidth(300);
-        builder.setScale(1./40 );
-        builder.setComplex(new Point(new Complex(0,0)));
-        builder.setPlanComplexe(new PlanComplexe(1080,1920));
+        builder.setScale(1. / 40);
+        builder.setComplex(new Point(new Complex(0, 0)));
+        builder.setPlanComplexe(new PlanComplexe(1080, 1920));
         builder.setFilepath("../SuiteCirculaire.jpg");
         builder.setPalette("PaletteCouleurs1");
         builder.setFractaleName("SuiteCirculaire");
@@ -39,4 +39,3 @@ public class Test {
     }
 
 }
-

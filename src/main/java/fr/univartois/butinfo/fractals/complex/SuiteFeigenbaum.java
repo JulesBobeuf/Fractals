@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuiteFeigenbaum implements Iterable<IPoint> , ISuiteChaotique {
+public class SuiteFeigenbaum implements Iterable<IPoint>, ISuiteChaotique {
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
@@ -63,7 +63,6 @@ public class SuiteFeigenbaum implements Iterable<IPoint> , ISuiteChaotique {
         this.valeur = valeur;
     }
 
-
     /**
      * @return
      */
@@ -80,9 +79,9 @@ public class SuiteFeigenbaum implements Iterable<IPoint> , ISuiteChaotique {
         double y = nbComplex.getY();
         Complex complex = nbComplex.PointEnComplex();
         complex.setRe(x);
-        complex.setIm((x*y)*(1-y));
+        complex.setIm((x * y) * (1 - y));
         IPoint newValeur = new Point(complex);
         return newValeur;
     }
-    
+
 }

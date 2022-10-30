@@ -31,12 +31,12 @@ public class CouleurDuPixel {
      * L'attribut plan...
      */
     private IPlanComplexe plan;
-    
+
     /**
      * L'attribut n...
      */
     private int n;
-    
+
     /**
      * L'attribut palette...
      */
@@ -44,6 +44,7 @@ public class CouleurDuPixel {
 
     /**
      * Crée une nouvelle instance de CouleurDuPixel.
+     * 
      * @param suite
      * @param plan
      * @param n
@@ -54,7 +55,6 @@ public class CouleurDuPixel {
         this.n = n;
     }
 
-
     /**
      * @param image
      */
@@ -62,17 +62,18 @@ public class CouleurDuPixel {
         double ε = 0.5;
         for (int wi = 0; wi < plan.getWidth(); wi++) {
             for (int he = 0; he < plan.getHeight(); he++) {
-                Complex complex = new Complex(wi,he);
+                Complex complex = new Complex(wi, he);
                 IPoint point = new Point(complex);
                 double k = point.getY();
-                Pixel pixel = new Pixel(image,wi,he);
+                Pixel pixel = new Pixel(image, wi, he);
                 IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(suite, n);
-                while (iterator.hasNext() || k<ε) {
+                while (iterator.hasNext() || k < ε) {
                     point = iterator.next();
-                    pixel = plan.asPixel(image,point);
-                    pixel.setColor(palette.getColor(iterator.getNbIteration(),n));
+                    pixel = plan.asPixel(image, point);
+                    pixel.setColor(palette.getColor(iterator.getNbIteration(), n));
                 }
             }
         }
     }
+
 }

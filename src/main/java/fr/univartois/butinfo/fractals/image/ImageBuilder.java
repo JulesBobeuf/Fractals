@@ -20,37 +20,37 @@ import fr.univartois.butinfo.fractals.complex.Point;
  * @version 0.1.0
  */
 public class ImageBuilder {
-    
+
     /**
      * L'attribut height...
      */
     protected int height;
-    
+
     /**
      * L'attribut width...
      */
     protected int width;
-    
+
     /**
      * L'attribut scale...
      */
     protected double scale;
-    
+
     /**
      * L'attribut nbMaxIterartions...
      */
     protected int nbMaxIterations;
-    
+
     /**
      * L'attribut complex...
      */
     protected Point centre;
-    
+
     /**
      * L'attribut palette...
      */
     protected String palette;
-    
+
     /**
      * L'attribut filepath...
      */
@@ -60,9 +60,7 @@ public class ImageBuilder {
      * L'attribut planComplexe...
      */
     protected IPlanComplexe planComplexe;
-    
-    
-    
+
     /**
      * Donne l'attribut fractaleName de cette instance de ImageBuilder.
      *
@@ -72,24 +70,21 @@ public class ImageBuilder {
         return fractaleName;
     }
 
-    
     /**
      * Modifie l'attribut fractaleName de cette instance de ImageBuilder.
      *
-     * @param fractaleName La nouvelle valeur de l'attribut fractaleName pour cette instance de ImageBuilder.
+     * @param fractaleName La nouvelle valeur de l'attribut fractaleName pour cette
+     *        instance de ImageBuilder.
      */
     public void setFractaleName(String fractaleName) {
         this.fractaleName = fractaleName;
     }
-
-
 
     /**
      * L'attribut fractaleName...
      */
     protected String fractaleName;
 
-    
     /**
      * Donne l'attribut height de cette instance de Image.
      *
@@ -99,7 +94,6 @@ public class ImageBuilder {
         return height;
     }
 
-    
     /**
      * Donne l'attribut width de cette instance de Image.
      *
@@ -109,7 +103,6 @@ public class ImageBuilder {
         return width;
     }
 
-    
     /**
      * Donne l'attribut scale de cette instance de Image.
      *
@@ -119,7 +112,6 @@ public class ImageBuilder {
         return scale;
     }
 
-    
     /**
      * Donne l'attribut complex de cette instance de Image.
      *
@@ -128,7 +120,7 @@ public class ImageBuilder {
     public Point getCentre() {
         return centre;
     }
-    
+
     /**
      * Donne l'attribut nbMaxIterartions de cette instance de ImageBuilder.
      *
@@ -137,28 +129,27 @@ public class ImageBuilder {
     public int getNbMaxIterations() {
         return nbMaxIterations;
     }
-    
+
     /**
      * Modifie l'attribut nbMaxIterartions de cette instance de ImageBuilder.
      *
-     * @param nbMaxIterartions La nouvelle valeur de l'attribut nbMaxIterartions pour cette instance de ImageBuilder.
+     * @param nbMaxIterations La nouvelle valeur de l'attribut nbMaxIterartions pour cette
+     *        instance de ImageBuilder.
      */
     public void setNbMaxIterations(int nbMaxIterations) {
         this.nbMaxIterations = nbMaxIterations;
     }
 
-
-    
     /**
      * Modifie l'attribut centre de cette instance de ImageBuilder.
      *
-     * @param centre La nouvelle valeur de l'attribut centre pour cette instance de ImageBuilder.
+     * @param centre La nouvelle valeur de l'attribut centre pour cette instance de
+     *        ImageBuilder.
      */
     public void setCentre(Point centre) {
         this.centre = centre;
     }
 
-    
     /**
      * Donne l'attribut palette de cette instance de Image.
      *
@@ -168,8 +159,6 @@ public class ImageBuilder {
         return palette;
     }
 
-    
-    
     /**
      * Donne l'attribut planComplexe de cette instance de ImageBuilder.
      *
@@ -179,17 +168,15 @@ public class ImageBuilder {
         return planComplexe;
     }
 
-
-    
     /**
      * Modifie l'attribut planComplexe de cette instance de ImageBuilder.
      *
-     * @param planComplexe La nouvelle valeur de l'attribut planComplexe pour cette instance de ImageBuilder.
+     * @param planComplexe La nouvelle valeur de l'attribut planComplexe pour cette
+     *        instance de ImageBuilder.
      */
     public void setPlanComplexe(IPlanComplexe planComplexe) {
         this.planComplexe = planComplexe;
     }
-
 
     /**
      * Donne l'attribut filepath de cette instance de Image.
@@ -200,8 +187,6 @@ public class ImageBuilder {
         return filepath;
     }
 
-
-    
     /**
      * Modifie l'attribut height de cette instance de Image.
      *
@@ -211,8 +196,6 @@ public class ImageBuilder {
         this.height = height;
     }
 
-
-    
     /**
      * Modifie l'attribut width de cette instance de Image.
      *
@@ -222,8 +205,6 @@ public class ImageBuilder {
         this.width = width;
     }
 
-
-    
     /**
      * Modifie l'attribut scale de cette instance de Image.
      *
@@ -233,8 +214,6 @@ public class ImageBuilder {
         this.scale = scale;
     }
 
-
-    
     /**
      * Modifie l'attribut complex de cette instance de Image.
      *
@@ -243,28 +222,25 @@ public class ImageBuilder {
     public void setComplex(Point point) {
         this.centre = point;
     }
-    
+
     /**
      * Modifie l'attribut palette de cette instance de Image.
      *
-     * @param paletteName La nouvelle valeur de l'attribut palette pour cette instance de Image.
+     * @param paletteName La nouvelle valeur de l'attribut palette pour cette instance de
+     *        Image.
      */
     public void setPalette(String paletteName) {
         this.palette = paletteName;
     }
 
-
-    
     /**
      * Modifie l'attribut filepath de cette instance de Image.
      *
-     * @param filepath La nouvelle valeur de l'attribut filepath pour cette instance de Image.
+     * @param filepath La nouvelle valeur de l'attribut filepath pour cette instance de
+     *        Image.
      */
     public void setFilepath(String filepath) {
         this.filepath = filepath;
     }
-    
-    
-    
-}
 
+}

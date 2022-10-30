@@ -37,7 +37,7 @@ public class IterateurDeSuiteChaotique implements Iterator<IPoint> {
         this.suite = s;
         this.n = n;
         nbIteration = 0;
-        valeur=s.getValeurInit();
+        valeur = s.getValeurInit();
     }
 
     @Override

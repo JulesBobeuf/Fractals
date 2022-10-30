@@ -35,6 +35,8 @@ public class FigureTranslationDecorateur implements IFigures {
      * Crée une nouvelle instance de FigureTranslationDecorateur.
      * 
      * @param figure
+     * @param xTranslate
+     * @param yTranslate
      */
     public FigureTranslationDecorateur(IFigures figure, double xTranslate, double yTranslate) {
         this.figure = figure;

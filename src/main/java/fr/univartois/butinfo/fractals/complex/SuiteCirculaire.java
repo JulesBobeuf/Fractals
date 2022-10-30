@@ -34,7 +34,7 @@ public class SuiteCirculaire implements Iterable<IPoint>, ISuiteChaotique {
      * @param valInit
      * @param suiteComplexes
      */
-    public SuiteCirculaire(Point valInit ) {
+    public SuiteCirculaire(Point valInit) {
         this.valInit = valInit;
         this.n = 0;
     }

@@ -17,7 +17,7 @@ package fr.univartois.butinfo.fractals.figures;
 public interface IFigures {
 
     /**
-     * @return 
+     * @return
      * 
      */
     String representation();

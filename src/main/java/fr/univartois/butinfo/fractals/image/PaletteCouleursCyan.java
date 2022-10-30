@@ -16,7 +16,8 @@ import java.awt.Color;
  *
  * @version 0.1.0
  */
-public class PaletteCouleursCyan implements IPalettesCouleurs{
+public class PaletteCouleursCyan implements IPalettesCouleurs {
+
     /*
      * (non-Javadoc)
      *
@@ -25,7 +26,7 @@ public class PaletteCouleursCyan implements IPalettesCouleurs{
     @Override
     public Color getColor(int nbIterationsEff, int nbMaxIterations) {
         int ratio = nbIterationsEff / nbMaxIterations;
-        ratio=Math.min(ratio,1);
+        ratio = Math.min(ratio, 1);
         return new Color(0 * ratio, 255 * ratio, 255 * ratio, 1);
     }
 

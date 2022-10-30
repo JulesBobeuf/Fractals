@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @version 0.1.0
  * 
  */
-public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
+public class SuiteChaotique implements Iterable<IPoint>, ISuiteChaotique {
 
     /**
      * L'attribut valInit (valeur initialle de la suite)
@@ -32,7 +32,7 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
      * Crée une nouvelle instance de SuitesComplexesRecurrentes.
      * 
      * @param valInit
-     * @param suiteChaotique 
+     * @param suiteChaotique
      * @param suiteComplexes
      */
     public SuiteChaotique(Point valInit) {
@@ -64,7 +64,7 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
     public void setValeur(Point valeur) {
         this.valeur = valeur;
     }
-    
+
     /**
      * @return
      */
@@ -82,9 +82,9 @@ public class SuiteChaotique implements Iterable<IPoint> , ISuiteChaotique {
         double y = nbComplex.getY();
         IComplex complex = nbComplex.pointEnComplex();
         complex.setRe(x);
-        complex.setIm((x*y)*(1-y));
+        complex.setIm((x * y) * (1 - y));
         IPoint newValeur = new Point(complex);
         return newValeur;
     }
-    
+
 }

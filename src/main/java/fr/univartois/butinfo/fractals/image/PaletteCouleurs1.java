@@ -25,8 +25,8 @@ public class PaletteCouleurs1 implements IPalettesCouleurs {
      */
     @Override
     public Color getColor(int nbIterationsEff, int nbMaxIterations) {
-        float ratio = nbIterationsEff / (float)nbMaxIterations;
-        ratio=Math.min(ratio,1);
+        float ratio = nbIterationsEff / (float) nbMaxIterations;
+        ratio = Math.min(ratio, 1);
         return new Color(1 - ratio, 1 - ratio, 1 - ratio, 1);
     }
 

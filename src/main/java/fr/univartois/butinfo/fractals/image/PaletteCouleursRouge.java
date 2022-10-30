@@ -1,3 +1,4 @@
+
 package fr.univartois.butinfo.fractals.image;
 
 import java.awt.Color;
@@ -9,7 +10,8 @@ import java.awt.Color;
  *
  * @version 0.1.0
  */
-public class PaletteCouleursRouge implements IPalettesCouleurs{
+public class PaletteCouleursRouge implements IPalettesCouleurs {
+
     /*
      * (non-Javadoc)
      *
@@ -18,7 +20,7 @@ public class PaletteCouleursRouge implements IPalettesCouleurs{
     @Override
     public Color getColor(int nbIterationsEff, int nbMaxIterations) {
         int ratio = nbIterationsEff / nbMaxIterations;
-        //ratio=Math.max(ratio,1);
+        // ratio=Math.max(ratio,1);
         return new Color(255 * ratio, 0 * ratio, 0 * ratio, 1);
     }
 

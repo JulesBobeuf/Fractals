@@ -26,7 +26,7 @@ public class PaletteCouleursVert implements IPalettesCouleurs {
     @Override
     public Color getColor(int nbIterationsEff, int nbMaxIterations) {
         int ratio = nbIterationsEff / nbMaxIterations;
-        //ratio=Math.max(ratio,1);
+        // ratio=Math.max(ratio,1);
         return new Color(0 * ratio, 255 * ratio, 0 * ratio, 1);
     }
 

@@ -64,12 +64,12 @@ public class FigureComposite implements IFigures {
     @Override
     public String representation() {
         String txt = "";
-        
+
         Iterator<IFigures> i = children.iterator();
-        while(i.hasNext()) {
+        while (i.hasNext()) {
             txt += i.next().representation() + "\n";
         }
-                
+
         return txt;
     }
 

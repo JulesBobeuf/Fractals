@@ -59,7 +59,8 @@ public class Ellipse implements IFigures {
      */
     @Override
     public String representation() {
-        return String.format("<ellipse cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\"/>", cx, cy, rayonX, rayonY);
+        return String.format("<ellipse cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\"/>", cx, cy, rayonX,
+                rayonY);
     }
 
 }

@@ -33,8 +33,9 @@ public class Polygon implements IFigures {
 
     /**
      * Crée une nouvelle instance de Figure.
-     * @param points 
-     * @param color 
+     * 
+     * @param points
+     * @param color
      */
     public Polygon(Point[] points, String color) {
         this.points = points;

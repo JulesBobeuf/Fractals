@@ -40,7 +40,7 @@ public class Rectangle implements IFigures {
      * L'attribut couleur...
      */
     private String couleur;
-    
+
     /**
      * Crée une nouvelle instance de Rectangle.
      * 
@@ -56,8 +56,7 @@ public class Rectangle implements IFigures {
         this.heigth = heigth;
         this.couleur = couleur;
     }
-    
-    
+
     /**
      * Donne l'attribut width de cette instance de Rectangle.
      *
@@ -66,8 +65,7 @@ public class Rectangle implements IFigures {
     public int getWidth() {
         return width;
     }
-    
-    
+
     /**
      * Donne l'attribut heigth de cette instance de Rectangle.
      *
@@ -84,7 +82,8 @@ public class Rectangle implements IFigures {
      */
     @Override
     public String representation() {
-        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\"/>", x,y,width, heigth, couleur);
+        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\"/>", x,
+                y, width, heigth, couleur);
     }
 
 }

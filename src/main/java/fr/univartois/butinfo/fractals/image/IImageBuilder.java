@@ -26,72 +26,81 @@ public interface IImageBuilder {
 
     /**
      * @param height
-     * @return 
+     * 
+     * @return
      */
     public int buildHeight(int height);
-    
+
     /**
      * @param width
+     * 
      * @return
      */
     public int buildWidth(int width);
-    
+
     /**
      * @param scale
      */
     public double buildScale(double scale);
-    
+
     /**
-     * @param focusX 
-     * @param focusY 
-     * @return 
+     * @param focusX
+     * @param focusY
+     * 
+     * @return
      */
-    public IComplex buildCenter(double focusX,double focusY);
-    
+    public IComplex buildCenter(double focusX, double focusY);
+
     /**
      * @param FractaleName
      * @param c
+     * 
      * @return
      */
     ISuitesComplexesRecurrentes buildSuite(String FractaleName, IComplex c);
-    
+
     /**
      * @param nbIterations
+     * 
      * @return
      */
     TapisDeSierpinski buildTapisDeSierpinski(int nbIterations);
-    
+
     /**
      * @param nbIterations
+     * 
      * @return
      */
     TapisDeSierpinskiCoins buildTapisDeSierpinskiCoins(int nbIterations);
-    
+
     /**
      * @param nbIterations
+     * 
      * @return
      */
     TriangleDeSierpinski buildTriangleDeSierpinski(int nbIterations);
 
-    
     /**
      * @param paletteName
      * @param nbIterations
-     * @return 
+     * 
+     * @return
      */
     public IPalettesCouleurs buildColors(String paletteName, int nbIterations);
-    
+
     /**
      * @param filepath
-     * @return 
+     * 
+     * @return
      */
     public String buildFilePath(String filepath);
-    
+
     /**
      * @param height
      * @param width
+     * 
      * @return
      */
-    public IPlanComplexe buildPlanComplexe(int height,int width);
-}
+    public IPlanComplexe buildPlanComplexe(int height, int width);
 
+}

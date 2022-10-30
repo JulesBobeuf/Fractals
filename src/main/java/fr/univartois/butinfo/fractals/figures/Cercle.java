@@ -51,7 +51,7 @@ public class Cercle implements IFigures {
      */
     @Override
     public String representation() {
-        return String.format("<circle cx=\"%d\" cy=\"%d\" r=\"%d\"/>", cx,cy,rayon);
+        return String.format("<circle cx=\"%d\" cy=\"%d\" r=\"%d\"/>", cx, cy, rayon);
     }
 
 }

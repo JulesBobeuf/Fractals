@@ -7,7 +7,6 @@
 
 package fr.univartois.butinfo.fractals.figures;
 
-
 /**
  * Le type TestTapis
  *
@@ -22,11 +21,10 @@ public class TestTapis {
      */
     public static void main(String[] args) {
         TapisDeSierpinski tapis = new TapisDeSierpinski(5);
-//        tapis.createFractaleProcedure();
-        
+        // tapis.createFractaleProcedure();
+
         TapisDeSierpinskiCoins tap = new TapisDeSierpinskiCoins(5);
         tap.createFractaleProcedure();
     }
 
 }
-

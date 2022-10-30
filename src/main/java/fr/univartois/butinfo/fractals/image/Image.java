@@ -46,21 +46,22 @@ public class Image extends ImageBuilder implements IImageBuilder {
 
     /**
      * Crée une nouvelle instance de ImageBuilder.
-     * @param builder 
+     * 
+     * @param builder
      */
     public Image(ImageBuilder builder) {
-        this.centre=builder.getCentre();
-        this.height=buildHeight(builder.getHeight());
-        this.width=builder.getWidth();
-        this.filepath=builder.getFilepath();
-        this.palette=builder.getPalette();
-        this.planComplexe=builder.getPlanComplexe();
-        this.scale=builder.getScale();
-        this.filepath=builder.getFilepath();
-        this.fractaleName=builder.getFractaleName();
-        this.nbMaxIterations=builder.getNbMaxIterations();
+        this.centre = builder.getCentre();
+        this.height = buildHeight(builder.getHeight());
+        this.width = builder.getWidth();
+        this.filepath = builder.getFilepath();
+        this.palette = builder.getPalette();
+        this.planComplexe = builder.getPlanComplexe();
+        this.scale = builder.getScale();
+        this.filepath = builder.getFilepath();
+        this.fractaleName = builder.getFractaleName();
+        this.nbMaxIterations = builder.getNbMaxIterations();
     }
-    
+
     /*
      * (non-Javadoc)
      *
@@ -104,33 +105,21 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * fr.univartois.butinfo.fractals.image.IImageBuilder#buildSuite(java.lang.String)
      */
     @Override
-<<<<<<< HEAD
-    public ISuitesComplexesRecurrentes buildSuite(String FractaleName, IComplex c) {
-=======
-    public ISuitesComplexesRecurrentes buildSuite(String fractaleName1,IComplex c) {
->>>>>>> 2e51a24a45881dd257b536c7b9744a07721bd2e6
+    public ISuitesComplexesRecurrentes buildSuite(String fractaleName1, IComplex c) {
         ISuitesComplexesRecurrentes suite;
         if (fractaleName1.equals("SuiteJulia")) {
             suite = new SuiteJulia(c, new Complex(-0.4, 0.6));
-<<<<<<< HEAD
-        } else if (FractaleName.equals("SuiteJuliaGeneralisee")) {
-            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),
-                    (o, p) -> (o.multiply(o)).add(p));
-=======
         } else if (fractaleName1.equals("SuiteJuliaGeneralisee")) {
-            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),(o, p) -> (o.multiply(o).multiply(o)).add(p));
->>>>>>> 2e51a24a45881dd257b536c7b9744a07721bd2e6
-        }
-        else if (fractaleName1.equals("SuiteMandelbrot")) {
+            suite = new SuiteJuliaGeneralisee(c, new Complex(-0.4, 0.6),
+                    (o, p) -> (o.multiply(o).multiply(o)).add(p));
+        } else if (fractaleName1.equals("SuiteMandelbrot")) {
             suite = new SuiteMandelbrot(c);
-        }
-        else if (fractaleName1.equals("SuiteMandelbrotGeneralisee")) {
-            suite = new SuiteMandelbrotGeneralisee(c, (o, p) -> ((o.multiply(o).add(o)).divide(o.multiply(o).multiply(o).add(p))));
-        }
-        else if (fractaleName1.equals("SuiteChaotique")) {
+        } else if (fractaleName1.equals("SuiteMandelbrotGeneralisee")) {
+            suite = new SuiteMandelbrotGeneralisee(c,
+                    (o, p) -> ((o.multiply(o).add(o)).divide(o.multiply(o).multiply(o).add(p))));
+        } else if (fractaleName1.equals("SuiteChaotique")) {
             suite = new AdaptateurSuiteChaotique(new SuiteChaotique(new Point(c)));
-        }
-        else if (fractaleName1.equals("SuiteCirculaire")) {
+        } else if (fractaleName1.equals("SuiteCirculaire")) {
             suite = new AdaptateurSuiteCirculaire(new SuiteCirculaire(new Point(c)));
         }
 
@@ -154,9 +143,9 @@ public class Image extends ImageBuilder implements IImageBuilder {
             palette = new PaletteCouleurs1();
         } else if (paletteName.equals("PaletteCouleursCyan")) {
             palette = new PaletteCouleursCyan();
-        }else if (paletteName.equals("PaletteCouleursRouge")) {
+        } else if (paletteName.equals("PaletteCouleursRouge")) {
             palette = new PaletteCouleursRouge();
-        }else if (paletteName.equals("PaletteCouleursVert")) {
+        } else if (paletteName.equals("PaletteCouleursVert")) {
             palette = new PaletteCouleursVert();
         }
 
@@ -181,39 +170,22 @@ public class Image extends ImageBuilder implements IImageBuilder {
      * 
      */
     public void generateImage() {
-<<<<<<< HEAD
-        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe, scale);
-        // PlanComplexeTranslation trans = new
-        // PlanComplexeTranslation(zoom,centre.PointEnComplex());
-        int max = 100;
-        IFractalImage image = new AdaptateurImage(
-                new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
-        for (int wi = 0; wi < width; wi++) {
-            for (int he = 0; he < height; he++) {
-                int count = 0;
-                Pixel pixel = image.getPixel(he, wi);
-                IComplex z = zoom.asComplex(pixel.getRow(), pixel.getColumn());
-                // ISuitesComplexesRecurrentes suite = buildSuite("SuiteMandelbrot", z);
-                ISuitesComplexesRecurrentes suite = new SuiteJuliaGeneralisee(z,
-                        new Complex(-0.4, 0.6), (o, p) -> (o.multiply(o)).add(p));
-                IterateurDeSuite iterator = new IterateurDeSuite(suite, max);
-=======
         if (fractaleName.equals("SuiteChaotique") || fractaleName.equals("SuiteCirculaire")) {
             generateImageChaotique();
             return;
         }
-        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
-        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.pointEnComplex()); 
-        IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
-        IPalettesCouleurs paletteCouleurs = buildColors(palette,nbMaxIterations);
-        for (int wi=0;wi<width;wi++) {
-            for (int he=0;he<height;he++) {
+        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe, scale);
+        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom, centre.pointEnComplex());
+        IFractalImage image = new AdaptateurImage(
+                new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        IPalettesCouleurs paletteCouleurs = buildColors(palette, nbMaxIterations);
+        for (int wi = 0; wi < width; wi++) {
+            for (int he = 0; he < height; he++) {
                 int count = 0;
-                Pixel pixel = image.getPixel(he,wi);
+                Pixel pixel = image.getPixel(he, wi);
                 IComplex z = trans.asComplex(pixel.getRow(), pixel.getColumn());
                 ISuitesComplexesRecurrentes laSuite = buildSuite(fractaleName, z);
-                IterateurDeSuite iterator = new IterateurDeSuite(laSuite,nbMaxIterations);
->>>>>>> 2e51a24a45881dd257b536c7b9744a07721bd2e6
+                IterateurDeSuite iterator = new IterateurDeSuite(laSuite, nbMaxIterations);
                 while (iterator.hasNext()) {
                     iterator.next();
                     count++;
@@ -228,44 +200,50 @@ public class Image extends ImageBuilder implements IImageBuilder {
             throw new RuntimeException(e);
         }
     }
-    
+
+    /**
+     * 
+     */
     public void generateImageChaotique() {
-        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe,scale);
-        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom,centre.pointEnComplex()); 
-        IFractalImage image = new AdaptateurImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
-        IPalettesCouleurs paletteCouleurs = buildColors(palette,nbMaxIterations);
-        for (int wi=0;wi<width;wi++) {
-            for (int he=0;he<height;he++) {
+        PlanComplexeZoom zoom = new PlanComplexeZoom(planComplexe, scale);
+        PlanComplexeTranslation trans = new PlanComplexeTranslation(zoom, centre.pointEnComplex());
+        IFractalImage image = new AdaptateurImage(
+                new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB));
+        IPalettesCouleurs paletteCouleurs = buildColors(palette, nbMaxIterations);
+        for (int wi = 0; wi < width; wi++) {
+            for (int he = 0; he < height; he++) {
                 int count = 0;
-                Pixel pixel = image.getPixel(he,wi);
+                Pixel pixel = image.getPixel(he, wi);
                 IComplex z = trans.asComplex(pixel.getRow(), pixel.getColumn());
                 ISuiteChaotique laSuite = null;
                 if (fractaleName.equals("SuiteCirculaire")) {
                     laSuite = new SuiteCirculaire(new Point(z));
                 }
-                IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(laSuite,nbMaxIterations);
-                int n=0;
-                int k=0;
+                IterateurDeSuiteChaotique iterator = new IterateurDeSuiteChaotique(laSuite,
+                        nbMaxIterations);
+                int n = 0;
+                int k = 0;
                 double epsillon = 0.05;
                 IPoint point = null;
                 IPoint lastPoint = null;
                 while (iterator.hasNext()) {
-                    point=iterator.next();
-                    if (n==0) {
-                        lastPoint=point;
+                    point = iterator.next();
+                    if (n == 0) {
+                        lastPoint = point;
                     }
-                    if ((Math.abs(point.getY()-lastPoint.getY()))<epsillon && k<=10) {
+                    if ((Math.abs(point.getY() - lastPoint.getY())) < epsillon && k <= 10) {
                         k++;
-                        if (k==10) {
+                        if (k == 10) {
                             pixel = trans.PointAsPixel(image, point);
                             break;
                         }
+                    } else {
+                        k = 0;
                     }
-                    else { k=0; }
-                    lastPoint=point;
-                    pixel=trans.PointAsPixel(image, point);
+                    lastPoint = point;
+                    pixel = trans.PointAsPixel(image, point);
                     n++;
-                    if(pixel!=null) {
+                    if (pixel != null) {
                         pixel.setColor(paletteCouleurs.getColor(count, nbMaxIterations));
                     }
                 }

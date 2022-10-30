@@ -26,7 +26,8 @@ public class MasqueSansBleuDecorateur implements IPalettesCouleurs {
     /**
      * Crée une nouvelle instance de MasqueDecorateur.
      * 
-     * @param palettesCouleurs
+     * @param paletteCouleurMasque
+     * 
      */
     public MasqueSansBleuDecorateur(IPalettesCouleurs paletteCouleurMasque) {
         this.paletteCouleurMasque = paletteCouleurMasque;
@@ -41,7 +42,7 @@ public class MasqueSansBleuDecorateur implements IPalettesCouleurs {
     public Color getColor(int nbIterations, int nbMaxIterations) {
         Color c1 = paletteCouleurMasque.getColor(nbIterations, nbMaxIterations);
         float rouge = c1.getRed();
-        float vert =c1.getGreen();
+        float vert = c1.getGreen();
         return new Color(rouge, vert, 0, 1);
     }
 

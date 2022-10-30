@@ -49,7 +49,7 @@ public class SuiteJulia implements ISuitesComplexesRecurrentes {
     public IComplex valeurProchainTerme(IComplex z) {
         return (z.multiply(z)).add(c);
     }
-    
+
     @Override
     public IComplex getJ0() {
         return this.j0;
