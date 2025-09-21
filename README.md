@@ -1,54 +1,125 @@
-# Autour des Fractales
+# Fractals
 
-## MEMBRES : Jules BOBEUF, Aymeric JAKOBOWSKI, Thomas SANTORO
+<div align="center">
+  <h1 align="center">Fractals</h1>
+  <img src="Julia/Julia-2.jpg" alt="Julia Fractal Screenshot" width="600">
+  <p align="center">
+    A Java/JavaFX application to generate fractal images.
+</div>
 
-Rapport : [RAPPORT.MD](https://gitlab.univ-artois.fr/jules_bobeuf/sae-3-groupe-b-2/-/blob/fd385d280684e08e8af9d0552da7f2460aaef0fb/RAPPORT.md)
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#folder-structure">Folder Structure</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#command-line-options">Command Line Options</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## Description
+## About The Project
 
-Ce projet fournit une implantation de base pour votre projet de SAÉ S3.A.01.
-Pour pouvoir développer votre propre implantation de ce projet, vous devez
-en créer une **divergence** en cliquant sur le bouton `Fork` en haut à droite
-de cette page.
+This project provides a basic implementation for generating fractal images as part of the university course SAÉ S3.A.01. It allows easy development and experimentation with fractals such as Julia and Mandelbrot sets.
 
-Lorsque ce sera fait, vous pourrez inviter les membres de votre groupe en tant
-que *Developer* pour vous permettre de travailler ensemble sur ce projet.
+**Team Members:** Jules Bobeuf, Aymeric Jakobowski, Thomas Santoro
 
-## Exécution
+## Built With
 
-Pour exécuter l'application, vous pouvez exécuter la tâche `run` de *Gradle*.
-Afin de vous permettre de facilement contrôler la création des fractales depuis
-la ligne de commande, la classe `fr.univartois.butinfo.fractals.Fractals` (qui
-définit la méthode `main`) gère déjà pour vous les arguments de cette ligne
-de commande (les options données sont stockées dans les attributs de cette
-classe).
-Vous pouvez en particulier l'exécuter à l'aide des options suivantes :
+[![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)  
+[![JavaFX](https://img.shields.io/badge/JavaFX-007396?style=for-the-badge&logo=java&logoColor=white)](https://openjfx.io/)  
+[![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)](https://gradle.org/)
+
+## Getting Started
+
+### Folder Structure
+
+```markdown
+Fractals/
+├── 📁 Julia/                  # Julia fractal examples
+├── 📁 JuliaGeneralisee/       # Generalized Julia fractals
+├── 📁 Mandelbrot/             # Mandelbrot fractal examples
+├── 📁 MandelbrotGeneralisee/  # Generalized Mandelbrot fractals
+├── 📁 UML/                    # UML diagrams
+├── 📁 images/                 # Figures and screenshots
+├── 📁 scripts/                # Utility scripts
+├── 📁 src/                    # Java source code
+│   └── 📁 main/               # Main application code
+├── 📄 build.gradle            # Gradle build configuration
+├── 📄 gradlew                 # Unix Gradle wrapper
+├── 📄 gradlew.bat             # Windows Gradle wrapper
+├── 📄 settings.gradle         # Gradle settings
+├── 📄 .gitignore              # Git ignore file
+└── 📄 README.md               # Project documentation
+```
+
+### Prerequisites
+
+```sh
+Java 17+
+Gradle
+JavaFX SDK
+```
+
+### Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/JulesBobeuf/Fractals.git
+cd Fractals
+```
+
+2. Build the project using Gradle:
+
+```sh
+./gradlew build
+```
+
+3. Run the application:
+
+```sh
+./gradlew run
+```
+
+### Command Line Options
+
+The main class `fr.univartois.butinfo.fractals.Fractals` accepts the following command line options:
 
 ```
--f,--fractal-name  <name>      Spécifie le nom de la fractale à générer.
--h,--height        <pixels>    Spécifie la hauteur de l'image à générer.
--n,--nb-iterations <integer>   Spécifie le nombre d'itérations à appliquer pour générer la fractale.
--o,--output        <file>      Spécifie le nom du fichier dans lequel la fractale doit être sauvegardée.
--p,--palette-name  <name>      Spécifie le nom de la palette de couleurs à appliquer lors de la génération.
--s,--scale         <ratio>     Spécifie l'échelle à appliquer sur l'image.
--w,--width         <pixels>    Spécifie la largeur de l'image à générer.
--x,--focus-x       <real>      Spécifie le point central de l'image sur l'axe des abscisses.
--y,--focus-y       <real>      Spécifie le point central de l'image sur l'axe des ordonnées.
+-f, --fractal-name  <name>      Specify fractal to generate
+-h, --height        <pixels>    Specify image height
+-n, --nb-iterations <integer>   Specify number of iterations
+-o, --output        <file>      Specify output file
+-p, --palette-name  <name>      Specify color palette
+-s, --scale         <ratio>     Specify image scale
+-w, --width         <pixels>    Specify image width
+-x, --focus-x       <real>      X-coordinate of image center
+-y, --focus-y       <real>      Y-coordinate of image center
 ```
 
-Évidemment, vous devrez compléter la classe `Fractals` pour qu'il se passe
-quelque chose lors de l'exécution !
+## Usage
 
-## JAR exécutable
+After running the Gradle task, the GUI will open and allow you to generate and visualize fractal images interactively.
 
-Vous avez également la possibilité de générer un JAR à l'aide de *Gradle*, en
-exécutant la tâche `jar`.
-Ce JAR constitue un exécutable que vous pouvez facilement distribuer, et que
-vous pouvez exécuter de la manière suivante :
+## License
 
-```bash
-java -jar build/libs/sae-2022-2023.jar --help
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Les options acceptées par ce JAR sont les mêmes que celles décrites dans la
-section précédente.
+## Contact
+
+Jules Bobeuf  
+[LinkedIn](https://www.linkedin.com/in/bobeuf-jules/)  
+bobeuf.jules@gmail.com
+
+Aymeric Jakobowski  
+[LinkedIn](https://www.linkedin.com/in/aymeric-jakobowski/)  
+[GitHub](https://github.com/AymericJak)
