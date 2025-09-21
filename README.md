@@ -1,7 +1,6 @@
 # Fractals
 
 <div align="center">
-  <h1 align="center">Fractals</h1>
   <img src="Julia/Julia-2.jpg" alt="Julia Fractal Screenshot" width="600">
   <p align="center">
     A Java/JavaFX application to generate fractal images.
