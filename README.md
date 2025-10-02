@@ -1,6 +1,5 @@
-# Fractals
-
 <div align="center">
+  <h1> Fractals </h1>
   <img src="Julia/Julia-2.jpg" alt="Julia Fractal Screenshot" width="600">
   <p align="center">
     Fractal image generator, built with Java & JavaFX.
