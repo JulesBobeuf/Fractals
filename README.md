@@ -3,33 +3,12 @@
 <div align="center">
   <img src="Julia/Julia-2.jpg" alt="Julia Fractal Screenshot" width="600">
   <p align="center">
-    A Java/JavaFX application to generate fractal images.
+    Fractal image generator, built with Java & JavaFX.
 </div>
-
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#built-with">Built With</a></li>
-    <li><a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#folder-structure">Folder Structure</a></li>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#command-line-options">Command Line Options</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
 
 ## About The Project
 
 This project provides a basic implementation for generating fractal images as part of the university course SAÉ S3.A.01. It allows easy development and experimentation with fractals such as Julia and Mandelbrot sets.
-
-**Team Members:** Jules Bobeuf, Aymeric Jakobowski, Thomas Santoro
 
 ## Built With
 
@@ -122,3 +101,5 @@ bobeuf.jules@gmail.com
 Aymeric Jakobowski  
 [LinkedIn](https://www.linkedin.com/in/aymeric-jakobowski/)  
 [GitHub](https://github.com/AymericJak)
+
+Thomas Santoro
